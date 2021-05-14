@@ -1,0 +1,70 @@
+.links{
+  position: relative;
+  max-width: 1000px;
+  min-height: 570px;
+
+  .link{
+    position: relative;
+    width:1050px;
+    height: 180px;
+    margin: 0px 0 30px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+
+    .left{
+      position: relative;
+      width: 180px;
+      height: 180px;
+      overflow: hidden;
+      box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+
+      img{
+        position: relative;
+        width: 100%;
+      }
+    }
+    .right{
+      position: relative;
+      width: 830px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content:space-between;
+
+      .linktitle{
+        position: relative;
+        width: 100%;
+        h2{
+          display: inline-block;
+          font: $fontsize6-ja;
+          margin: 3px 0 5px 0;
+        }
+        a{
+          display: inline-block;
+          position: relative;
+          width: 20px;
+          height: 20px;
+          margin-left: 5px;
+          img{
+            width: 100%;
+            min-width: 100%;
+            height: 100%;
+            background: #fff;
+          }
+        }
+      }
+      h3{
+        width: 100%;
+        font: $fontsize5-ja;
+        margin: 0 0 5px 3px;
+      }
+      p{
+        width: 100%;
+        font: $fontsize3-ja;
+        line-height: 15pt;
+        margin: 0 0 3px 4px;
+      }
+    }
+  }
+
+}

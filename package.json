@@ -1,0 +1,30 @@
+{
+  "name": "website-v0",
+  "version": "1.0.0",
+  "description": "IA-WEBSITE",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/ia-official-web/website-v0.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/ia-official-web/website-v0/issues"
+  },
+  "homepage": "https://gitlab.com/ia-official-web/website-v0#README",
+  "dependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^3.1.0",
+    "node-reset-scss": "^1.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

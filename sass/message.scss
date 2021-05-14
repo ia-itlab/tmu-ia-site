@@ -1,0 +1,14 @@
+.message{
+  p{
+    margin-bottom: 20px;
+    align-content:space-between;
+    &.ja {
+      font: $fontsize3-ja;
+      line-height: 2em;
+    }
+    &.en {
+      font: $fontsize3-en;
+      line-height: 2em;
+    }
+  }
+}

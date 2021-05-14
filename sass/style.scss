@@ -1,0 +1,75 @@
+$ja: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+$en: "Helvetica Neue", Helvetica, Arial, sans-serif;;
+
+$fontsize7-ja: bold 20pt $ja;
+$fontsize6-ja: bold 18pt $ja;
+$fontsize5-ja: bold 15pt $ja;
+$fontsize4-ja: bold 12pt $ja;
+$fontsize3-ja: normal 10pt $ja;
+$fontsize3-ja-bold: bold 10pt $ja;
+$fontsize3-ja-italic: italic normal 10pt $ja;
+$fontsize2-ja: normal 8pt $ja;
+
+$fontsize7-en: bold 20pt $en;
+$fontsize6-en: bold 18pt $en;
+$fontsize5-en: bold 15pt $en;
+$fontsize4-en: normal 12pt $en;
+$fontsize3-en: normal 10pt $en;
+$fontsize3-en-bold: bold normal 10pt $en;
+$fontsize2-en: normal 8pt $en;
+
+$color1: #000;
+$color2: #444;
+$color3: #777;
+$color4: #fff;
+
+
+@import "_reset";
+@import "header";
+@import "sidebar";
+@import "links";
+@import "faculty";
+@import "about";
+@import "footer";
+@import "labview";
+@import "access";
+@import "studio";
+@import "scroll-top";
+@import "typography";
+@import "banner";
+@import "message";
+
+
+/*
+header{
+  position: absolute;
+  left: 0px;
+  top:0px;
+  background-color: red;
+  width: 100vw;
+  height: 186px;
+}
+*/
+
+/*
+.sidebar{
+  position: absolute;
+  left: 0px;
+  top:186px;
+  width: 200px;
+  height: auto;
+  min-height: 500px;
+  background-color: blue;
+}
+*/
+
+.contents{
+  position: absolute;
+  left: 200px;
+  top:186px;
+  width: calc(100vw - 240px);
+  height: auto;
+  min-height: 500px;
+  background-color: #FFF;
+  padding: 15px 20px 15px 20px;
+}

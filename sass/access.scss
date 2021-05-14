@@ -1,0 +1,57 @@
+.access{
+  display: flex;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  .access-left{
+    width: 70%;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  .access-right{
+    width: 25%;
+    height: auto;
+    margin-top: 5px;
+    padding-left: 15px;
+    h3{
+      font: $fontsize6-ja;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+    p {
+      font: $fontsize3-ja;
+      margin-bottom: 8px;
+    }
+  }
+
+  a{
+    color: #555;
+    text-decoration: none;
+    &:hover {
+      color: #222;
+    }
+  }
+
+  .triangle{
+    margin-top: 20px;
+    display: inline-block;
+    position: relative;
+    left: 2px;
+  	width: 0;
+  	height: 0;
+  	border-left: 6px solid;
+  	border-top: 4px solid transparent;
+  	border-bottom: 4px solid transparent;
+    p{
+      position: relative;
+      top: -9px;
+      padding-left: 6px;
+    }
+  }
+
+}

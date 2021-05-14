@@ -1,0 +1,16 @@
+extends _layout.pug
+
+block css
+  link(rel='stylesheet' type='text/css' href='//cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.css')
+  link(rel='stylesheet' type='text/css' href='//cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick-theme.css')
+
+block script
+  script(type='text/javascript' src='./javascript/labview.js')
+  script(type='text/javascript' src='./javascript/slideshow.js')
+  script(type='text/javascript' src='//cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.min.js')
+
+block title
+  title 東京都立大学システムデザイン学部インダストリアルアート学科 Department of Industrial Art LABVIEW
+
+block content
+  include _labview.pug

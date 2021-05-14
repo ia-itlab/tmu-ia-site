@@ -1,0 +1,21 @@
+.scroll-top{
+  position: fixed;
+  width: 100px;
+  height: 50px;
+  bottom: 40px;
+  right: 40px;
+  cursor: pointer;
+  z-index: 100;
+  text-align: center;
+  img{
+    width: 30px;
+    height: auto;
+  }
+  p{
+    font-size: 17px;
+    color: #535353;
+    font: $fontsize5-en;
+    letter-spacing: 0.5px;
+    padding-top:8px;
+  }
+}

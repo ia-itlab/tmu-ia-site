@@ -1,0 +1,61 @@
+header{
+  position: fixed;
+  left: 0px;
+  top:0px;
+  background-color: #FFF;
+  width: calc(100vw - 100px);
+  height: 100px;
+  padding:(50px 50px 20px 50px);
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  a {
+    text-decoration: none;
+  }
+
+  img{
+    width: auto;
+    height: 120px;
+  }
+
+  h1 {
+    font: $fontsize6-ja;
+    color: $color1;
+    line-height: 1.4em;
+
+    .en {
+      font-family: "Helvetica Neue", sans-serif;
+      letter-spacing: 1pt;
+    }
+  }
+  form {
+    width: 185px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px $color2 solid;
+    margin-bottom: 5px;
+    input{
+      border: none;
+      margin: 0;
+      padding: 0;
+      height: 23px;
+      background-color: transparent;
+    }
+    .submitbtn{
+      width: 23px;
+      background-image: url(../images/search.svg);
+      background-position: center;
+      background-size: auto 90%;
+      background-repeat: no-repeat;
+    }
+    .textfield{
+      width: 153px;
+      // font-size: $fontsize3-ja;
+      font-size: 10pt;
+      padding-left: 10px;
+    }
+  }
+}
