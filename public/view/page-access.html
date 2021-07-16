@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="./javascript/fademover.js"></script>
+    <script type="text/javascript" src="./javascript/index.js"></script>
+    <title>東京都立大学システムデザイン学部インダストリアルアート学科 Department of Industrial Art ACCESS</title>
+  </head>
+  <body>
+    <main>
+      <header><a href="index.html"><img src="./images/main-logo.svg" art="image"></a>
+        <form id="cse-search-box" action="http://google.com/cse">
+          <input type="hidden" name="cx" value="007245914538993224667:bwjsywsj34w">
+          <input type="hidden" name="ie" value="UTF-8">
+          <input class="submitbtn" type="submit" name="sa" value="">
+          <input class="textfield" type="text" name="q" placeholder="キーワードから検索">
+        </form>
+      </header>
+      <section class="sidebar">
+        <ul>
+          <li><a class="en" href="index.html">Studio</a></li>
+          <li><a class="en" href="page-about.html">About</a></li>
+          <li><a class="en" href="page-faculty.html">Faculty</a></li>
+          <li><a class="en" href="page-access.html">Access</a></li>
+          <li><a class="en" href="page-links.html">Link</a></li>
+        </ul>
+      </section>
+      <section class="contents">
+        <section class="access">
+          <section class="access-left">
+            <div><img src="./images/map-images/map.svg" alt="map"></div>
+          </section>
+          <section class="access-right">
+            <h3>所在地</h3>
+            <p>〒 191-0065 東京都日野市旭が丘6-6</p>
+            <p>TEL 042-585-8606</p>
+            <p>6-6 Asahigaoka, Hino-shi, Tokyo, Japan 191-0065</p>
+            <h3>アクセス</h3>
+            <p>JR中央線「豊田」駅（北口）から徒歩約20分。または京王バス「平山工業団地循環」乗車、「旭が丘中央公園」下車徒歩約5分</p>
+            <p>JR中央線「八王子」駅（北口）、京王線「京王八王子」駅（西口）から京王バス「日野駅行き」または「豊田駅北口行き」乗車、「大和田坂上」下車徒歩約10分</p>
+            <p>JR八高線「北八王子」駅から徒歩約15分</p><a href="http://maps.google.com/maps?saddr=現在地&amp;daddr=首都大学東京 日野キャンパス&amp;dirflg=w" target="_blank">
+              <div class="triangle">
+                <p>Google</p>
+              </div></a>
+          </section>
+        </section>
+        <footer>
+          <section class="en">
+            <p class="ja">東京都立大学 システムデザイン学部／研究科</p>
+            <p class="sd">Faculty & Graduate School of Systems Design</p><a class="sd" href="https://www.tmu.ac.jp/">Copyright ©2018 Tokyo Metropolitan University. All rights reserved.</a>
+          </section>
+        </footer>
+      </section>
+    </main>
+    <section class="scroll-top"><img src="./images/page-top.svg" art="image">
+      <p class="en">PageTop</p>
+    </section>
+    <script type="text/javascript">
+      console.log(location.pathname);
+      $('.sidebar li a').each(function(){
+        var href = $(this).attr('href');
+        if(location.href.match(href)) {
+          $(this).addClass('here');
+        } else {
+          $(this).removeClass('here');
+        }
+      });
+      if(location.pathname == '/page-labview.html'){
+        $('.sidebar li a').first().addClass('here');
+      }else if(location.pathname == '/'){
+        $('.sidebar li a').first().addClass('here');
+      }
+    </script>
+  </body>
+</html>

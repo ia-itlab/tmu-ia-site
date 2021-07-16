@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="./javascript/fademover.js"></script>
+    <script type="text/javascript" src="./javascript/index.js"></script>
+    <title>東京都立大学システムデザイン学部インダストリアルアート学科 Department of Industrial Art </title>
+  </head>
+  <body>
+    <main>
+      <header><a href="index.html"><img src="./images/main-logo.svg" art="image"></a>
+        <form id="cse-search-box" action="http://google.com/cse">
+          <input type="hidden" name="cx" value="007245914538993224667:bwjsywsj34w">
+          <input type="hidden" name="ie" value="UTF-8">
+          <input class="submitbtn" type="submit" name="sa" value="">
+          <input class="textfield" type="text" name="q" placeholder="キーワードから検索">
+        </form>
+      </header>
+      <section class="sidebar">
+        <ul>
+          <li><a class="en" href="index.html">Studio</a></li>
+          <li><a class="en" href="page-about.html">About</a></li>
+          <li><a class="en" href="page-faculty.html">Faculty</a></li>
+          <li><a class="en" href="page-access.html">Access</a></li>
+          <li><a class="en" href="page-links.html">Link</a></li>
+        </ul>
+      </section>
+      <section class="contents">
+        <footer>
+          <section class="en">
+            <p class="ja">東京都立大学 システムデザイン学部／研究科</p>
+            <p class="sd">Faculty & Graduate School of Systems Design</p><a class="sd" href="https://www.tmu.ac.jp/">Copyright ©2018 Tokyo Metropolitan University. All rights reserved.</a>
+          </section>
+        </footer>
+      </section>
+    </main>
+    <section class="scroll-top"><img src="./images/page-top.svg" art="image">
+      <p class="en">PageTop</p>
+    </section>
+    <script type="text/javascript">
+      console.log(location.pathname);
+      $('.sidebar li a').each(function(){
+        var href = $(this).attr('href');
+        if(location.href.match(href)) {
+          $(this).addClass('here');
+        } else {
+          $(this).removeClass('here');
+        }
+      });
+      if(location.pathname == '/page-labview.html'){
+        $('.sidebar li a').first().addClass('here');
+      }else if(location.pathname == '/'){
+        $('.sidebar li a').first().addClass('here');
+      }
+    </script>
+  </body>
+</html>
