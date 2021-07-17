@@ -4,11 +4,11 @@ $("head").append(
 );
 
 //ページトップへのスクロール
-$(function() {
+$(function () {
   var topBtn = $(".scroll-top");
   topBtn.hide();
   //スクロールが100に達したらボタン表示
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
       topBtn.fadeIn();
     } else {
@@ -16,7 +16,7 @@ $(function() {
     }
   });
   //スクロールしてトップ
-  topBtn.click(function() {
+  topBtn.click(function () {
     $("body,html").animate(
       {
         scrollTop: 0
@@ -30,7 +30,7 @@ $(function() {
   $(".contents").fadeMover();
 });
 
-//Googleカスタム検索
+/*//Googleカスタム検索
 (function() {
   //↓IDをここで指定する（サンプルのため山浦のポートフォリオサイト内検索のID）
   var cx = "007245914538993224667:ogdkdkvq-bc";
@@ -41,3 +41,41 @@ $(function() {
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(gcse, s);
 })();
+*/
+
+
+
+
+(function ($) {
+  $(function () {
+    $('.sub-menu').on({
+      'mouseenter': function () {
+        $(this).addClass('is-active');
+      },
+      'mouseleave': function () {
+        $(this).removeClass('is-active');
+      }
+    });
+
+
+    $('#nav-toggle,#overlay').on('click', function () {
+      $('body').toggleClass('open');
+    });
+  });
+})(jQuery);
+
+
+console.log(location.pathname);
+$('.sidebar li a').each(function () {
+  var href = $(this).attr('href');
+  if (location.href.match(href)) {
+    $(this).addClass('here');
+  } else {
+    $(this).removeClass('here');
+  }
+});
+if (location.pathname == '/page-labview.html') {
+  $('.sidebar li a').first().addClass('here');
+} else if (location.pathname == '/') {
+  $('.sidebar li a').first().addClass('here');
+}
