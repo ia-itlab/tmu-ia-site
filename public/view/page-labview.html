@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
   <link rel="stylesheet" type="text/css" href="style/style.css">
   <link rel="shortcut icon" href="./images/favicon.ico">
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.css">
@@ -16,104 +18,243 @@
   <title>東京都立大学システムデザイン学部インダストリアルアート学科 Department of Industrial Art LABVIEW</title>
 </head>
 
+
 <body>
-  <main>
-    <header><a href="index.html"><img src="./images/main-logo.svg" art="image"></a>
-      <form id="cse-search-box" action="http://google.com/cse">
-        <input type="hidden" name="cx" value="007245914538993224667:bwjsywsj34w">
-        <input type="hidden" name="ie" value="UTF-8">
-        <input class="submitbtn" type="submit" name="sa" value="">
-        <input class="textfield" type="text" name="q" placeholder="キーワードから検索">
-      </form>
-    </header>
-    <section class="sidebar">
-      <ul>
-        <li><a class="en" href="index.html">Studio</a></li>
-        <li><a class="en" href="page-about.html">About</a></li>
-        <li><a class="en" href="page-faculty.html">Faculty</a></li>
-        <li><a class="en" href="page-access.html">Access</a></li>
-        <li><a class="en" href="page-links.html">Link</a></li>
+  <header id="global-head">
+    <a href="./index.html">
+      <h1>東京都立大学<br>インダストリアルアート学科/学域</h1>
+    </a>
+  </header>
+
+  <div id="nav-toggle">
+    <div>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <aside id="sidebar">
+    <nav id="global-nav">
+      <ul class="en">
+        <li><a href="./index.html">Studio</a></li>
+        <li><a href="./page-about.html">About</a></li>
+        <li><a class="here" href="./page-faculty.html">Faculty</a></li>
+        <li><a href="./page-access.html">Access</a></li>
+        <li><a href="./page-links.html">Link</a></li>
+        <li class="language"><a class="here" id="lang-ja" href="./index.html">JA</a><span>/</span><a id="lang-en"
+            href="./en/index.html">EN</a>
+        </li>
       </ul>
-    </section>
-    <section class="contents">
-      <section class="labview">
-        <section class="left">
-          <div class="title">
-            <div class="titleText">
-              <h2 class="ja">スタジオ名</h2>
-              <h3 class="en">Studio Name</h3>
-              <h4 class="ja">分野</h4>
-              <h4 class="en">Core</h4>
+    </nav>
+  </aside>
+  <div class="wrapper">
+    <div class="centering">
+      <main>
+
+
+        <section class="labview">
+          <section class="left">
+            <div class="title">
+              <div class="titleText">
+                <h2 class="ja">スタジオ名</h2>
+                <h3 class="en">Studio Name</h3>
+                <h4 class="ja">分野</h4>
+                <h4 class="en">Core</h4>
+              </div>
+            </div>
+            <div class="viewer"></div>
+            <p class="info-ja">スタジオ紹介</p>
+            <!--<p class="info-en">Studio Info</p>
+            <h3 class="en">NEWS</h3>
+            <ul class="news"></ul>-->
+          </section>
+          <section class="right">
+            <div class="boxView">
+              <a class="box tooltip" name="editorial" onclick="changeParam(this.name)">
+                <span class="tooltip-content"><span class="tooltip-text">
+                    <span class="tooltip-inner">エディティングスタジオ</span>
+                  </span>
+                </span>
+              </a>
+              <a class="box tooltip" name="equipment" onclick="changeParam(this.name)"><span
+                  class="tooltip-content"><span class="tooltip-text"><span
+                      class="tooltip-inner">製品・サービス<br>デザインスタジオ</span></span></span></a><a class="box tooltip"
+                name="ergonomics" onclick="changeParam(this.name)"><span class="tooltip-content"><span
+                    class="tooltip-text"><span class="tooltip-inner">エルゴノミック<br>デザインスタジオ</span></span></span></a><a
+                class="box tooltip" name="interactive" onclick="changeParam(this.name)"><span
+                  class="tooltip-content"><span class="tooltip-text"><span class="tooltip-inner">インタラクティブ<br>アートスタジオ
+                    </span></span></span></a><a class="box tooltip" name="interface"
+                onclick="changeParam(this.name)"><span class="tooltip-content"><span class="tooltip-text"><span
+                      class="tooltip-inner">インターフェース<br>デザインスタジオ</span></span></span></a><a class="box tooltip"
+                name="interior" onclick="changeParam(this.name)"><span class="tooltip-content"><span
+                    class="tooltip-text"><span class="tooltip-inner">インテリア<br>デザインスタジオ</span></span></span></a>
+            </div>
+            <div class="boxView"><a class="box tooltip" name="kinematograph" onclick="changeParam(this.name)"><span
+                  class="tooltip-content"><span class="tooltip-text"><span
+                      class="tooltip-inner">映像デザインスタジオ</span></span></span></a><a class="box tooltip" name="network"
+                onclick="changeParam(this.name)"><span class="tooltip-content"><span class="tooltip-text"><span
+                      class="tooltip-inner">ネットワーク<br>デザインスタジオ</span></span></span></a><a class="box tooltip"
+                name="software" onclick="changeParam(this.name)"><span class="tooltip-content"><span
+                    class="tooltip-text"><span class="tooltip-inner">ソフトウェア<br>デザインスタジオ</span></span></span></a><a
+                class="box tooltip" name="spatial" onclick="changeParam(this.name)"><span class="tooltip-content"><span
+                    class="tooltip-text"><span class="tooltip-inner">空間デザインスタジオ</span></span></span></a><a
+                class="box tooltip" name="transportation" onclick="changeParam(this.name)"><span
+                  class="tooltip-content"><span class="tooltip-text"><span
+                      class="tooltip-inner">トランスポーテーション<br>デザインスタジオ</span></span></span></a><a class="box tooltip"
+                name="visual" onclick="changeParam(this.name)"><span class="tooltip-content"><span
+                    class="tooltip-text"><span
+                      class="tooltip-inner">ヴィジュアル<br>コミュニケーション<br>デザインスタジオ</span></span></span></a></div>
+            <h3>担当教員</h3>
+          </section>
+
+          <div class="studio-list">
+            <h2>Other Studios</h2>
+            <div class="studios-container">
+
+              <div class="studio-item" id="editorial">
+                <img src="./images/studio-images/ed1.png" alt="editorial design studio">
+                <a href="page-labview.html?id=editorial">
+                  <section class="mask">
+                    <h3>Editorial</h3>
+                  </section>
+                </a>
+              </div>
+
+
+              <div class="studio-item" id="equipment">
+                <img src="./images/studio-images/es2.png" alt="equipment design studio">
+                <a href="page-labview.html?id=transportation">
+                  <section class="mask">
+                    <h3>Eequipment</h3>
+                  </section>
+                </a>
+              </div>
+
+
+              <div class="studio-item" id="ergonomics">
+
+                <img src="./images/studio-images/ergo1.jpg" alt="ergonomics design studio">
+                <a href="page-labview.html?id=ergonomics">
+                  <section class="mask">
+                    <h3>Ergonomics</h3>
+                  </section>
+                </a>
+              </div>
+
+
+              <div class="studio-item" id="interactive">
+
+                <img src="./images/studio-images/ia1.png" alt="interactive art studio">
+                <a href="page-labview.html?id=interactive">
+                  <section class="mask">
+                    <h3>Interactive Art</h3>
+                  </section>
+                </a>
+              </div>
+
+
+              <div class="studio-item" id="interface">
+                <img src="./images/studio-images/baba2.png" alt="interface design studio">
+                <a href="page-labview.html?id=interface">
+                  <section class="mask">
+                    <h3>Interface</h3>
+                  </section>
+                </a>
+              </div>
+
+              <div class="studio-item" id="interior">
+
+                <img src="./images/studio-images/id1.jpg" alt="interior design studio">
+                <a href="page-labview.html?id=interior">
+                  <section class="mask">
+                    <h3>Interior</h3>
+                  </section>
+                </a>
+              </div>
+
+
+              <div class="studio-item" id="kinematograph">
+
+                <img src="./images/studio-images/kd2.png" alt="kinematograph design studio">
+                <a href="page-labview.html?id=kinematograph">
+                  <section class="mask">
+                    <h3>Kinematograph</h3>
+                  </section>
+                </a>
+              </div>
+
+
+              <div class="studio-item" id="network">
+
+                <img src="./images/studio-images/nd1.png" alt="network design studio">
+                <a href="page-labview.html?id=network">
+                  <section class="mask">
+                    <h3>Network</h3>
+                  </section>
+                </a>
+              </div>
+
+              <div class="studio-item" id="software">
+                <img src="./images/studio-images/sd1.jpg" alt="software design studio">
+                <a href="page-labview.html?id=software">
+                  <section class="mask">
+                    <h3>Software</h3>
+                  </section>
+                </a>
+              </div>
+
+
+              <div class="studio-item" id="spatial">
+
+                <img src="./images/studio-images/spatial1.jpg" alt="spatial design studio">
+                <a href="page-labview.html?id=spatial">
+                  <section class="mask">
+                    <h3>Spatial</h3>
+                  </section>
+                </a>
+              </div>
+
+              <div class="studio-item" id="transportation">
+
+                <img src="./images/studio-images/td2.png" alt="transportation design studio">
+                <a href="page-labview.html?id=transportation">
+                  <section class="mask">
+                    <h3>Transportation</h3>
+                  </section>
+                </a>
+              </div>
+
+
+              <div class="studio-item" id="visual">
+                <img src="./images/studio-images/vc1.jpg" alt="visual communication design studio">
+                <a href="page-labview.html?id=visual">
+                  <section class="mask">
+                    <h3>Visual Communication</h3>
+                  </section>
+                </a>
+              </div>
+
             </div>
           </div>
-          <div class="viewer"></div>
-          <p class="info-ja">スタジオ紹介</p>
-          <p class="info-en">Studio Info</p>
-          <!--<h3 class="en">NEWS</h3>-->
-          <ul class="news"></ul>
-        </section>
-        <section class="right">
-          <div class="boxView"><a class="box tooltip" name="editorial" onclick="changeParam(this.name)"><span
-                class="tooltip-content"><span class="tooltip-text"><span
-                    class="tooltip-inner">エディティングスタジオ</span></span></span></a><a class="box tooltip" name="equipment"
-              onclick="changeParam(this.name)"><span class="tooltip-content"><span class="tooltip-text"><span
-                    class="tooltip-inner">製品・サービス<br>デザインスタジオ</span></span></span></a><a class="box tooltip"
-              name="ergonomics" onclick="changeParam(this.name)"><span class="tooltip-content"><span
-                  class="tooltip-text"><span class="tooltip-inner">エルゴノミック<br>デザインスタジオ</span></span></span></a><a
-              class="box tooltip" name="interactive" onclick="changeParam(this.name)"><span
-                class="tooltip-content"><span class="tooltip-text"><span class="tooltip-inner">インタラクティブ<br>アートスタジオ
-                  </span></span></span></a><a class="box tooltip" name="interface"
-              onclick="changeParam(this.name)"><span class="tooltip-content"><span class="tooltip-text"><span
-                    class="tooltip-inner">インターフェース<br>デザインスタジオ</span></span></span></a><a class="box tooltip"
-              name="interior" onclick="changeParam(this.name)"><span class="tooltip-content"><span
-                  class="tooltip-text"><span class="tooltip-inner">インテリア<br>デザインスタジオ</span></span></span></a></div>
-          <div class="boxView"><a class="box tooltip" name="kinematograph" onclick="changeParam(this.name)"><span
-                class="tooltip-content"><span class="tooltip-text"><span
-                    class="tooltip-inner">映像デザインスタジオ</span></span></span></a><a class="box tooltip" name="network"
-              onclick="changeParam(this.name)"><span class="tooltip-content"><span class="tooltip-text"><span
-                    class="tooltip-inner">ネットワーク<br>デザインスタジオ</span></span></span></a><a class="box tooltip"
-              name="software" onclick="changeParam(this.name)"><span class="tooltip-content"><span
-                  class="tooltip-text"><span class="tooltip-inner">ソフトウェア<br>デザインスタジオ</span></span></span></a><a
-              class="box tooltip" name="spatial" onclick="changeParam(this.name)"><span class="tooltip-content"><span
-                  class="tooltip-text"><span class="tooltip-inner">空間デザインスタジオ</span></span></span></a><a
-              class="box tooltip" name="transportation" onclick="changeParam(this.name)"><span
-                class="tooltip-content"><span class="tooltip-text"><span
-                    class="tooltip-inner">トランスポーテーション<br>デザインスタジオ</span></span></span></a><a class="box tooltip"
-              name="visual" onclick="changeParam(this.name)"><span class="tooltip-content"><span
-                  class="tooltip-text"><span
-                    class="tooltip-inner">ヴィジュアル<br>コミュニケーション<br>デザインスタジオ</span></span></span></a></div>
-          <h3>担当教員</h3>
-        </section>
-      </section>
-      <footer>
-        <section class="en">
-          <p class="ja">東京都立大学 システムデザイン学部／研究科</p>
-          <p class="sd">Faculty & Graduate School of Systems Design</p><a class="sd"
-            href="https://www.tmu.ac.jp/">Copyright ©2018 Tokyo Metropolitan University. All rights reserved.</a>
-        </section>
-      </footer>
-    </section>
 
-  </main>
+
+        </section>
+
+        </section>
+
+
+      </main>
+
+      <footer>
+        <p>&copy; 2021 Tokyo Metropolitan University Department of Industrial Art</p>
+      </footer>
+    </div>
+  </div>
   <section class="scroll-top"><img src="./images/page-top.svg" art="image">
-    <p class="en">PageTop</p>
+    <p>PageTop</p>
   </section>
-  <script type="text/javascript">
-    console.log(location.pathname);
-    $('.sidebar li a').each(function () {
-      var href = $(this).attr('href');
-      if (location.href.match(href)) {
-        $(this).addClass('here');
-      } else {
-        $(this).removeClass('here');
-      }
-    });
-    if (location.pathname == '/page-labview.html') {
-      $('.sidebar li a').first().addClass('here');
-    } else if (location.pathname == '/') {
-      $('.sidebar li a').first().addClass('here');
-    }
-  </script>
+
 </body>
 
 </html>

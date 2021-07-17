@@ -289,11 +289,38 @@ function GetQueryString() {
 
 //パラメータからデータ参照して書き換え
 function selectData(id) {
+
   let loadID = id;
+
+  /*言語選択のリンクの差替 */
+  let link_lang_ja = document.getElementById('lang-ja');
+  let link_lang_en = document.getElementById('lang-en');
+  let url_ja = 'page-labview.html?id=' + id;
+  let url_en = './en/page-labview.html?id=' + id;
+
+  //href属性の値を書き換える
+  link_lang_ja.setAttribute('href', url_ja);
+  link_lang_en.setAttribute('href', url_en);
+
+  /*他のスタジオへの導線の表示・当該のスタジオだけ除外 */
+  let studio_list_items = Array.prototype.slice.call(document.getElementsByClassName("studio-item"));
+  studio_list_items.forEach(function (item) {
+    console.log(studio_list_items);
+    if (loadID == item.id) {
+      console.log("called");
+      item.classList.add("inactive");
+    }
+
+  });
+
   let indicators = Array.prototype.slice.call(
     document.getElementsByClassName("box")
-  );
+  ); console.log(indicators);
+
   indicators.forEach(function (item) {
+
+
+
     if (loadID == item.name) {
       item.classList.add("active");
     } else {
@@ -306,6 +333,8 @@ function selectData(id) {
       return;
     }
   }
+
+
 }
 
 //中身の書き換え
