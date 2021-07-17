@@ -695,7 +695,7 @@ footer.width-limit-footer {
 
 .labview .right h3 {
   text-align: right;
-  letter-spacing: 0.3em;
+  /*letter-spacing: 0.3em;*/
   margin-bottom: 10px;
   font-weight: bold;
   font-size: 15pt;
@@ -704,7 +704,7 @@ footer.width-limit-footer {
 .labview .right p {
   animation: fadeIn 3s ease 0s 1 normal;
   -webkit-animation: fadeIn 3s ease 0s 1 normal;
-  letter-spacing: 0.3em;
+  /*letter-spacing: 0.3em;*/
   text-align: right;
   line-height: 15pt;
   margin: 0 0 3px 4px;
