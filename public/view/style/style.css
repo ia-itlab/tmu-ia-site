@@ -82,8 +82,13 @@ table {
   border-spacing: 0;
 }
 
-main {
+.wrapper {
   padding: 180px 40px 0 240px;
+}
+
+.centering {
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
 /* General
@@ -106,14 +111,20 @@ header a h1 {
 
 h2.page-title {
   font-size: 2rem;
-  margin-bottom: 0.4em;
+  margin-bottom: 24px;
 }
 
 h2.page-title>span {
-  font-size: 1rem;
+  font-size: 0.875rem;
   margin-left: 1em;
-  padding-left: 0.4em;
-  border-left: 1px solid #999;
+  padding-left: 0.1em;
+  color: #999;
+  /*border-left: 2px solid #bbb;*/
+}
+
+.width-limit {
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
 /* Menu ------------------- */
@@ -271,9 +282,9 @@ h2.page-title>span {
 }
 
 .links .link .left {
-  width: 180px;
+  width: 220px;
   min-width: 180px;
-  height: 180px;
+  height: 220px;
   overflow: hidden;
   margin-right: 30px;
   /*box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4); */
@@ -327,18 +338,18 @@ h2.page-title>span {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .faculty .member {
   background: #fff;
   max-width: 540px;
-  height: 150px;
+  min-height: 150px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-wrap: nowrap;
   align-items: flex-start;
-  margin: 0 20px 40px 0px;
+  margin: 0 0 40px 0px;
 }
 
 .faculty .member img {
@@ -348,10 +359,9 @@ h2.page-title>span {
 }
 
 .faculty .member .profile {
-  margin-left: 30px;
-  padding-top: 2px;
-  width: 420px;
-  line-height: 1em;
+  margin-left: 20px;
+  padding-top: 4px;
+  width: 360px;
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
@@ -359,9 +369,7 @@ h2.page-title>span {
 
 .faculty .member .profile .name {
   width: 100%;
-  margin-bottom: 5px;
   font-weight: 700;
-  margin-bottom: 10px;
 }
 
 .faculty .member .profile .name h3 {
@@ -370,7 +378,6 @@ h2.page-title>span {
 }
 
 .faculty .member .profile .name .name-en {
-  height: 20px;
   display: inline-block;
   font-weight: 400;
   font-size: 10pt;
@@ -388,12 +395,16 @@ h2.page-title>span {
 }
 
 .faculty .member .profile a {
-  color: #666;
   text-decoration: none;
-  font-size: 0.875rem;
 }
 
-.faculty .member .profile a img.external-link {
+.faculty .member .profile a.external-link {
+  color: #666;
+  font-size: 0.875rem;
+  word-wrap: break-word;
+}
+
+.faculty .member .profile a.external-link img {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -401,9 +412,11 @@ h2.page-title>span {
 }
 
 .faculty .member .profile .lab {
+  margin-top: 10px;
   width: 100%;
   font-weight: bold;
   font-size: 0.875rem;
+  color: #333;
 }
 
 .faculty .member .profile p.research-topics {
@@ -412,7 +425,7 @@ h2.page-title>span {
 
 .faculty .member .profile p {
   width: 100%;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
 }
 
 .about section {
@@ -469,17 +482,21 @@ h2.page-title>span {
 }
 
 footer {
-  height: 120px;
   bottom: 0px;
   justify-content: center;
   line-height: 1.5em;
   letter-spacing: 0.8px;
-  margin: 120px 0 0 240px;
-  padding: 10px 0 0 0;
+  margin: 80px auto 0 auto;
+  padding-bottom: 20px;
   color: #777;
   font-weight: normal;
   font-size: 0.5625rem;
   z-index: 999;
+}
+
+footer.width-limit-footer {
+  margin: 120px auto 0 auto;
+  max-width: 1080px;
 }
 
 @keyframes fadeIn {
@@ -795,11 +812,6 @@ footer {
   margin-left: -10px;
 }
 
-.width-limit {
-  max-width: 1040px;
-  margin: 0 auto;
-}
-
 .access {
   display: flex;
   background-color: white;
@@ -864,26 +876,17 @@ footer {
 /*--スタジオ一覧----------------------------------*/
 
 .studios {
-  width: 100%;
-  height: auto;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
-  /*
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
 }
 
 .studios .studio {
   position: relative;
-  min-width: 300px;
-  max-width: 360px;
-  width: 30%/*300px*/
-  ;
-  height: auto/*230px*/
-  ;
+  max-width: 300px;
+  min-width: 280px;
+  width: 28%;
   margin-right: 36px;
   margin-bottom: 24px;
   text-align: center;
@@ -910,15 +913,9 @@ footer {
 
 .studios .studio div img {
   display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
   width: 100%;
-  height: auto;
-  overflow: hidden;
+  height: 200px;
+  object-fit: cover;
 }
 
 .studios .studio div .mask {
@@ -1006,8 +1003,20 @@ footer {
   text-decoration: none;
 }
 
+@media screen and (min-width: 1360px) {
+  .studios {
+    justify-content: space-between;
+  }
+  .studios .studio {
+    width: 336px;
+    max-width: 336px;
+    margin-right: 0;
+    text-align: center;
+  }
+}
+
 @media screen and (max-width: 952px) {
-  main {
+  .wrapper {
     padding: 120px 1.5rem 0 1.5rem;
   }
   header h1 {
@@ -1094,6 +1103,15 @@ footer {
   .about .flexbox .flex-item-img {
     margin-bottom: 12px;
   }
+  .faculty .member {
+    margin: 0 auto 40px auto;
+  }
+  .studios {
+    justify-content: space-around;
+  }
+  .studios .studio {
+    margin: 0 0 32px 0;
+  }
 }
 
 @media screen and (max-width: 840px) {
@@ -1107,27 +1125,10 @@ footer {
   }
 }
 
-@media screen and (max-width: 704px) {
-  .studios {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
+@media screen and (max-width: 648px) {
   .studios .studio {
-    position: relative;
-    min-width: 280px;
-    margin: 0 0 32px 0;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .studios .studio {
-    position: relative;
-    min-width: 260px;
+    min-width: 240px;
     width: 300px;
-    margin: 0 0 32px 0;
   }
   .links .link {
     margin: 0px 0 60px 0;
@@ -1153,8 +1154,19 @@ footer {
   }
 }
 
+@media screen and (max-width: 440px) {
+  .faculty .member .profile {
+    width: 100%;
+  }
+  .faculty .member img {
+    /* background: #333;*/
+    width: 120px;
+    height: 120px;
+  }
+}
+
 @media screen and (max-width: 400px) {
-  main {
+  .wrapper {
     padding: 120px 1rem 0 1rem;
   }
   #sidebar {
@@ -1165,5 +1177,35 @@ footer {
   .open #sidebar {
     -webkit-transform: translate3d(-200px, 0, 0);
     transform: translate3d(-200px, 0, 0);
+  }
+  @media screen and (max-width: 360px) {
+    .faculty .member img {
+      /* background: #333;*/
+      width: 100px;
+      height: 100px;
+    }
+    .studios .studio div img {
+      height: 160px;
+    }
+    .studios .studio div {
+      height: 160px;
+    }
+  }
+  @media screen and (max-width: 340px) {
+    .faculty .member {
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin: 0 0 40px 0px;
+    }
+    .faculty .member>img {
+      /* background: #333;*/
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 12px auto;
+    }
+    .faculty .member .profile {
+      margin-left: 0;
+    }
   }
 }

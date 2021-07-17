@@ -1,6 +1,6 @@
 //fadeInの為の.contentsデフォルト透過処理
 $("head").append(
-  '<style>.contents{ opacity: 0;-ms-filter:"alpha( opacity=0 )";filter: alpha( opacity=0 ); }</style>'
+  '<style>.wrapper{ opacity: 0;-ms-filter:"alpha( opacity=0 )";filter: alpha( opacity=0 ); }</style>'
 );
 
 //ページトップへのスクロール
@@ -27,7 +27,7 @@ $(function () {
   });
 
   //contentのフェード
-  $(".contents").fadeMover();
+  $(".wrapper").fadeMover();
 });
 
 /*//Googleカスタム検索
