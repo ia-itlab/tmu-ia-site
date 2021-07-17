@@ -1095,6 +1095,7 @@ footer.width-limit-footer {
     background: #fff;
     -webkit-transition: .35s ease-in-out;
     transition: .35s ease-in-out;
+    border-left: 1px solid #bbb;
   }
   #nav-toggle {
     display: block;
@@ -1270,6 +1271,8 @@ footer.width-limit-footer {
   }
   .studios-container {
     /*justify-content: space-between;*/
+  }
+  .studio-container-centering {
     margin: 0 auto;
   }
   .studio-item:nth-child(odd) {
