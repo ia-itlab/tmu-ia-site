@@ -295,8 +295,8 @@ function selectData(id) {
   /*言語選択のリンクの差替 */
   let link_lang_ja = document.getElementById('lang-ja');
   let link_lang_en = document.getElementById('lang-en');
-  let url_ja = 'https://industrial-art.sd.tmu.ac.jp/page-labview.html?id=' + id;
-  let url_en = 'https://industrial-art.sd.tmu.ac.jp/en/page-labview.html?id=' + id;
+  let url_ja = '../labview.html?id=' + id;
+  let url_en = './labview.html?id=' + id;
 
   //href属性の値を書き換える
   link_lang_ja.setAttribute('href', url_ja);

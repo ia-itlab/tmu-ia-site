@@ -74,7 +74,7 @@ $('.sidebar li a').each(function () {
     $(this).removeClass('here');
   }
 });
-if (location.pathname == '/page-labview.html') {
+if (location.pathname == '/labview.html') {
   $('.sidebar li a').first().addClass('here');
 } else if (location.pathname == '/') {
   $('.sidebar li a').first().addClass('here');

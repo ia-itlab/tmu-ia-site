@@ -1042,6 +1042,7 @@ footer.width-limit-footer {
   cursor: pointer;
   z-index: 100;
   text-align: center;
+  display: none;
 }
 
 .scroll-top img {

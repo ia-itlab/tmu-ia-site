@@ -15,7 +15,7 @@
 
 <body>
   <header id="global-head">
-    <a href="https://industrial-art.sd.tmu.ac.jp/index.html">
+    <a href="./index.html">
       <h1>東京都立大学<br>インダストリアルアート学科/学域</h1>
     </a>
   </header>
@@ -32,12 +32,11 @@
     <nav id="global-nav">
       <ul class="en">
         <li><a href="./index.html">Studio</a></li>
-        <li><a href="./page-about.html">About</a></li>
-        <li><a href="./page-faculty.html">Faculty</a></li>
-        <li><a class="here" href="./page-access.html">Access</a></li>
-        <li><a href="./page-links.html">Link</a></li>
-        <li class="language"><a class="here" href="./page-access.html">JA</a><span>/</span><a
-            href="./en/page-access.html">EN</a>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./faculty.html">Faculty</a></li>
+        <li><a class="here" href="./access.html">Access</a></li>
+        <li><a href="./links.html">Link</a></li>
+        <li class="language"><a class="here" href="./access.html">JA</a><span>/</span><a href="./en/access.html">EN</a>
         </li>
       </ul>
     </nav>
@@ -58,7 +57,6 @@
             <h3>所在地</h3>
             <p>〒 191-0065 東京都日野市旭が丘6-6</p>
             <p>TEL 042-585-8606</p>
-            <p>6-6 Asahigaoka, Hino-shi, Tokyo, Japan 191-0065</p>
             <h3>アクセス</h3>
             <p>JR中央線「豊田」駅（北口）から徒歩約20分
               <br>または京王バス「平山工業団地循環」乗車、「旭が丘中央公園」下車徒歩約5分
@@ -91,7 +89,7 @@
         $(this).removeClass('here');
       }
     });
-    if (location.pathname == '/page-labview.html') {
+    if (location.pathname == '/labview.html') {
       $('.sidebar li a').first().addClass('here');
     } else if (location.pathname == '/') {
       $('.sidebar li a').first().addClass('here');

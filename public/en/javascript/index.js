@@ -5,7 +5,7 @@ $("head").append(
 
 //ページトップへのスクロール
 $(function () {
-  var topBtn = $(".scroll-top");
+  /*var topBtn = $(".scroll-top");
   topBtn.hide();
   //スクロールが100に達したらボタン表示
   $(window).scroll(function () {
@@ -24,7 +24,7 @@ $(function () {
       500
     );
     return false;
-  });
+  });*/
 
   //contentのフェード
   $(".wrapper").fadeMover();
@@ -74,7 +74,7 @@ $('.sidebar li a').each(function () {
     $(this).removeClass('here');
   }
 });
-if (location.pathname == '/page-labview.html') {
+if (location.pathname == '/labview.html') {
   $('.sidebar li a').first().addClass('here');
 } else if (location.pathname == '/') {
   $('.sidebar li a').first().addClass('here');
