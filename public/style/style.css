@@ -1087,7 +1087,39 @@ footer.width-limit-footer {
   margin: 1rem 0;
 }
 
-@media screen and (min-width: 1360px) {
+.banner-container {
+  margin-bottom: 40px;
+}
+
+.banner-ia {
+  position: relative;
+}
+
+.vertualbg-donwload {
+  display: inline-block;
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #eedd00;
+  vertical-align: middle;
+  padding: 3px 12px;
+  display: table;
+  cursor: pointer;
+}
+
+.vertualbg-donwload div {
+  display: table-cell;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1;
+}
+
+@media screen and (min-width: 1360px) {}
+
+@media screen and (min-width: 1320px) {
   .studios {
     justify-content: space-between;
   }
@@ -1096,6 +1128,34 @@ footer.width-limit-footer {
     max-width: 336px;
     margin-right: 0;
     text-align: center;
+  }
+  .banner-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .banner-container .banner-ia {
+    width: 708px;
+    height: auto;
+  }
+  .banner-container .banner-sd {
+    width: 336px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 1319px) {
+  .banner-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+  }
+  .banner-container .banner-ia {
+    grid-column: 1/2;
+    height: auto;
+  }
+  .banner-container .banner-sd {
+    grid-column: 2/3;
+    height: auto;
   }
 }
 
@@ -1284,6 +1344,24 @@ footer.width-limit-footer {
   .labview .left .title .titleText h4.en {
     font-size: 0.75rem;
   }
+  .banner-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .banner-container .banner-ia {
+    margin: 0 auto 40px auto;
+  }
+  .banner-container .banner-sd {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 441px) {
+  .banner-container .banner-ia img.narrow {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 440px) {
@@ -1303,6 +1381,13 @@ footer.width-limit-footer {
   }
   .studio-item:nth-child(odd) {
     margin-right: 0;
+  }
+  /*OC banner*/
+  .banner-container .banner-ia {
+    max-width: 300px;
+  }
+  .banner-container .banner-ia img.wide {
+    display: none;
   }
 }
 

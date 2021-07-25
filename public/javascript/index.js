@@ -79,3 +79,30 @@ if (location.pathname == '/labview.html') {
 } else if (location.pathname == '/') {
   $('.sidebar li a').first().addClass('here');
 }
+
+
+
+// 画像ダウンロード//https://qumeru.com/magazine/408
+function downloadImg() {
+  // ファイル情報
+  const url = './images/ia_oc2021_vertualbg.jpg';
+  const fileName = 'ia_oc2021_vertualbg.jpg';
+
+  // IE用
+  if (window.navigator.msSaveOrOpenBlob) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.onload = function () {
+      if (xhr.status !== 200) {
+        return false;
+      }
+      window.navigator.msSaveOrOpenBlob(xhr.response, fileName);
+    }
+    xhr.send();
+  } else { // Chromeなど
+    let link = document.getElementById("download");
+    link.href = url;
+    link.download = fileName;
+  }
+}
