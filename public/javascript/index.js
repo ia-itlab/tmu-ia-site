@@ -5,7 +5,7 @@ $("head").append(
 
 //ページトップへのスクロール
 $(function () {
-  var topBtn = $(".scroll-top");
+  /*var topBtn = $(".scroll-top");
   topBtn.hide();
   //スクロールが100に達したらボタン表示
   $(window).scroll(function () {
@@ -24,7 +24,7 @@ $(function () {
       500
     );
     return false;
-  });
+  });*/
 
   //contentのフェード
   $(".wrapper").fadeMover();
