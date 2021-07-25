@@ -1380,7 +1380,7 @@ footer.width-limit-footer {
     margin: 0 auto;
   }
   .studio-item:nth-child(odd) {
-    margin-right: 0;
+    /*margin-right: 0;*/
   }
   /*OC banner*/
   .banner-container .banner-ia {
