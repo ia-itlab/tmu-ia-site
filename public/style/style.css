@@ -33,7 +33,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 html, body {
   height: 100%;
   line-height: 1;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", Meiryo, メイリオ, Osaka, "MS PGothic", arial, helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", 'Noto Sans JP', Meiryo, メイリオ, Osaka, "MS PGothic", arial, helvetica, sans-serif;
   -webkit-text-size-adjust: 100%;
   color: #333;
   line-height: 1.5;
@@ -103,6 +103,10 @@ header a h1 {
   color: #333;
   line-height: 1.4em;
   display: inline-block;
+}
+
+header a h1 img {
+  width: 519px;
 }
 
 /* Page title ------------------- */
@@ -1166,6 +1170,9 @@ footer.width-limit-footer {
   header a h1 {
     font-size: 1.125rem;
   }
+  header a h1 img {
+    width: 300px;
+  }
   #global-head {
     margin-left: 0;
     width: 100%;
@@ -1401,52 +1408,59 @@ footer.width-limit-footer {
     -webkit-transform: translate3d(-200px, 0, 0);
     transform: translate3d(-200px, 0, 0);
   }
-  @media screen and (max-width: 360px) {
-    .faculty .member img {
-      /* background: #333;*/
-      width: 100px;
-      height: 100px;
-    }
-    .studios .studio div img {
-      height: 160px;
-    }
-    .studios .studio div {
-      height: 160px;
-    }
+  header a h1 img {
+    width: 240px;
   }
-  @media screen and (max-width: 340px) {
-    .faculty .member {
-      justify-content: space-between;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      margin: 0 0 40px 0px;
-    }
-    .faculty .member>img {
-      /* background: #333;*/
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 12px auto;
-    }
-    .faculty .member .profile {
-      margin-left: 0;
-    }
-    .studios-container {
-      /*justify-content: space-between;*/
-    }
-    .studio-item {
-      width: 130px;
-      height: 130px;
-      margin: 0 16px 16px 0;
-    }
-    .studio-item>img {
-      height: 130px;
-    }
-    .studio-item>img>a {
-      width: 130px;
-      height: 130px;
-    }
-    .studio-item:nth-child(odd) {
-      margin-right: 0;
-    }
+}
+
+@media screen and (max-width: 360px) {
+  .faculty .member img {
+    /* background: #333;*/
+    width: 100px;
+    height: 100px;
   }
+  .studios .studio div img {
+    height: 160px;
+  }
+  .studios .studio div {
+    height: 160px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .faculty .member {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 0 0 40px 0px;
+  }
+  .faculty .member>img {
+    /* background: #333;*/
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 12px auto;
+  }
+  .faculty .member .profile {
+    margin-left: 0;
+  }
+  .studios-container {
+    /*justify-content: space-between;*/
+  }
+  .studio-item {
+    width: 130px;
+    height: 130px;
+    margin: 0 16px 16px 0;
+  }
+  .studio-item>img {
+    height: 130px;
+  }
+  .studio-item>img>a {
+    width: 130px;
+    height: 130px;
+  }
+  .studio-item:nth-child(odd) {
+    margin-right: 0;
+  }
+}
+
 }
