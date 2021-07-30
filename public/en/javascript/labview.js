@@ -21,7 +21,8 @@ const studios = [
         date: "0000-00-00",
         text: "現在公開されているニュースはありません。"
       }
-    ]
+    ],
+    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
   },
   {
     ID: "editorial",
@@ -42,7 +43,8 @@ const studios = [
         date: "0000-00-00",
         text: "現在公開されているニュースはありません。"
       }
-    ]
+    ],
+    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
   },
   {
     ID: "kinematograph",
@@ -63,7 +65,8 @@ const studios = [
         date: "0000-00-00",
         text: "現在公開されているニュースはありません。"
       }
-    ]
+    ],
+    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
   },
   {
     ID: "software",
@@ -84,7 +87,8 @@ const studios = [
         date: "0000-00-00",
         text: "現在公開されているニュースはありません。"
       }
-    ]
+    ],
+    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
   },
   {
     ID: 'network',
@@ -104,7 +108,8 @@ const studios = [
         date: "0000-00-00",
         text: "現在公開されているニュースはありません。"
       }
-    ]
+    ],
+    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
   },
   {
     ID: "interactive",
@@ -125,7 +130,8 @@ const studios = [
         date: "0000-00-00",
         text: "現在公開されているニュースはありません。"
       }
-    ]
+    ],
+    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
   },
   {
     ID: "equipment",
@@ -148,7 +154,8 @@ const studios = [
         date: "0000-00-00",
         text: "現在公開されているニュースはありません。"
       }
-    ]
+    ],
+    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
   },
   {
     ID: "transportation",
@@ -169,7 +176,8 @@ const studios = [
         date: "0000-00-00",
         text: "現在公開されているニュースはありません。"
       }
-    ]
+    ],
+    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
   },
   {
     ID: "spatial",
@@ -190,7 +198,8 @@ const studios = [
         date: "0000-00-00",
         text: "現在公開されているニュースはありません。"
       }
-    ]
+    ],
+    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
   },
   {
     ID: "interior",
@@ -211,7 +220,8 @@ const studios = [
         date: "0000-00-00",
         text: "現在公開されているニュースはありません。"
       }
-    ]
+    ],
+    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
   },
   {
     ID: "interface",
@@ -232,7 +242,8 @@ const studios = [
         date: "0000-00-00",
         text: "現在公開されているニュースはありません。"
       }
-    ]
+    ],
+    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
   },
   {
     ID: "ergonomics",
@@ -256,7 +267,8 @@ const studios = [
         date: "0000-00-00",
         text: "現在公開されているニュースはありません。"
       }
-    ]
+    ],
+    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
   }
 ];
 
@@ -373,6 +385,11 @@ function changeContent(studioData) {
   }
   //スライドショー化
   slickImage();
+
+  //OC用研究室動画　リンクの差し替え
+  let oc_video = document.getElementById('oc_video');
+  oc_video.setAttribute('src', studioData["oc_video_ulr"]);
+
 }
 
 function changeParam(id) {
