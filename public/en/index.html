@@ -53,17 +53,22 @@
             <main>
                 <div class="banner-container">
                     <div class="banner-ia">
-                        <img class="wide" src="./images/banner/oc_banner_ia_wide.jpg" alt="オープンキャンパス2021限定　研究室紹介動画公開中">
-                        <img class="narrow" src="./images/banner/oc_banner_ia_narrow.jpg"
+                        <img class="wide" src="./images/banner/oc_banner_ia_wide.png" alt="オープンキャンパス2021限定　研究室紹介動画公開中">
+                        <img class="narrow" src="./images/banner/oc_banner_ia_narrow.png"
                             alt="オープンキャンパス2021限定　研究室紹介動画公開中">
                         <a onclick="downloadImg()" id="download" class="vertualbg-donwload">
-                            <div><span>OC限定バーチャル背景配布中！</span><span><img src="./images/file_download_black_24dp.svg"
-                                        alt="donwload"></span></div>
+                            <div>
+                                <span class="distribution-text">Open campus Limited virtual backgrounds now
+                                    available!</span>
+                                <span class="distribution-text-sp">OC Limited Virtual Backgrounds Now Available!</span>
+                                <span class="dounwload-text-icon"><span class="dounwload-text">DONWLOAD</span><img
+                                        src="./images/file_download_black_24dp.svg" alt="donwload"></span>
+                            </div>
                         </a>
                     </div>
                     <div class="banner-sd">
-                        <a href=""><img src="./images/banner/oc_banner_sd.jpg"
-                                alt="オープンキャンパス2021　オンライン　LIVE配信の事前申し込みはこちら">
+                        <a href="https://www.ocans.jp/tmu/schedule?fid=WndQrp8y" target="_blank"><img
+                                src="./images/banner/oc_banner_sd.png" alt="オープンキャンパス2021　オンライン　LIVE配信の事前申し込みはこちら">
                         </a>
                     </div>
                 </div>
@@ -217,6 +222,32 @@
         <p>PageTop</p>
     </section>
 
+    <script>
+        // 画像ダウンロード//https://qumeru.com/magazine/408
+        function downloadImg() {
+            // ファイル情報
+            const url = './images/ia_oc2021_vertualbg.jpg';
+            const fileName = 'ia_oc2021_vertualbg.jpg';
+
+            // IE用
+            if (window.navigator.msSaveOrOpenBlob) {
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', url);
+                xhr.responseType = 'blob';
+                xhr.onload = function () {
+                    if (xhr.status !== 200) {
+                        return false;
+                    }
+                    window.navigator.msSaveOrOpenBlob(xhr.response, fileName);
+                }
+                xhr.send();
+            } else { // Chromeなど
+                let link = document.getElementById("download");
+                link.href = url;
+                link.download = fileName;
+            }
+        }
+    </script>
 </body>
 
 </html>
