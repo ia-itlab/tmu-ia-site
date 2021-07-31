@@ -22,7 +22,7 @@ const studios = [
         text: "現在公開されているニュースはありません。"
       }
     ],
-    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"//youtubeの埋め込みURLを各スタジオにおく
+    oc_video_ulr: "https://www.youtube.com/embed/eIB8y8ODnHo"//youtubeの埋め込みURLを各スタジオにおく
   },
   {
     ID: "editorial",
@@ -44,7 +44,7 @@ const studios = [
         text: "現在公開されているニュースはありません。"
       }
     ],
-    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
+    oc_video_ulr: "https://www.youtube.com/embed/_Etu2so4WuU"
   },
   {
     ID: "kinematograph",
@@ -66,7 +66,7 @@ const studios = [
         text: "現在公開されているニュースはありません。"
       }
     ],
-    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
+    oc_video_ulr: "https://www.youtube.com/embed/RkPYbB_EtWc"
   },
   {
     ID: "software",
@@ -88,7 +88,7 @@ const studios = [
         text: "現在公開されているニュースはありません。"
       }
     ],
-    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
+    oc_video_ulr: "https://www.youtube.com/embed/SrXYd2HkVo4"
   },
   {
     ID: 'network',
@@ -109,7 +109,7 @@ const studios = [
         text: "現在公開されているニュースはありません。"
       }
     ],
-    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
+    oc_video_ulr: "https://www.youtube.com/embed/-e9KvknbKbw"
   },
   {
     ID: "interactive",
@@ -131,7 +131,7 @@ const studios = [
         text: "現在公開されているニュースはありません。"
       }
     ],
-    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
+    oc_video_ulr: "https://www.youtube.com/embed/BJ9Ko1NDIP8"
   },
   {
     ID: "equipment",
@@ -155,7 +155,7 @@ const studios = [
         text: "現在公開されているニュースはありません。"
       }
     ],
-    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
+    oc_video_ulr: "https://www.youtube.com/embed/0ERW_YgFuVk"
   },
   {
     ID: "transportation",
@@ -177,7 +177,7 @@ const studios = [
         text: "現在公開されているニュースはありません。"
       }
     ],
-    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
+    oc_video_ulr: "https://www.youtube.com/embed/x5VtvbfNVgU"
   },
   {
     ID: "spatial",
@@ -199,7 +199,7 @@ const studios = [
         text: "現在公開されているニュースはありません。"
       }
     ],
-    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
+    oc_video_ulr: "https://www.youtube.com/embed/y_2xThpaFrM"
   },
   {
     ID: "interior",
@@ -221,7 +221,7 @@ const studios = [
         text: "現在公開されているニュースはありません。"
       }
     ],
-    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
+    oc_video_ulr: "https://www.youtube.com/embed/fp7znGGO-a4"
   },
   {
     ID: "interface",
@@ -243,7 +243,7 @@ const studios = [
         text: "現在公開されているニュースはありません。"
       }
     ],
-    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
+    oc_video_ulr: "https://www.youtube.com/embed/BFzfX7YzcLg"
   },
   {
     ID: "ergonomics",
@@ -268,7 +268,7 @@ const studios = [
         text: "現在公開されているニュースはありません。"
       }
     ],
-    oc_video_ulr: "https://www.youtube.com/embed/Yd2kb8h4X1Q"
+    oc_video_ulr: "https://www.youtube.com/embed/-FVjkAiC8XA"
   }
 ];
 
