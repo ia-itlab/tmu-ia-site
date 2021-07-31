@@ -1153,6 +1153,9 @@ footer.width-limit-footer {
     width: 336px;
     height: auto;
   }
+  .vertualbg-donwload div {
+    padding-top: 12px;
+  }
 }
 
 @media screen and (max-width: 1319px) {
