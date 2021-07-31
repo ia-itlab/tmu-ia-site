@@ -1130,6 +1130,10 @@ footer.width-limit-footer {
   padding: 4px 4px 0 0;
 }
 
+.dounwload-text-icon {
+  width: 88.85px;
+}
+
 @media screen and (min-width: 1360px) {}
 
 @media screen and (min-width: 1320px) {
@@ -1325,6 +1329,9 @@ footer.width-limit-footer {
     font-weight: normal;
     font-size: 10pt;
   }
+  .vertualbg-donwload {
+    font-size: 0.875rem;
+  }
 }
 
 @media screen and (max-width: 648px) {
@@ -1415,11 +1422,16 @@ footer.width-limit-footer {
     display: none;
   }
   .vertualbg-donwload {
-    font-size: 0.875rem;
-    line-height: 1.5;
+    font-size: 0.75rem;
   }
   .distribution-text {
     display: none;
+  }
+  .dounwload-text-icon {
+    width: 70px;
+  }
+  .vertualbg-donwload div {
+    padding-top: 13px;
   }
 }
 
