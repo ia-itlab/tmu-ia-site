@@ -130,6 +130,24 @@ h2.page-title>span {
   margin: 0 auto;
 }
 
+/* Page sub title ------------------- */
+
+h3.page-sub-title {
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-top:1.5em;
+  margin-bottom: 0.75em;
+}
+
+h3.page-sub-title>span {
+  font-weight: 400;
+  font-size: 0.875rem;
+  margin-top:24px;
+  margin-left: 0.8em;
+  color: #999;
+  /*border-left: 2px solid #bbb;*/
+}
+
 /* Menu ------------------- */
 
 #sidebar {
