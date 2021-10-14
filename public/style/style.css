@@ -1520,3 +1520,10 @@ footer.width-limit-footer {
     margin-right: 0;
   }
 }
+
+.tagtag {
+  padding: 4px;
+  border-radius: 3px;
+  border: 1px solid #0A0EF0;
+  display: inline-block;
+}
