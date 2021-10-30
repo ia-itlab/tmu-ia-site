@@ -120,7 +120,9 @@
             var loadHTML = new Promise(function (resolve, reject) {
                 // ia wiki から topicsデータを取得する
                 {
-                    var _html = './get_topics_from_ia_wiki.php';
+                    var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:topics';
+                    var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
+                    var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
                     var replace = 'topics';
                     //Httpリクエスを作る
                     var xmlhttp = new XMLHttpRequest();
@@ -251,7 +253,9 @@
 
                 // 大学ウェブサイトからニュースを取得する
                 {
-                    var _html = './get_award_from_sd_tmu.php';
+                    var url = 'https://www.sd.tmu.ac.jp/news.html';
+                    var regexp = '@<li class="informationRow age202(?:.*?)>(.*?)</li>@s';
+                    var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
                     var replace = 'awards';
                     //Httpリクエスを作る
                     var xmlhttp = new XMLHttpRequest();
