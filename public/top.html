@@ -106,27 +106,172 @@
                 originLeft: true,
             });
 
+            var elem_topics = document.querySelector('#topics');
+            var msnry_topics = new Masonry(elem_topics, {
+                // options
+                columnWidth: '.grid-sizer',
+                itemSelector: '.grid-item',
+                gutter: 0,
+                percentPosition: true,
+                originLeft: true,
+            });
+
+
+            var loadHTML = new Promise(function (resolve, reject) {
+                // ia wiki から topicsデータを取得する
+                {
+                    var _html = './get_topics_from_ia_wiki.php';
+                    var replace = 'topics';
+                    //Httpリクエスを作る
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.open("GET", _html, true);
+                    xmlhttp.onreadystatechange = function () {
+                        //とれた場合Idにそって入れ替え
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            var data = xmlhttp.responseText;
+                            //xmlhttp.responseXML
+                            //console.log(data);
+                            var elem = document.getElementById(replace);
+                            elem.innerHTML = data;
+                            resolve(data);
+                            //return data;
+                        }
+                    }
+                    xmlhttp.send(null);
+                }
+            });
+            loadHTML.then(function () {
+
+                var grid_sizer = document.createElement('div');
+                grid_sizer.classList.add('grid-sizer');
+                document.getElementById('topics').appendChild(grid_sizer);
+
+                var ols = document.querySelectorAll('ol.fix-media-list-overlap');
+
+                let count_ol = 0;
+                for (ol of ols) {
+
+                    var col = document.createElement('div');
+                    col.style.display = 'block'
+                    if (count_ol == 0) {
+                        col.classList.add('col', 'col-sm-12', 'col-lg-8', 'mt-3', 'g-4', 'grid-item');
+                    }
+                    else {
+                        col.classList.add('col', 'col-sm-6', 'col-lg-4', 'mt-3', 'g-4', 'grid-item');
+                    }
+                    //col.innerHTML = 'div col';
+                    // col -> card -> card-body
+                    document.getElementById('topics').appendChild(col);
+                    var card = document.createElement('div');
+
+                    card.classList.add('card');
+                    //card.innerHTML = 'card';
+                    var card_body = document.createElement('div');
+                    card_body.classList.add('card-body');
+
+                    col.appendChild(card);
+                    var lis = ol.querySelectorAll('li');
+
+                    var img_card = document.createElement('img');
+                    img_card.classList.add('card-img-top');
+                    if (lis[1].querySelector('div').querySelector('a')) {
+                        img_card.src = lis[1].querySelector('div').querySelector('a').href;
+                    }
+                    //console.log(lis[1]);
+                    card.appendChild(img_card);
+
+
+
+                    var a_link = document.createElement('a');
+                    if (lis.length >= 4) {
+                        if (lis[4].querySelector('div')) {
+                            if (lis[4].querySelector('a')) {
+                                a_link.href = lis[4].querySelector('div').querySelector('a').href;
+                                a_link.target = '_blank';
+                                card.appendChild(a_link);
+                                a_link.appendChild(img_card);
+
+                            }
+                        }
+                    }
+
+                    card.appendChild(card_body);
+                    // console.log(lis);
+                    var h5_card_title = document.createElement('h5');
+                    h5_card_title.classList.add('card-title');
+                    h5_card_title.innerHTML = lis[0].innerHTML;
+                    card_body.appendChild(h5_card_title);
+
+                    var p_card_text = document.createElement('p');
+                    p_card_text.classList.add('card-text');
+                    p_card_text.innerHTML = lis[2].innerHTML;
+                    card_body.appendChild(p_card_text);
+
+                    var p_card_text_date = document.createElement('p');
+                    p_card_text_date.classList.add('card-text', 'text-muted');
+                    p_card_text_date.innerHTML = lis[3].innerHTML;
+                    card_body.appendChild(p_card_text_date);
+
+                    msnry_topics.appended(col);
+                    //ul.innerHTML = '';
+                    ol.remove();
+                    console.log('ol', ol);
+                    count_ol++;
+                }
+                //uls.remove();
+
+                document.querySelector('.dw-content').remove();
+                console.log('topics', document.getElementById('topics'));
+
+                // カード画像は全部ロードが終わった後並べ替え作業をする
+                var elements = document.querySelectorAll('.card-img-top');
+                var count = 0;
+                new Promise((resolve) => {
+                    for (element of elements) {
+                        console.log(element);
+                        var src_tmp = element.src;
+                        element.src = '';
+                        element.onload = function () {
+                            count++;
+                            if (count == elements.length) {
+                                resolve();
+                            }
+                        }
+                        element.src = src_tmp;
+                    }
+                }).then(() => {
+                    //console.log("done all loading");
+                    msnry_topics.layout();
+                });
+            });
+
+
 
             var loadHTML = new Promise(function (resolve, reject) {
 
-                var _html = './get_award_from_sd_tmu.php';
-                var replace = 'awards';
-                //Httpリクエスを作る
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET", _html, true);
-                xmlhttp.onreadystatechange = function () {
-                    //とれた場合Idにそって入れ替え
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        var data = xmlhttp.responseText;
-                        //xmlhttp.responseXML
-                        //console.log(data);
-                        var elem = document.getElementById(replace);
-                        elem.innerHTML = data;
-                        resolve(data);
-                        //return data;
+                // 大学ウェブサイトからニュースを取得する
+                {
+                    var _html = './get_award_from_sd_tmu.php';
+                    var replace = 'awards';
+                    //Httpリクエスを作る
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.open("GET", _html, true);
+                    xmlhttp.onreadystatechange = function () {
+                        //とれた場合Idにそって入れ替え
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            var data = xmlhttp.responseText;
+                            //xmlhttp.responseXML
+                            //console.log(data);
+                            var elem = document.getElementById(replace);
+                            elem.innerHTML = data;
+                            resolve(data);
+                            //return data;
+                        }
                     }
+                    xmlhttp.send(null);
                 }
-                xmlhttp.send(null);
+
+
             });
             loadHTML.then(function () {
                 var grid_sizer = document.createElement('div');
@@ -140,6 +285,7 @@
                         if (list.querySelector('p.desc').innerHTML.indexOf('インダストリアルアート') > 0) {
                             var col = document.createElement('div');
                             col.classList.add('col', 'col-sm-6', 'col-lg-4', 'mt-3', 'g-4', 'grid-item');
+
                             document.getElementById('awards').appendChild(col);
                             var card = document.createElement('div');
                             col.appendChild(card);
@@ -151,12 +297,12 @@
                             list.querySelector('h3').classList.add('mt-3');
                             var link = list.querySelector('h3').querySelector('a');
                             var link_replaced = link.href.replace(/http.*news/u, 'https://www.sd.tmu.ac.jp/news');
-                            console.log(link_replaced);
+                            //console.log(link_replaced);
                             list.style.display = 'block';
                             link.href = link_replaced;
                             list.querySelector('div.head').querySelector('span.date').classList.add('badge', 'bg-dark');
                             list.querySelector('div.head').querySelector('span.tag').remove();
-                            console.log(list);
+                            //console.log(list);
                             lists_art.push(list);
                             list.querySelector('p.desc').classList.add('text-muted');
                             card_body.appendChild(list);
@@ -171,7 +317,7 @@
                         list.remove();
                     }
                 }
-                console.log('awards', document.querySelector('#awards'));
+                //console.log('awards', document.querySelector('#awards'));
                 msnry.layout();
                 //console.log(lists_art);
             })
@@ -214,71 +360,12 @@
         <div class="centering">
             <main>
 
+
                 <h2 class="page-title">Featured Topics<span>最新のインダストリアルアート学科の活動を紹介します</span></h2>
-                <div class="row">
-                    <div class="card  mt-3 mb-4 col-12">
-                        <div style="padding:52.73% 0 0 0;position:relative;"><iframe
-                                src="https://player.vimeo.com/video/607123548?h=54b89ef305&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
-                                style="position:absolute;top:0;left:0;width:100%;height:100%;"
-                                title="IMSS Project 2021 jp"></iframe>
-                            <script src="https://player.vimeo.com/api/player.js"></script>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">IMSS Project</h5>
-                            <p class="card-text">
-                                コンピュータ制御でダイナミックに動作する建築ファサード IMSS の紹介動画が公開されました．
-                            </p>
-                            <p class="card-text"><small class="text-muted">2021年10月29日</small></p>
-                        </div>
-                    </div>
-
-                    <div class="card  mt-3 mb-4 col-4">
-                        <img
-                            src="https://tmuint.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F228d6589-e101-459e-9192-f4a0c2cd6c12%2F02_%E3%83%9E%E3%82%B9%E3%82%AF.jpg?table=block&id=eb15c0d6-0a6b-4f7a-b51c-caec3f776620&spaceId=51f0f4a3-5be5-4dff-871a-bf343b5eb6f8&width=2000&userId=&cache=v2">
-                        <div class="card-body">
-                            <h5 class="card-title">SPEED FLAT2021</h5>
-                            <p class="card-text">
-                                多摩美術大学で開催された展示会にて，インテリアデザインスタジオから作品が出品されています．
-                            </p>
-                            <p class="card-text"><small class="text-muted">2021年10月29日</small></p>
-                        </div>
-                    </div>
-
-                    <div class="card  mt-3 mb-4 col-4">
-                        <a href="https://hackathon.whee-project.org/%E6%88%90%E6%9E%9C%E7%89%A9">
-                            <img
-                                src="https://storage.googleapis.com/production-os-assets/assets/3b49a70c-b5b0-43f0-806c-e41f0ed96ab8">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="card-title">ARハッカソン</h5>
-                            <p class="card-text">
-                                2021年9月4〜10日に開催したARハッカソンでは、学生による9チームからARゲームが発表されました。
-
-                                学生チームが作ったARゲームの紹介動画を公開します。
-                            </p>
-                            <p class="card-text"><small class="text-muted">2021年10月29日</small></p>
-                        </div>
-                    </div>
-
-                    <div class="card  mt-3 mb-4 col-4">
-                        <iframe width="100%" height="205" src="https://www.youtube.com/embed/_XdxbxgLl48"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                        <div class="card-body">
-                            <h5 class="card-title">学科紹介動画</h5>
-                            <p class="card-text">
-                                2021年のオープンキャンパスで使用された学科紹介動画がyoutubeにて公開されています．
-                            </p>
-                            <p class="card-text"><small class="text-muted">2021年10月29日</small></p>
-                        </div>
-                    </div>
-                </div>
+                <div id="topics" class="row row-cols-1 row-cols-md-3 g-3"></div>
 
 
-
-                <h2 class="page-title mt-5">お知らせ<span>学生の受賞やイベント等</span></h2>
+                <h2 class="page-title mt-5">受賞<span>学生の受賞やイベント等</span></h2>
                 <div id="awards" class="row row-cols-1 row-cols-md-3 g-3 ">
 
                 </div>
