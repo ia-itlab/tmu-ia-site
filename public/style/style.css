@@ -212,7 +212,8 @@ h3.page-sub-title>span {
 
 #global-nav ul {
   list-style: none;
-  margin-left: 0;
+  margin-left: 0px;
+  padding-left:0px;
 }
 
 #global-nav>ul>li {
@@ -227,7 +228,8 @@ h3.page-sub-title>span {
   letter-spacing: .5pt;
   text-decoration: none;
   display: block;
-  padding: 2px 0;
+  padding: 2px 0px;
+  margin:0px;
   -moz-transition: background-color .3s linear;
   -webkit-transition: background-color .3s linear;
   transition: background-color .3s linear;
@@ -235,6 +237,8 @@ h3.page-sub-title>span {
 
 #global-nav li.language {
   margin-top: 12px;
+  margin-left:0px;
+  padding-left:0px;
 }
 
 #global-nav li.language a {
