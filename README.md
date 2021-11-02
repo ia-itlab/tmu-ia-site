@@ -7,7 +7,12 @@ top.htmlのみ外部ページスクレイピングの為，phpを利用します
 > php -S localhost:8000
 ```
 
-などとして，ブラウザから http://localhost/8000/top.html へアクセスしてください．
+などとして，ブラウザから http://localhost/8000/top.html へアクセスしてください．phpコマンドがない場合は
+```
+> brew install php
+```
+でインストールしてください。brew コマンドがない場合は、brew install で検索してください。
+
 
 # 命名規則
 
