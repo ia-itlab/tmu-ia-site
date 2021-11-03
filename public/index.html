@@ -86,6 +86,28 @@
             display: block;
             clear: both;
         }
+
+        .grid-item>a {
+            text-decoration: none;
+        }
+
+        .grid-item>a:hover {
+            text-decoration: none;
+        }
+
+        .grid-item>a>.card {
+            color: black;
+            transition: background-color 2s, color 0.8s;
+
+
+        }
+
+        .grid-item>a>.card:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white;
+            transition: background-color 2s, color, 1s;
+        }
     </style>
     <!--
         テンプレ
@@ -176,6 +198,7 @@
                     var card = document.createElement('div');
 
                     card.classList.add('card');
+
                     //card.innerHTML = 'card';
                     var card_body = document.createElement('div');
                     card_body.classList.add('card-body');
@@ -189,9 +212,10 @@
                         img_card.src = lis[1].querySelector('div').querySelector('a').href;
                     }
                     //console.log(lis[1]);
+
+
                     card.appendChild(img_card);
-
-
+                    card.appendChild(card_body);
 
                     var a_link = document.createElement('a');
                     if (lis.length >= 4) {
@@ -199,14 +223,15 @@
                             if (lis[4].querySelector('a')) {
                                 a_link.href = lis[4].querySelector('div').querySelector('a').href;
                                 a_link.target = '_blank';
-                                card.appendChild(a_link);
-                                a_link.appendChild(img_card);
-
+                                //card.appendChild(a_link);
+                                //a_link.appendChild(img_card);
+                                a_link.appendChild(card);
+                                col.appendChild(a_link);
                             }
                         }
                     }
 
-                    card.appendChild(card_body);
+
                     // console.log(lis);
                     var h5_card_title = document.createElement('h5');
                     h5_card_title.classList.add('card-title');
