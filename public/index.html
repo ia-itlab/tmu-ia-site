@@ -251,20 +251,20 @@
                     msnry_topics.appended(col);
                     //ul.innerHTML = '';
                     ol.remove();
-                    console.log('ol', ol);
+                    //console.log('ol', ol);
                     count_ol++;
                 }
                 //uls.remove();
 
                 document.querySelector('.dw-content').remove();
-                console.log('topics', document.getElementById('topics'));
+                //console.log('topics', document.getElementById('topics'));
 
                 // カード画像は全部ロードが終わった後並べ替え作業をする
                 var elements = document.querySelectorAll('.card-img-top');
                 var count = 0;
                 new Promise((resolve) => {
                     for (element of elements) {
-                        console.log(element);
+                        //console.log(element);
                         var src_tmp = element.src;
                         element.src = '';
                         element.onload = function () {
@@ -365,10 +365,11 @@
 </head>
 
 <body>
+
     <header id="global-head">
-        <a href="./index.html">
-            <h1><img src="./images/header@2x.png" alt="東京都立大学インダストリアルアート学科/学域"></h1>
-        </a>
+        <script>
+            $("#global-head").load("./parts/header.html");
+        </script>
     </header>
 
     <div id="nav-toggle">
@@ -381,17 +382,7 @@
 
     <aside id="sidebar">
         <nav id="global-nav">
-            <ul>
-                <li><a href="./studio.html">Studio</a></li>
-                <li><a href="./about.html">About</a></li>
-                <li><a href="./faculty.html">Faculty</a></li>
-                <li><a href="./access.html">Access</a></li>
-                <li><a href="./faq.html">FAQ</a></li>
-                <li><a href="./links.html">Link</a></li>
-                <li class="language"><a class="here" href="./index.html">JA</a><span>/</span><a
-                        href="./index.html">EN</a>
-                </li>
-            </ul>
+            <script type="text/javascript" src="./javascript/menu.js"></script>
         </nav>
     </aside>
 
@@ -410,11 +401,15 @@
 
         </div>
 
-
-        <!-- 馬場が勝手に作った受賞スクレイピング ここまで-->
+        <footer>
+            <script>
+                $("footer").load("./parts/footer.html");
+            </script>
+        </footer>
         </main>
     </div>
-    </div>
+
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

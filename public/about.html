@@ -20,13 +20,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
-
 <body>
 
   <header id="global-head">
-    <a href="./index.html">
-      <h1><img src="./images/header@2x.png" alt="東京都立大学インダストリアルアート学科/学域"></h1>
-    </a>
+    <script>
+      $("#global-head").load("./parts/header.html");
+    </script>
   </header>
 
   <div id="nav-toggle">
@@ -39,18 +38,10 @@
 
   <aside id="sidebar">
     <nav id="global-nav">
-      <ul class="en">
-        <li><a href="./studio.html">Studio</a></li>
-        <li><a class="here" href="./about.html">About</a></li>
-        <li><a href="./faculty.html">Faculty</a></li>
-        <li><a href="./access.html">Access</a></li>
-        <li><a href="./faq.html">FAQ</a></li>
-        <li><a href="./links.html">Link</a></li>
-        <li class="language"><a class="here" href="./about.html">JA</a><span>/</span><a href="./en/about.html">EN</a>
-        </li>
-      </ul>
+      <script type="text/javascript" src="./javascript/menu.js"></script>
     </nav>
   </aside>
+
   <div class="wrapper">
     <div class="centering">
       <main>
@@ -97,7 +88,9 @@
       </main>
 
       <footer>
-        <p>&copy; 2021 Tokyo Metropolitan University Department of Industrial Art</p>
+        <script>
+          $("footer").load("./parts/footer.html");
+        </script>
       </footer>
     </div>
   </div>
