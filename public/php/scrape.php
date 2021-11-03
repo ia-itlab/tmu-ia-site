@@ -17,8 +17,7 @@ $html = preg_replace('/\r\n|\r|\n|\t/', '', $html);
 $html = preg_replace('/ {2,}/',' ', $html);
 
 
-// 該当するリストタグだけを表示 現状は 2020年以降のみをスクレイピングする
-// '@<li class="informationRow age202(?:.*?)>(.*?)</li>@s'
+// 該当箇所のみを $matches に保存する
 preg_match_all($regexp, $html ,$matches);
 //print_r($matches);
 foreach( $matches[0] as $match){
