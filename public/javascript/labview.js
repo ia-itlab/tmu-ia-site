@@ -311,8 +311,8 @@ function selectData(id) {
   let url_en = './en/labview.html?id=' + id;
 
   //href属性の値を書き換える
-  link_lang_ja.setAttribute('href', url_ja);
-  link_lang_en.setAttribute('href', url_en);
+  //link_lang_ja.setAttribute('href', url_ja);
+  //link_lang_en.setAttribute('href', url_en);
 
   /*他のスタジオへの導線の表示・当該のスタジオだけ除外 */
   let studio_list_items = Array.prototype.slice.call(document.getElementsByClassName("studio-item"));

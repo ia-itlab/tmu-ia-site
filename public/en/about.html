@@ -33,19 +33,27 @@
 
     <aside id="sidebar">
         <nav id="global-nav">
-            <ul class="en">
-                <li><a href="./studio.html">Studio</a></li>
-                <li><a class="here" href="./about.html">About</a></li>
-                <li><a href="./faculty.html">Faculty</a></li>
-                <li><a href="./access.html">Access</a></li>
-                <li><a href="./faq.html">FAQ</a></li>
-                <li><a href="./links.html">Link</a></li>
-                <li class="language"><a href="../about.html">JA</a><span>/</span><a class="here"
-                        href="./about.html">EN</a>
-                </li>
-            </ul>
+            <script>
+                $("#global-nav").load("./parts/menu.html", function () {
+                    let ul = document.querySelector('#menu');
+                    let lis = ul.querySelectorAll('li');
+                    //console.log(lis);
+                    var filename = window.location.href.split('/').pop();
+                    console.log(filename);
+                    for (li of lis) {
+                        if (li.querySelector('a').id + '.html' === filename) {
+                            li.querySelector('a').classList = 'here';
+                        }
+                        else {
+                            li.querySelector('a').classList = '';
+                        }
+                    }
+                    //console.log(str);
+                });
+            </script>
         </nav>
     </aside>
+
     <div class="wrapper">
         <div class="centering">
             <main>
