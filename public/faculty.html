@@ -19,6 +19,135 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <script type="text/javascript">
+    window.onload = function () {
+      var loadHTML = new Promise(function (resolve, reject) {
+        // ia wiki から topicsデータを取得する
+        {
+          var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:faculty';
+          var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
+          var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
+          var replace = 'teachers';
+          //Httpリクエスを作る
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.open("GET", _html, true);
+          xmlhttp.onreadystatechange = function () {
+            //とれた場合Idにそって入れ替え
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+              var data = xmlhttp.responseText;
+              //xmlhttp.responseXML
+              //console.log(data);
+              var elem = document.getElementById(replace);
+              elem.innerHTML = data;
+              resolve(data);
+              //return data;
+            }
+          }
+          xmlhttp.send(null);
+        }
+      });
+      loadHTML.then(function () {
+        // <section class="member"><img src="./images/prof-images/kusumi.jpg" alt="portrait">
+        //    <section class="profile">
+        //       <div class="name">
+        //         <h3>楠見 清</h3><span class="position">准教授</span>
+        //         <p class="name-en">Kiyoshi Kusumi</p>
+        //       </div>
+        //       <a href="./labview.html?id=editorial">
+        //         <p class="lab">エディティングスタジオ</p>
+        //       </a>
+        //       <p class="research-topics">編集論、メディア論、情報コンテンツプロデュース、出版文化史</p>
+        //       <a class="external-link" href="http://equipmentdesign.tumblr.com/">
+        //        <span>equipmentdesign.tumblr.com</span><img src="./images/prof-link.svg">
+        //       </a>
+        //     </section>
+        // </section
+        var ols = document.getElementById('teachers').querySelector('.dw-content').querySelectorAll('ol');
+        for (ol of ols) {
+          var lis = ol.querySelectorAll('li');
+          // [0]：名前
+          // [1]：役職
+          // [2]：ローマ字表記
+          // [3]：スタジオ名
+          // [4]：キーワード
+          // [5]：研究室リンク
+          // [6]：写真
+          console.log(ol);
+          let name = lis[0].querySelector('.li').innerHTML;
+          let position = lis[1].querySelector('.li').innerHTML;
+          let name_en = lis[2].querySelector('.li').innerHTML;
+          let name_studio = lis[3].querySelector('.li').innerHTML;
+          let keywords = lis[4].querySelector('.li').innerHTML;
+          let website;
+          if (lis[5].querySelector('.li').querySelector('a')) {
+            website = lis[5].querySelector('.li').querySelector('a').href;
+          }
+          else {
+            website = "";
+          }
+
+          let image_src;
+          if (lis[6].querySelector('.li').querySelector('a')) {
+            image_src = lis[6].querySelector('.li').querySelector('a').href;
+          }
+          else {
+            image_src = "https://placehold.jp/5c5c5c/ffffff/300x300.png?text=no%20image";
+          }
+
+          // ここからタグを作成していく
+          var section_member = document.createElement('section');
+          section_member.classList = 'member';
+          var img = document.createElement('img');
+          img.src = image_src;
+          section_member.appendChild(img);
+
+          var section_profile = document.createElement('section');
+          section_profile.classList = 'profile';
+          section_member.appendChild(section_profile);
+          var div_name = document.createElement('div');
+          div_name.classList = 'name';
+          section_profile.appendChild(div_name);
+          var h3 = document.createElement('h3');
+          h3.innerHTML = name;
+          div_name.appendChild(h3);
+          var span_position = document.createElement('span');
+          span_position.classList = 'position';
+          span_position.innerHTML = position;
+          div_name.appendChild(span_position);
+          var p_name_en = document.createElement('p');
+          p_name_en.classList = 'name-en';
+          p_name_en.innerHTML = name_en;
+          div_name.appendChild(p_name_en);
+
+          var p_lab = document.createElement('p');
+          p_lab.classList = 'lab';
+          p_lab.innerHTML = name_studio;
+          section_profile.appendChild(p_lab);
+
+          var p_keywords = document.createElement('p');
+          p_keywords.classList = 'research-topics';
+          p_keywords.innerHTML = keywords;
+          section_profile.appendChild(p_keywords);
+
+          var a_website = document.createElement('a');
+          a_website.classList = 'external-link';
+          a_website.href = website;
+          a_website.innerHTML = website;
+          a_website.target = '_blank';
+          section_profile.appendChild(a_website);
+
+          ol.remove();
+
+
+          document.getElementById('teachers').appendChild(section_member);
+          console.log(section_member);
+        }
+        document.getElementById('teachers').querySelector('.dw-content').remove();
+
+      });
+    }
+  </script>
 </head>
 
 <body>
@@ -48,244 +177,7 @@
       <main>
         <h2 class="page-title">Faculty<span>教員紹介</span></h2>
 
-        <section class="faculty">
-          <section class="member"><img src="./images/prof-images/kusumi.jpg" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>楠見 清</h3><span class="position">准教授</span>
-                <p class="name-en">Kiyoshi Kusumi</p>
-              </div>
-              <a href="./labview.html?id=editorial">
-                <p class="lab">エディティングスタジオ</p>
-              </a>
-              <p class="research-topics">編集論、メディア論、情報コンテンツプロデュース、出版文化史</p>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/kim.png" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>金 石振</h3><span class="position">准教授</span>
-                <p class="name-en">Seokjin Kim</p>
-              </div>
-              <a href="./labview.html?id=equipment">
-                <p class="lab">製品・サービスデザインスタジオ</p>
-              </a>
-              <p class="research-topics">製品イノベーションデザイン、サステーナブルデザイン</p>
-              <a class="external-link" href="http://equipmentdesign.tumblr.com/">
-                <span>equipmentdesign.tumblr.com</span><img src="./images/prof-link.svg">
-              </a>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/kasamatsu.png" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>笠松 慶子</h3><span class="position">教授</span>
-                <p class="name-en">Keiko Kasamatsu</p>
-              </div>
-              <a href="./labview.html?id=ergonomics">
-                <p class="lab">エルゴノミックデザインスタジオ</p>
-              </a>
-              <p class="research-topics">人間工学、ヒューマンインタフェース</p>
-              <a class="external-link" href="https://www.comp.sd.tmu.ac.jp/ergodesign/index.html">
-                <span>www.comp.sd.tmu.ac.jp/ergodesign/index.html</span><img src="./images/prof-link.svg">
-              </a>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/kushiyama.jpg" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>串山 久美子</h3><span class="position">教授</span>
-                <p class="name-en">Kumiko Kushiyama</p>
-              </div>
-              <a href="./labview.html?id=interactive">
-                <p class="lab">インタラクティブアートスタジオ</p>
-              </a>
-              <p class="research-topics">メディアアート,インタラクティブアート,バーチャルリアリティ</p>
-              <a class="external-link" href="http://ideea.jp/">
-                <span>ideea.jp</span><img src="./images/prof-link.svg">
-              </a>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/baba.png" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>馬場 哲晃</h3><span class="position">准教授</span>
-                <p class="name-en">Tetsuaki Baba</p>
-              </div>
-              <a href="./labview.html?id=interface">
-                <p class="lab">インタフェースデザインスタジオ</p>
-              </a>
-              <p class="research-topics">インタラクティブアート、インタラクションデザイン</p>
-              <a class="external-link" href="http://tetsuakibaba.jp/">
-                <span>tetsuakibaba.jp</span><img src="./images/prof-link.svg">
-              </a>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/fujiwara.png" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>藤原 敬介</h3><span class="position">教授</span>
-                <p class="name-en">Keisuke Fujiwara</p>
-              </div>
-              <a href="./labview.html?id=interior">
-                <p class="lab">インテリアデザインスタジオ</p>
-              </a>
-              <p class="research-topics">インテリアデザイン</p>
-              <a class="external-link" href="http://www.keisukefujiwara.com/">
-                <span>keisukefujiwara.com</span><img src="./images/prof-link.svg">
-              </a>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/komma.png" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>今間 俊博</h3><span class="position">教授</span>
-                <p class="name-en">Toshihiro Komma</p>
-              </div>
-              <a href="./labview.html?id=kinematograph">
-                <p class="lab">映像デザインスタジオ</p>
-              </a>
-              <p class="research-topics">アニメーション・映像</p>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/sugimoto.jpg" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>杉本 達應</h3><span class="position">准教授</span>
-                <p class="name-en">Tatsuo Sugimoto</p>
-              </div>
-              <a href="./labview.html?id=network">
-                <p class="lab">ネットワークデザインスタジオ</p>
-              </a>
-              <p class="research-topics">メディアデザイン、メディアアート、メディア表現の研究</p>
-              <a class="external-link" href="https://lab.sugimototatsuo.com/">
-                <span>lab.sugimototatsuo.com</span><img src="./images/prof-link.svg">
-              </a>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/mukai.jpg" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>向井 智彦</h3><span class="position">准教授</span>
-                <p class="name-en">Toshihiko Mukai</p>
-              </div>
-              <a href="./labview.html?id=software">
-                <p class="lab">ソフトウェアデザインスタジオ</p>
-              </a>
-              <p class="research-topics">コンピュータグラフィックス</p>
-              <a class="external-link" href="http://mukai-lab.org/">
-                <span>mukai-lab.org</span><img src="./images/prof-link.svg">
-              </a>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/verl.jpg" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>ヴァール アダムス</h3><span class="position">准教授</span>
-                <p class="name-en">Verl Adams</p>
-              </div>
-              <a href="./labview.html?id=spatial">
-                <p class="lab">空間デザインスタジオ</p>
-              </a>
-              <p class="research-topics">建築、空間デザイン、写真</p>
-              <a class="external-link" href="http://www.verladams.com/">
-                <span>verladams.com</span><img src="./images/prof-link.svg">
-              </a>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/namba.png" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>難波 治</h3><span class="position">教授</span>
-                <p class="name-en">Osamu Namba</p>
-              </div>
-              <a href="./labview.html?id=transportation">
-                <p class="lab">トランスポーテーションデザインスタジオ</p>
-              </a>
-              <p class="research-topics">自動車デザイン、商品企画論、工業デザイン</p>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/kikutake.jpg" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>菊竹 雪</h3><span class="position">教授</span>
-                <p class="name-en">Yuki Kikutake</p>
-              </div>
-              <a href="./labview.html?id=visual">
-                <p class="lab">ヴィジュアルコミュニケーションデザインスタジオ</p>
-              </a>
-              <p class="research-topics">グラフィックデザイン、アートディレクション</p>
-              <a class="external-link" href="http://www.yuki-kikutake-design.com/">
-                <span>yuki-kikutake-design.com</span><img src="./images/prof-link.svg">
-              </a>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/hidaka.png" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>日高 良祐</h3><span class="position">助教</span>
-                <p class="name-en">Ryosuke Hidaka</p>
-              </div>
-              <p class="research-topics">メディア研究、ポピュラー音楽研究</p>
-              <a class="external-link" href="http://ryskhdk.net/">
-                <span>ryskhdk.net</span><img src="./images/prof-link.svg">
-              </a>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/motegi.png" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>茂木 龍太</h3><span class="position">助教</span>
-                <p class="name-en">Ryuta Mogi</p>
-              </div>
-              <p class="research-topics">コンテンツデザイン、デザイン手法</p>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/tsuchiya.jpg" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>土屋 真</h3><span class="position">助教</span>
-                <p class="name-en">Shin Tsuchiya</p>
-              </div>
-              <p class="research-topics">空間デザイン</p>
-            </section>
-          </section>
-
-
-          <section class="member"><img src="./images/prof-images/sakaguchi.png" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>阪口 紗季</h3><span class="position">助教</span>
-                <p class="name-en">Saki Sakaguchi</p>
-              </div>
-              <p class="research-topics">インタラクションデザイン</p>
-            </section>
-          </section>
-
-          <section class="member"><img src="./images/prof-images/nakao.jpg" alt="portrait">
-            <section class="profile">
-              <div class="name">
-                <h3>中尾泰斗</h3><span class="position">助教</span>
-                <p class="name-en">Taito Nakao</p>
-              </div>
-              <p class="research-topics">日本画制作、描画教育</p>
-            </section>
-          </section>
-
+        <section class="faculty" id="teachers">
         </section>
 
       </main>
