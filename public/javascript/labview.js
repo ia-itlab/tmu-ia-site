@@ -275,7 +275,7 @@ const studios = [
 //表示されたらパラメータを取得してデータ書き換え
 window.onload = function onload() {
   param = GetQueryString();
-  console.log(param["id"]);
+  //console.log(param["id"]);
   selectData(param["id"]);
 };
 
@@ -317,9 +317,9 @@ function selectData(id) {
   /*他のスタジオへの導線の表示・当該のスタジオだけ除外 */
   let studio_list_items = Array.prototype.slice.call(document.getElementsByClassName("studio-item"));
   studio_list_items.forEach(function (item) {
-    console.log(studio_list_items);
+    //    console.log(studio_list_items);
     if (loadID == item.id) {
-      console.log("called");
+      //    console.log("called");
       item.classList.add("inactive");
     }
 
@@ -328,7 +328,7 @@ function selectData(id) {
 
   let indicators = Array.prototype.slice.call(
     document.getElementsByClassName("box")
-  ); console.log(indicators);
+  );// console.log(indicators);
 
   indicators.forEach(function (item) {
 

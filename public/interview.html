@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+  <style>
+    p {
+      font-size: 1.0em;
+      line-height: 1.7em;
+      padding-top: 1em;
+    }
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    h2 {
+      font-size: 0.8em;
+    }
+  </style>
+
+  <link rel="shortcut icon" href="./images/ファビコン (logo)/favicon.ico">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="./javascript/fademover.js"></script>
+  <script type="text/javascript" src="./javascript/index.js"></script>
+  <title>東京都立大学システムデザイン学部インダストリアルアート学科|Faculty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <script type="text/javascript">
+    window.onload = function () {
+
+      // URLのGETパラメータから読み込むページを求める
+      var url = new URL(window.location.href);
+      var params = url.searchParams;
+      // 記事番号
+      console.log(params.get('no'));
+      var number_page;
+      if (!params.get('no')) {
+        number_page = 'menu'
+      }
+      else {
+        number_page = params.get('no');
+      }
+
+
+      var loadHTML = new Promise(function (resolve, reject) {
+        // ia wiki から topicsデータを取得する
+        {
+          var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:interview:' + number_page;
+          var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
+          var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
+          var replace = 'list';
+          //Httpリクエスを作る
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.open("GET", _html, true);
+          xmlhttp.onreadystatechange = function () {
+            //とれた場合Idにそって入れ替え
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+              var data = xmlhttp.responseText;
+              //xmlhttp.responseXML
+              //console.log(data);
+
+              data = data.replace('\/wiki\/lib\/exe\/', 'https:\/\/industrial-art.sd.tmu.ac.jp\/wiki\/lib\/exe\/')
+              var elem = document.getElementById(replace);
+              elem.innerHTML = data;
+              resolve(data);
+              return data;
+            }
+          }
+          xmlhttp.send(null);
+        }
+      });
+      loadHTML.then(function () {
+
+        var ols = document.querySelector('.dw-content').querySelectorAll('ol');
+        for (ol of ols) {
+          var lis = ol.querySelectorAll('li');
+          var number = lis[0].querySelector('.li').innerHTML;
+          var name = lis[1].querySelector('.li').innerHTML;
+          var graduation = lis[2].querySelector('.li').innerHTML;
+          var affiliation = lis[3].querySelector('.li').innerHTML;
+          var date = lis[4].querySelector('.li').innerHTML;
+
+          // <a href="" class="list-group-item list-group-item-action " aria-current="true">
+          //   <div class="d-flex w-100 justify-content-between">
+          //     <h5 class="mb-1 h3">インダス花子、2009年卒</h5>
+          //     <small class="text-muted">2021年11月5日</small>
+          //   </div>
+          //   <!-- <p class="mb-"></p> -->
+          //   <small class="text-muted">株式会社オノマトペガジェット、企画開発部チーフデザイナー</small>
+          // </a>
+
+          var a = document.createElement('a');
+          a.classList = "list-group-item list-group-item-action";
+          a.href = window.location.href + "?no=" + number.replace(' ', '');
+          var div = document.createElement('div');
+          div.classList = "d-flex w-100 justify-content-between";
+          a.appendChild(div);
+          var h5 = document.createElement('h5');
+          h5.classList = "mb-1 h5";
+          h5.innerHTML = name + " " + graduation;
+          div.appendChild(h5);
+          var small = document.createElement('small');
+          small.classList = "text-muted";
+          small.innerHTML = date;
+          div.appendChild(small);
+          var small_affiliation = document.createElement('small');
+          small_affiliation.classList = "text-muted";
+          small_affiliation.innerHTML = affiliation;
+          a.appendChild(small_affiliation);
+          document.querySelector('#list').appendChild(a);
+          ol.remove();
+        }
+
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <header id="global-head">
+    <script>
+      $("#global-head").load("./parts/header.html");
+    </script>
+  </header>
+
+  <div id="nav-toggle">
+    <div>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <aside id="sidebar">
+    <nav id="global-nav">
+      <script type="text/javascript" src="./javascript/menu.js"></script>
+    </nav>
+  </aside>
+
+
+  <div class="wrapper">
+    <div class="centering">
+      <main>
+        <h2 class="page-title">Interview（β機能）<span>インダストリアルアート学科の教員やOB/OGとのインタビューを不定期で掲載</span></h2>
+
+        <div id="article">
+
+        </div>
+
+
+        <div class="list-group" id="list">
+          <a href="" class="list-group-item list-group-item-action " aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1 h3">インダス花子、2009年卒</h5>
+              <small class="text-muted">2021年11月5日</small>
+            </div>
+            <!-- <p class="mb-"></p> -->
+            <small class="text-muted">株式会社オノマトペガジェット、企画開発部チーフデザイナー</small>
+          </a>
+        </div>
+
+
+      </main>
+
+      <footer>
+        <script>
+          $("footer").load("./parts/footer.html");
+        </script>
+      </footer>
+    </div>
+  </div>
+  <section class="scroll-top"><img src="./images/page-top.svg" art="image">
+    <p>PageTop</p>
+  </section>
+
+</body>
+
+</html>
