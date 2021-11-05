@@ -15,7 +15,7 @@ top.htmlのみ外部ページスクレイピングの為，phpを利用します
 
 # Design System
 ここで考えます
-[Figma]（https://www.figma.com/file/mmJZa69LebPCQYletsSeMQ/TMU-IA-team-library?node-id=312%3A32）
+[Figma](https://www.figma.com/file/mmJZa69LebPCQYletsSeMQ/TMU-IA-team-library?node-id=312%3A32)
 ## Typography
 [Kinto Sans](https://github.com/ookamiinc/kinto)
 ## Color Scheme
