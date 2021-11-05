@@ -17,7 +17,7 @@ top.htmlのみ外部ページスクレイピングの為，phpを利用します
 ここで考えます
 https://www.figma.com/file/mmJZa69LebPCQYletsSeMQ/TMU-IA-team-library?node-id=312%3A32
 ## Typography
-[Kinto Sans https://github.com/ookamiinc/kinto]
+[Kinto Sans](https://github.com/ookamiinc/kinto)
 ## Color Scheme
 仮で定義しました。
 https://toolness.github.io/accessible-color-matrix/?n=gray1&n=gray2&n=gray3&n=gray4&n=gray5&n=gray6&v=1F1F1F&v=434343&v=8C8C8C&v=D9D9D9&v=F5F5F5&v=FFFFFF
