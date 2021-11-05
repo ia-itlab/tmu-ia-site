@@ -5,14 +5,12 @@
 */
 
 :root {
-  --color-gray-1: #333;
-  --color-gray-2: #666;
-  --color-gray-3: #999;
-  --color-gray-4: #bbb;
-  --color-gray-5: #d9d9d9;
-  --color-gray-6: #f5f5f5;
-  --color-gray-7: #fafafa;
-  --color-white: #fff;
+  --color-gray-1: #1F1F1F;
+  --color-gray-2: #434343;
+  --color-gray-3: #8C8C8C;
+  --color-gray-4: #D9D9D9;
+  --color-gray-5: #f5f5f5;
+  --color-gray-6: #fff;
 }
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -24,8 +22,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
 }
 
-
-
 /* HTML5 display-role reset for older browsers */
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -35,9 +31,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 html, body {
   height: 100%;
   line-height: 1;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", 'Noto Sans JP', Meiryo, メイリオ, Osaka, "MS PGothic", arial, helvetica, sans-serif;
+  font-family: kinto-sans, sans-serif;
   -webkit-text-size-adjust: 100%;
-  color: #333;
+  color: var(--color-gray-1);
   line-height: 1.5;
 }
 
@@ -102,7 +98,7 @@ header a {
 header a h1 {
   font-weight: bold;
   font-size: 1.75rem;
-  color: #333;
+  color: var(--color-gray-1);
   line-height: 1.4em;
   display: inline-block;
 }
@@ -123,8 +119,8 @@ h2.page-title>span {
   font-weight: 400;
   font-size: 0.875rem;
   margin-left: 0.8em;
-  color: #999;
-  /*border-left: 2px solid #bbb;*/
+  color: var(--color-gray-3);
+  /*border-left: 2px solid var(--color-gray-4);*/
 }
 
 .width-limit {
@@ -146,8 +142,8 @@ h3.page-sub-title>span {
   font-size: 0.875rem;
   margin-top: 24px;
   margin-left: 0.8em;
-  color: #999;
-  /*border-left: 2px solid #bbb;*/
+  color: var(--color-gray-3);
+  /*border-left: 2px solid var(--color-gray-4);*/
 }
 
 /* Menu ------------------- */
@@ -159,17 +155,17 @@ h3.page-sub-title>span {
   width: 160px;
   height: 100%;
   position: fixed;
-  background: #fff;
+  background: var(--color-gray-6);
 }
 
 #sidebar a {}
 
 #sidebar a.here {
-  color: #333;
+  color: var(--color-gray-1);
 }
 
 #sidebar a:hover {
-  color: #333;
+  color: var(--color-gray-1);
 }
 
 #sidebar a.txt_red {
@@ -209,13 +205,13 @@ h3.page-sub-title>span {
   padding: 32px 0 12px 40px;
   width: 100%;
   z-index: 100;
-  background-color: #fff;
+  background-color: var(--color-gray-6);
 }
 
 #global-nav ul {
   list-style: none;
   margin-left: 0px;
-  padding-left:0px;
+  padding-left: 0px;
 }
 
 #global-nav>ul>li {
@@ -225,13 +221,13 @@ h3.page-sub-title>span {
 #global-nav a {
   font-weight: bold;
   font-size: 1.25rem;
-  color: #999;
+  color: var(--color-gray-3);
   line-height: 2em;
   letter-spacing: .5pt;
   text-decoration: none;
   display: block;
   padding: 2px 0px;
-  margin:0px;
+  margin: 0px;
   -moz-transition: background-color .3s linear;
   -webkit-transition: background-color .3s linear;
   transition: background-color .3s linear;
@@ -239,8 +235,8 @@ h3.page-sub-title>span {
 
 #global-nav li.language {
   margin-top: 12px;
-  margin-left:0px;
-  padding-left:0px;
+  margin-left: 0px;
+  padding-left: 0px;
 }
 
 #global-nav li.language a {
@@ -348,7 +344,7 @@ h3.page-sub-title>span {
   display: inline-block;
   font-weight: bold;
   font-size: 18pt;
-  color: #333
+  color: var(--color-gray-1);
 }
 
 .links .link .right .linktitle img.external-link {
@@ -384,7 +380,7 @@ h3.page-sub-title>span {
 }
 
 .faculty .member {
-  background: #fff;
+  background: var(--color-gray-6);
   max-width: 540px;
   min-height: 150px;
   display: flex;
@@ -395,7 +391,7 @@ h3.page-sub-title>span {
 }
 
 .faculty .member img {
-  /* background: #333;*/
+  /* background: var(--color-gray-1);*/
   width: 150px;
   height: 150px;
 }
@@ -423,7 +419,7 @@ h3.page-sub-title>span {
   display: inline-block;
   font-weight: 400;
   font-size: 10pt;
-  color: #999;
+  color: var(--color-gray-3);
   margin-top: 0.4em;
 }
 
@@ -431,8 +427,8 @@ h3.page-sub-title>span {
   margin-left: 0.4em;
   font-size: 0.875rem;
   /*padding: 0.2em 0.3em;
-  color: #fff;
-  background-color: #666;
+  color: var(--color-gray-6);
+  background-color: var(--color-gray-2);
   border-radius: 2px;*/
 }
 
@@ -441,7 +437,7 @@ h3.page-sub-title>span {
 }
 
 .faculty .member .profile a.external-link {
-  color: #666;
+  color: var(--color-gray-2);
   font-size: 0.875rem;
   word-wrap: break-word;
 }
@@ -458,7 +454,7 @@ h3.page-sub-title>span {
   width: 100%;
   font-weight: bold;
   font-size: 0.875rem;
-  color: #333;
+  color: var(--color-gray-1);
 }
 
 .faculty .member .profile p.research-topics {
@@ -770,7 +766,7 @@ footer.width-limit-footer {
   line-height: 1.2;
   text-align: center;
   font-weight: bold;
-  color: #fff;
+  color: var(--color-gray-6);
   background: transparent;
   opacity: 0;
   margin: 0 0 20px -150px;
@@ -877,7 +873,7 @@ footer.width-limit-footer {
   position: absolute;
   font-size: 0.875rem;
   letter-spacing: 0.08em;
-  color: #fff;
+  color: var(--color-gray-6);
   padding: 0 0 0.4em 0.4rem;
   bottom: 0;
 }
@@ -992,7 +988,7 @@ footer.width-limit-footer {
   text-decoration: none;
   font-weight: bold;
   font-size: 12pt;
-  color: #333;
+  color: var(--color-gray-1);
   line-height: 15pt;
 }
 
@@ -1001,8 +997,8 @@ footer.width-limit-footer {
   width: 100%;
   height: 200px;
   overflow: hidden;
-  color: #fff;
-  background-color: #333;
+  color: var(--color-gray-6);
+  background-color: var(--color-gray-1);
 }
 
 .studios .studio div img {
@@ -1034,7 +1030,7 @@ footer.width-limit-footer {
   line-height: 1.25;
   font-weight: bold;
   font-size: 1.25rem;
-  color: #fff;
+  color: var(--color-gray-6);
 }
 
 .studios .studio div .mask .read-more {
@@ -1042,8 +1038,8 @@ footer.width-limit-footer {
   font-weight: normal;
   font-size: 10pt;
   bottom: 0;
-  color: #fff;
-  /* border: 1.5px #fff solid; 
+  color: var(--color-gray-6);
+  /* border: 1.5px var(--color-gray-6) solid; 
          
           transform: scale(1);
           transition: transform 0.5s ease; */
@@ -1105,7 +1101,7 @@ footer.width-limit-footer {
   padding: 2px 8px;
   border-radius: 4px;
   background-color: #032284;
-  color: #fff;
+  color: var(--color-gray-6);
   display: inline-block;
   margin-top: 60px;
   font-weight: 700;
@@ -1135,7 +1131,7 @@ footer.width-limit-footer {
   padding: 3px 12px;
   display: table;
   cursor: pointer;
-  color: #fff;
+  color: var(--color-gray-6);
   font-weight: 700;
 }
 
@@ -1233,11 +1229,11 @@ footer.width-limit-footer {
     top: 0;
     height: 100%;
     width: 300px;
-    color: #333;
-    background: #fff;
+    color: var(--color-gray-1);
+    background: var(--color-gray-6);
     -webkit-transition: .35s ease-in-out;
     transition: .35s ease-in-out;
-    border-left: 1px solid #bbb;
+    border-left: 1px solid var(--color-gray-4);
   }
   #nav-toggle {
     display: block;
@@ -1330,7 +1326,7 @@ footer.width-limit-footer {
     width: 100%;
     text-align: left;
     padding-bottom: 24px;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid var(--color-gray-4);
   }
   .labview .right .boxView {
     display: none;
@@ -1431,7 +1427,7 @@ footer.width-limit-footer {
     width: 100%;
   }
   .faculty .member img {
-    /* background: #333;*/
+    /* background: var(--color-gray-1);*/
     width: 120px;
     height: 120px;
   }
@@ -1479,7 +1475,7 @@ footer.width-limit-footer {
 
 @media screen and (max-width: 360px) {
   .faculty .member img {
-    /* background: #333;*/
+    /* background: var(--color-gray-1);*/
     width: 100px;
     height: 100px;
   }
@@ -1499,7 +1495,7 @@ footer.width-limit-footer {
     margin: 0 0 40px 0px;
   }
   .faculty .member>img {
-    /* background: #333;*/
+    /* background: var(--color-gray-1);*/
     width: 180px;
     height: 180px;
     margin: 0 auto 12px auto;
