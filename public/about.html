@@ -27,6 +27,44 @@
         h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
     })(document);
   </script>
+
+  <!-- scraping and update page-->
+  <script>
+    window.onload = function () {
+
+      var loadHTML = new Promise(function (resolve, reject) {
+        // ia wiki から topicsデータを取得する
+        var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:topics';
+        var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
+        var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
+        var replace = 'about';
+        //Httpリクエスを作る
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", _html, true);
+        xmlhttp.onreadystatechange = function () {
+          //とれた場合Idにそって入れ替え
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var data = xmlhttp.responseText;
+            //xmlhttp.responseXML
+            //console.log(data);
+            var elem = document.getElementById(replace);
+            //elem.innerHTML = data;
+            resolve(data);
+            //return data;
+          }
+        }
+        xmlhttp.send(null);
+      });
+      loadHTML.then(function () {
+
+      });
+      //uls.remove();
+
+      //document.querySelector('.dw-content').remove();
+    }
+
+  </script>
+
 </head>
 
 <body>
@@ -55,7 +93,7 @@
     <div class="centering">
       <main>
         <h2 class="page-title">About<span>本学科/学域について</span></h2>
-        <section class="about">
+        <section class="about" id="about">
           <section>
             <h3>工学の基盤と文化的基盤の統合から生まれる新しい研究</h3>
 
