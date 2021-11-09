@@ -115,6 +115,25 @@
             color: white;
             transition: background-color 2s, color, 1s;
         }
+
+        .wrapper {
+            animation: fadeIn 2.0s ease 0.0s 1 normal;
+        }
+
+        @keyframes fadeIn {
+
+            /*animation-nameで設定した値を書く*/
+            0% {
+                opacity: 0
+            }
+
+            /*アニメーション開始時は不透明度0%*/
+            100% {
+                opacity: 1
+            }
+
+            /*アニメーション終了時は不透明度100%*/
+        }
     </style>
     <!--
         テンプレ
