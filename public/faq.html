@@ -30,6 +30,75 @@
 				h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
 		})(document);
 	</script>
+
+	<script>
+		var loadHTML = new Promise(function (resolve, reject) {
+			// ia wiki から topicsデータを取得する
+			var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:faq';
+			var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
+			var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
+			var replace = 'content';
+			//Httpリクエスを作る
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.open("GET", _html, true);
+			xmlhttp.onreadystatechange = function () {
+				//とれた場合Idにそって入れ替え
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					var data = xmlhttp.responseText;
+					//xmlhttp.responseXML
+					//console.log(data);
+					var elem = document.getElementById(replace);
+					elem.innerHTML = data;
+					resolve(data);
+					//return data;
+				}
+			}
+			xmlhttp.send(null);
+		});
+		loadHTML.then(function () {
+			var ols = document.querySelector('.dw-content').querySelectorAll('ol');
+
+			for (ol of ols) {
+				var lis = ol.querySelectorAll('li');
+				var str_q = lis[0].querySelector('div').innerHTML;
+				var str_a = lis[1].querySelector('div').innerHTML;
+
+				var div_line_bc = document.createElement('div');
+				div_line_bc.classList = 'line-bc';
+				document.querySelector('#content').appendChild(div_line_bc);
+
+				var div_balloon6 = document.createElement('div');
+				div_balloon6.classList = 'balloon6';
+				div_line_bc.appendChild(div_balloon6);
+
+				var div_faceicon = document.createElement('div');
+				div_faceicon.classList = 'faceicon';
+				div_balloon6.appendChild(div_faceicon);
+				var img = document.createElement('img');
+				img.src = './images/faq/' + String(1 + parseInt(Math.random() * 16)).padStart(2, 0) + '.png';
+				div_faceicon.appendChild(img);
+
+				var div_chatting = document.createElement('div');
+				div_chatting.classList = 'chatting';
+				div_balloon6.appendChild(div_chatting);
+				var div_says = document.createElement('div');
+				div_says.classList = 'says';
+				div_chatting.appendChild(div_says);
+				var p_q = document.createElement('p');
+				p_q.innerHTML = str_q;
+				div_says.appendChild(p_q);
+
+				var div_mycomment = document.createElement('div');
+				div_mycomment.classList = 'mycomment';
+				div_line_bc.appendChild(div_mycomment);
+				var p_a = document.createElement('p');
+				p_a.innerHTML = str_a;
+				div_mycomment.appendChild(p_a);
+			}
+			document.querySelector('.dw-content').remove();
+			//console.log(document.querySelector('#content'));
+		});
+	</script>
 </head>
 
 <body>
@@ -65,607 +134,7 @@
 
 
 					<!-- Content -->
-					<div class="content">
-						<a name="admission"></a>
-						<h3>入試に関すること</h3>
-						<div class="line-bc">
-							<!--①LINE会話全体を囲う-->
-
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/01.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											造形表現とはなにをするのですか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									具体的な試験科目内容は、ここでは申し上げられませんので、過去問等を参照されるとよいでしょう。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-
-						</div>
-						<!--/①LINE会話終了-->
-
-						<div class="line-bc">
-							<!--①LINE会話全体を囲う-->
-
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/02.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											造形表現ではどのような勉強をすればよいのでしょうか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									受験生のデッサンの学び方はさまざまありますが、多くの受験生は造形表現の試験のためにそれぞれの方法で準備をしているようです。美大受験予備校にまで行かなくても、一度高校の美術の先生に過去問題を見てもらって相談するのもよいでしょう。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-
-						</div>
-
-
-						<!--/①LINE会話終了-->
-						<div class="line-bc">
-							<!--①LINE会話全体を囲う-->
-
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/03.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											絵が苦手でも入れますか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									描画技術は練習によって必ず上達します。練習を飽きずに続けられるようにまずは絵を好きになることから始めましょう。絵は描くだけでなく見ることによっても進歩します。展覧会や画集で優れた作品にたくさん触れ、好きな絵や画家について知ることも大切です。いわゆるアートだけでなくマンガやイラストレーションなど幅広い関心があればきっと苦手意識も消えますよね。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-
-						</div>
-						<!--/①LINE会話終了-->
-
-
-						<!--/①LINE会話終了-->
-
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/04.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											一般推薦に関して知りたいのですが
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									まずは大学事務局の入試課にお問い合わせください。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-
-						</div>
-						<!--/①LINE会話終了-->
-
-
-						<div class="line-bc">
-							<!--①LINE会話全体を囲う-->
-
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/05.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											美大及び他の総合大学との違いはなんですか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									システムデザイン学部の学科として、高度な工学領域を横断しつつ、様々なデザイン領域で指導を受けられる点です。<a
-										href="https://design-academia.net/"
-										target="_blank">国公立デザイン大学系大学会議</a>を参照されるとデザイン系の他大学の様子がわかりますよ。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-
-						</div>
-						<!--/①LINE会話終了-->
-
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/06.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											文系でも入れますか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									二次試験では数学が必須となります。詳しくは過去問等を参照してください。一般推薦では数学や造形表現はありません（2020年8月現在）。詳しくは募集要項をご確認ください。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-
-
-
-
-						<a name="life"></a>
-						<div class="spacer"></div>
-						<h3>学びと生活に関すること</h3>
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/08.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											美的センスって必要ですか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									いわゆる絵画的な美しさや絵心ではなく、デザインにはデザインの美的センスが必要です。それは正確さや整合性など論理的で数学的な美しさと言えるかもしれません。そのセンスとは、まずは正しく描くことで正しく伝えようとする努力によって磨かれるはずです。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/09.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											プログラミングは必要ですか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									入学時点ではプログラミングの知識は必要ありません。初学者向けの基礎科目から段階的にするスキルアップするカリキュラム構成になっています。なお、プログラミングは日本語や英語といった自然言語、数式、デッサン、塑像などと同じく、皆さんの思考を他者と共用するための有力なツールの1つです。皆さんの発想を数多くの人に届けるための手段として、選択肢は多い方が良いと思いませんか？
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/10.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											バイトできる余裕はありますか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									ご自身の時間の使い方によるかと思います。アルバイトをしている学生もいれば、そうでない学生もいるのが現状です。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/11.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											パソコンができないとダメですか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									「パソコンができる」の加減によりますが、キータイプすらままならない場合は課題制作やレポート等には支障がでるかと思います。PCを利用して調べ物をしたり、文章を書いたりできる程度であれば問題はないかと思います。もちろん入学後はそれ以上のスキル獲得が望まれます。
-									また、PC操作の基本、電子メールの使い方、およびMS-Officeを用いたレポート作成の方法等の使い方は、入学直後の1年生前期の全学共通の必修科目として必ず履修します。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/12.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											研究内容、研究室の様子を知りたいです。また、実際の学生（先輩）はどのような研究を行っているのですか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									各スタジオページをご参照ください。このサイトの右上のメニューの<a
-										href="./index.html">スタジオ</a>から各研究室の様子がわかります。インダストリアルアート学科では研究室のことをstudio（スタジオ）と呼称しています。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/13.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											留学を考えていますが、本学科では留学を支援する仕組みや実績はお持ちでしょうか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									大学全体としての奨学金制度や、日野キャンパス独自の奨学金制度等留学に関するサポートは他大と比較してもかなり充実しています。アート学科としても留学を推奨しており、海外研究機関との交流により、中短期に渡って継続的に交流をおこなっています。全学の取り組みは大学内の国際センターというところが中心となって実施されています。こちらのウェブサイトを参照されるとよいでしょう。<a
-										href="http://www.ic.tmu.ac.jp/study_overseas/study_overseas.html"
-										target="_blank">東京都立大学国際センター・国際課</a>
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/14.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											発達障害を持つ学生のサポートはありますか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									発達障害にかぎらず、本学には<a href="http://www.comp.tmu.ac.jp/diversity/index.html"
-										target="_blank">ダイバーシティ推進室 </a>
-									があり、障がいを持つ学生に対する配慮や仕組みづくり、支援に関して積極的に取り組んでいます。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/15.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											取れる資格はありますか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									インダストリアルアート学科では次の３つの資格が取得できます。<br>
-									学芸員：学芸員養成課程の所定科目を履修し博物館実習を行います。<br>
-									インテリアプランナー：定められた科目の単位の修得ならびに卒業を要件として受験資格を取得できます。（資格取得は、卒業後実務経験2年以上が必要です）<br>
-									商業施設士補：定められた科目の単位の修得を要件として受講資格を取得できます。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/16.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											スタジオはどれかに必ず入るのですか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									はい、必ずどこかのスタジオに配属され、そこで卒業研究を行います。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/10.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											卒業後の進路はどのようなものでしょうか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									大きく分けて就職と進学があります。また少数ですが起業するケースもあります。具体的な就職先はオープンキャンパスウェブサイトの各研究室のページに記載されている場合がありますので、ご確認ください。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/01.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											学費以外の教材費や研修費用等、別途負担する金額があるでしょうか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									全学共通科目では、教科書の購入が必要になることがあります。専門科目では、デザイン課題を行う際に、画材や工作道具、また材料の購入が必要になることがあります。大学には共通で使用できるパソコンはありますが、学びの環境を整えることを考えると、ご自身で購入することをお薦めします。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/02.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											入学までにやっておくことはありますか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									試験で求められる力を付けることは言うまでもありませんが、実はそれ以上に大切になるのが心身の健康です。毎日、朝ご飯をしっかり食べ、自分に適した形で運動をし、そして規則正しい生活を心掛けておいて下さい。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-
-						<a name="other"></a>
-						<div class="spacer"></div>
-						<h3>その他</h3>
-
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/04.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											インダストリアルアートとは？
-
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									<a href="https://www.sd.tmu.ac.jp/sdfaculty/industrial_art.html"
-										target="_blank">学部HP</a>
-									をご参照ください。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-						<!--①LINE会話全体を囲う-->
-						<div class="line-bc">
-							<!--②左コメント始-->
-							<div class="balloon6">
-								<div class="faceicon">
-									<img src="./images/faq/02.png"></img>
-								</div>
-								<div class="chatting">
-									<div class="says">
-										<p>
-											学食にラーメンはありますか？
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--②/左コメント終-->
-
-							<!--③右コメント始-->
-							<div class="mycomment">
-								<p>
-									ございます。南大沢キャンパスの生協食堂では定番のしょうゆ味、みそ味のほか期間限定で全国各地のご当地ラーメンがいろいろ楽しめます。
-								</p>
-							</div>
-							<!--/③右コメント終-->
-						</div>
-						<!--/①LINE会話終了-->
-
-
-
-
-
-
-
+					<div class="content" id="content">
 
 					</div>
 
