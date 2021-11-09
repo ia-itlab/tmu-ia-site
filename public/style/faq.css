@@ -8,7 +8,38 @@
   text-align: right;
   font-size: 14px;
   background: var(--color-gray-3);
+  
+  /* .boxの初期状態を指定 */
+  
 }
+
+.line-bc.fadein{
+  display:block;
+  animation:1s fadein;
+}
+.line-bc.fadeout{
+  display:none;
+  animation:1s fadeout;
+}
+
+@keyframes fadein{
+  from{
+      opacity: 0;
+  }
+  to{
+      opacity: 1;
+  }
+}
+
+@keyframes fadeout{
+  from{
+      opacity: 1;
+  }
+  to{
+      opacity: 0;
+  }
+}
+
 
 /*以下、②左側のコメント*/
 

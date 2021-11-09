@@ -19,6 +19,7 @@
 	<script type="text/javascript" src="./javascript/studio.js"></script>
 	<title>FAQ｜東京都立大学システムデザイン学部インダストリアルアート学科/学域</title>
 
+
 	<!-- font -->
 	<script>
 		(function (d) {
@@ -99,6 +100,41 @@
 			//console.log(document.querySelector('#content'));
 		});
 	</script>
+
+	<!-- 検索用のスクリプト-->
+	<script>
+		function keyTyped(event) {
+			let keyword = document.getElementById('search_keywords').value;
+			if (keyword.length > 0) {
+				var lines = document.querySelectorAll('.line-bc');
+				for (line of lines) {
+
+					let str = {
+						question: line.querySelector('.balloon6').querySelector('.chatting').querySelector('.says').querySelector('p').innerHTML,
+						answer: line.querySelector('.mycomment').querySelector('p').innerHTML
+					};
+					console.log(str.question, str.answer);
+					if (str.question.indexOf(keyword) > 0 || str.answer.indexOf(keyword) > 0) {
+						line.classList.add('fadein');
+						line.classList.remove('fadeout');
+					}
+					else {
+						line.classList.remove('fadein');
+						line.classList.add('fadeout');
+					}
+				}
+			}
+			else {
+				var lines = document.querySelectorAll('.line-bc');
+				for (line of lines) {
+					line.classList.remove('fadein');
+					line.classList.remove('fadeout');
+					line.classList.add('fadein');
+				}
+			}
+
+		}
+	</script>
 </head>
 
 <body>
@@ -125,20 +161,25 @@
 	<div class="wrapper">
 		<div class="centering">
 			<main>
-				<h2 class="page-title">FAQ<span>大学説明会でよくある質問と回答</span></h2>
-
-				<section id="main" class="about">
-					<p>
-						これまでの大学説明会で実際に出た質問を一部抜粋修正した上で、対応する回答を記載しております。
-					</p>
-
-
-					<!-- Content -->
-					<div class="content" id="content">
-
+				<div class="row">
+					<div class="col-sm-6">
+						<h2 class="page-title">FAQ<span>大学説明会でよくある質問と回答</span></h2>
 					</div>
+					<div class="col-sm-6">
 
+						<div class="form-floating mb-3">
+							<input type="email" class="form-control" id="search_keywords" placeholder="造形表現"
+								oninput="keyTyped(event)">
+							<label for="floatingInput">絞り込みたい単語を入力（例：造形表現）</label>
 
+						</div>
+					</div>
+				</div>
+				<hr>
+
+				<!-- Content -->
+				<div class="content" id="content">
+				</div>
 
 		</div>
 
