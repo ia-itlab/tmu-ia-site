@@ -1529,3 +1529,23 @@ footer.width-limit-footer {
   border: 1px solid #0A0EF0;
   display: inline-block;
 }
+
+
+.wrapper {
+  animation: fadeIn 1.0s ease 0.0s 1 normal;
+}
+
+@keyframes fadeIn {
+
+  /*animation-nameで設定した値を書く*/
+  0% {
+      opacity: 0
+  }
+
+  /*アニメーション開始時は不透明度0%*/
+  100% {
+      opacity: 1
+  }
+
+  /*アニメーション終了時は不透明度100%*/
+}
