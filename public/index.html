@@ -103,7 +103,7 @@
         }
 
         .grid-item>a>.card {
-            color: black;
+            color: var(--color-gray-1);
             transition: background-color 2s, color 0.8s;
 
 
@@ -111,9 +111,25 @@
 
         .grid-item>a>.card:hover {
             text-decoration: none;
-            background-color: black;
-            color: white;
+            background-color: var(--color-gray-1);
+            color: var(--color-gray-6);
             transition: background-color 2s, color, 1s;
+        }
+
+        .card {
+            overflow: hidden;
+        }
+
+        .card img {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+
+        .card:hover img {
+            -webkit-transform: scale(1.05);
+            transform: scale(1.05);
         }
     </style>
     <!--
