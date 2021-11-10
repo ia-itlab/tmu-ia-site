@@ -1549,3 +1549,14 @@ footer.width-limit-footer {
 
   /*アニメーション終了時は不透明度100%*/
 }
+
+.twitter-link{
+  color: var(--color-gray-3);
+}
+
+.twitter-link:a{
+  color: var(--color-gray-3);
+}
+.twitter-link:a:hover{
+  color: var(--color-gray-1);
+}
