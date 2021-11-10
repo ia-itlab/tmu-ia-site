@@ -1530,7 +1530,10 @@ footer.width-limit-footer {
   display: inline-block;
 }
 
-
+/* ここから下は馬場が追加したもの*/
+img.fadeIn{
+  animation: fadeIn 1.0s ease 0.0s 1 normal;
+}
 .wrapper {
   animation: fadeIn 1.0s ease 0.0s 1 normal;
 }
