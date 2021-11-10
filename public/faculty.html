@@ -107,9 +107,21 @@
           // ここからタグを作成していく
           var section_member = document.createElement('section');
           section_member.classList = 'member';
-          var img = document.createElement('img');
+          let img = document.createElement('img');
           img.src = image_src;
+          img.style.visibility = 'hidden';
           section_member.appendChild(img);
+
+          // img.srcが読み込み終わったら表示してあげる
+          // カード画像は全部ロードが終わった後並べ替え作業をする
+          img.onload = function () {
+            img.style.visibility = 'visible';
+            img.classList = 'fadeIn';
+            console.log("loaded", img);
+          }
+
+
+
 
           var section_profile = document.createElement('section');
           section_profile.classList = 'profile';
