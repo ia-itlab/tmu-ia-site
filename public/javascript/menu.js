@@ -8,7 +8,6 @@ $("#global-nav").load("../parts/menu.html", function () {
         return;
     }
     for (li of lis) {
-
         if (li.querySelector('a').id + '.html' == filename) {
             li.querySelector('a').classList = 'here';
         }
