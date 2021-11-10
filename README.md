@@ -7,7 +7,7 @@
 > php -S localhost:8000
 ```
 
-などとして，ブラウザから http://localhost/8000/top.html へアクセスしてください．phpコマンドがない場合は
+などとして，ブラウザから http://localhost/8000 へアクセスしてください．phpコマンドがない場合は
 ```
 > brew install php
 ```
