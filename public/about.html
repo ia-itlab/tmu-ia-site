@@ -14,6 +14,7 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script type="text/javascript" src="./javascript/fademover.js"></script>
   <script type="text/javascript" src="./javascript/index.js"></script>
+  <script type="text/javascript" src="./javascript/language.js"></script>
   <title>ABOUT｜東京都立大学システムデザイン学部インダストリアルアート学科/学域</title>
 
   <!-- font -->
@@ -30,14 +31,15 @@
 
   <!-- scraping and update page-->
   <script>
-    window.onload = function () {
 
+    window.onload = function () {
+      initLanguage();
       var loadHTML = new Promise(function (resolve, reject) {
         // ia wiki から topicsデータを取得する
         var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:about';
         var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
         var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
-        var replace = 'main';
+        var id = 'main';
         //Httpリクエスを作る
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", _html, true);
@@ -47,20 +49,19 @@
             var data = xmlhttp.responseText;
             //xmlhttp.responseXML
             //console.log(data);
-            var elem = document.getElementById(replace);
+            var elem = document.getElementById(id);
             elem.innerHTML = data;
             resolve(data);
-            //return data;
           }
         }
         xmlhttp.send(null);
       });
       loadHTML.then(function () {
         var lis = document.querySelector('.dw-content').querySelector('ol').querySelectorAll('li');
-        //        console.log(lis);
-        // for (li of lis) {
-        //   console.log(li.querySelector('div').innerHTML)
-        // }
+        console.log(lis);
+        for (li of lis) {
+          console.log(li.querySelector('div').innerHTML)
+        }
         var h2_page_title = document.createElement('h2');
         h2_page_title.classList = "page-title";
         h2_page_title.innerHTML = lis[0].querySelector('div').innerHTML;
@@ -129,12 +130,21 @@
         img_course02.src = lis[11].querySelector('div').querySelector('a').innerHTML;
         section_course.appendChild(img_course02);
 
-        //console.log(document.getElementById("main"));
+        console.log(document.getElementById("main"));
         document.querySelector('.dw-content').remove();
+
+        var ens = document.querySelectorAll('en');
+        for (en of ens) {
+          en.hidden = true;
+        }
+        initLanguage();
       });
+
       //uls.remove();
       //console.log("hello", );
     }
+
+
 
   </script>
 
@@ -146,9 +156,11 @@
     <script>
       $("#global-head").load("./parts/header.html");
     </script>
+
   </header>
 
   <div id="nav-toggle">
+
     <div>
       <span></span>
       <span></span>
@@ -165,6 +177,7 @@
   <div class="wrapper">
     <div class="centering">
       <main id="main">
+
         <!-- <h2 class="page-title">About<span>本学科/学域について</span></h2>
         <section class="about">
           <section>
