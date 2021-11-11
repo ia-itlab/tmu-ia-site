@@ -15,6 +15,7 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script type="text/javascript" src="./javascript/fademover.js"></script>
   <script type="text/javascript" src="./javascript/index.js"></script>
+  <script type="text/javascript" src="./javascript/language.js"></script>
   <title>FACULTY｜東京都立大学システムデザイン学部インダストリアルアート学科/学域</title>
 
   <!-- font -->
@@ -164,6 +165,7 @@
           document.getElementById('teachers').appendChild(section_member);
           console.log(section_member);
         }
+        initLanguage();
         document.getElementById('teachers').querySelector('.dw-content').remove();
 
       });
@@ -196,7 +198,10 @@
   <div class="wrapper">
     <div class="centering">
       <main>
-        <h2 class="page-title">Faculty<span>教員紹介</span></h2>
+        <h2 class="page-title">Faculty<span>
+            <ja>教員紹介</ja>
+            <en>Professors</en>
+          </span></h2>
 
         <section class="faculty" id="teachers">
         </section>

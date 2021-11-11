@@ -59,6 +59,7 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script type="text/javascript" src="./javascript/fademover.js"></script>
   <script type="text/javascript" src="./javascript/index.js"></script>
+  <script type="text/javascript" src="./javascript/language.js"></script>
   <title>INTERVIEW｜東京都立大学システムデザイン学部インダストリアルアート学科/学域</title>
 
   <!-- font -->
@@ -75,7 +76,7 @@
 
   <script type="text/javascript">
     window.onload = function () {
-
+      initLanguage();
       // URLのGETパラメータから読み込むページを求める
       var url = new URL(window.location.href);
       var params = url.searchParams;
@@ -164,6 +165,7 @@
         }
         document.getElementById('tmp').remove();
         console.log(document.querySelector('.wrapper'));
+        initLanguage();
       });
     }
   </script>
@@ -194,7 +196,11 @@
   <div class="wrapper">
     <div class="centering">
       <main>
-        <h2 class="page-title">Voices<span>インダストリアルアート学科の教員やOB/OGとのインタビューを不定期で掲載</span></h2>
+        <h2 class="page-title">Voices<span>
+            <ja>インダストリアルアート学科の教員やOB/OGとのインタビューを不定期で掲載</ja>
+            <en><span class="badge bg-danger" style="color:white">ONLY JAPANESE
+              </span></en>
+          </span></h2>
 
         <div id="tmp"></div>
         <div id="voice"> </div>

@@ -1,4 +1,4 @@
-$("#global-nav").load("../parts/menu.html", function () {
+$("#global-nav").load("./parts/menu.html", function () {
     let ul = document.querySelector('#menu');
     let lis = ul.querySelectorAll('li');
     var filename = window.location.href.split('/').pop();
