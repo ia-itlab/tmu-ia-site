@@ -153,6 +153,7 @@
 
 
         window.onload = function () {
+            initLanguage();
             var msnry;
             var elem = document.querySelector('#awards');
             msnry = new Masonry(elem, {
@@ -222,19 +223,25 @@
                     //col.innerHTML = 'div col';
                     // col -> card -> card-body
                     document.getElementById('topics').appendChild(col);
-                    var card = document.createElement('div');
+                    let card = document.createElement('div');
 
                     card.classList.add('card');
 
                     //card.innerHTML = 'card';
-                    var card_body = document.createElement('div');
+                    let card_body = document.createElement('div');
                     card_body.classList.add('card-body');
 
                     col.appendChild(card);
-                    var lis = ol.querySelectorAll('li');
+                    let lis = ol.querySelectorAll('li');
 
-                    var img_card = document.createElement('img');
+                    let img_card = document.createElement('img');
                     img_card.classList.add('card-img-top');
+                    img_card.style.visibility = 'hidden';
+                    img_card.onload = function () {
+                        img_card.style.visibility = 'visible';
+                        img_card.classList = 'fadeIn';
+                        msnry_topics.layout();
+                    }
                     if (lis[1].querySelector('div').querySelector('a')) {
                         img_card.src = lis[1].querySelector('div').querySelector('a').href;
                     }
@@ -244,7 +251,7 @@
                     card.appendChild(img_card);
                     card.appendChild(card_body);
 
-                    var a_link = document.createElement('a');
+                    let a_link = document.createElement('a');
                     if (lis.length >= 4) {
                         if (lis[4].querySelector('div')) {
                             if (lis[4].querySelector('a')) {
@@ -260,17 +267,17 @@
 
 
                     // console.log(lis);
-                    var h5_card_title = document.createElement('h5');
+                    let h5_card_title = document.createElement('h5');
                     h5_card_title.classList.add('card-title');
                     h5_card_title.innerHTML = lis[0].innerHTML;
                     card_body.appendChild(h5_card_title);
 
-                    var p_card_text = document.createElement('p');
+                    let p_card_text = document.createElement('p');
                     p_card_text.classList.add('card-text');
                     p_card_text.innerHTML = lis[2].innerHTML;
                     card_body.appendChild(p_card_text);
 
-                    var p_card_text_date = document.createElement('p');
+                    let p_card_text_date = document.createElement('p');
                     p_card_text_date.classList.add('card-text', 'text-muted');
                     p_card_text_date.innerHTML = lis[3].innerHTML;
                     card_body.appendChild(p_card_text_date);
@@ -286,27 +293,7 @@
                 document.querySelector('.dw-content').remove();
                 //console.log('topics', document.getElementById('topics'));
 
-                // カード画像は全部ロードが終わった後並べ替え作業をする
-                var elements = document.querySelectorAll('.card-img-top');
-                var count = 0;
-                new Promise((resolve) => {
-                    for (element of elements) {
-                        //console.log(element);
-                        var src_tmp = element.src;
-                        element.src = '';
-                        element.onload = function () {
-                            count++;
-                            msnry_topics.layout();
-                            if (count == elements.length) {
-                                resolve();
-                            }
-                        }
-                        element.src = src_tmp;
-                    }
-                }).then(() => {
-                    //console.log("done all loading");
-                    msnry_topics.layout();
-                });
+
             });
 
 
@@ -349,29 +336,39 @@
                     if (list.querySelector('p.desc')) {
 
                         if (list.querySelector('p.desc').innerHTML.indexOf('インダストリアルアート') > 0) {
-                            var col = document.createElement('div');
+                            let col = document.createElement('div');
                             col.classList.add('col', 'col-sm-6', 'col-lg-4', 'mt-3', 'g-4', 'grid-item');
 
                             document.getElementById('awards').appendChild(col);
-                            var card = document.createElement('div');
-                            col.appendChild(card);
+                            let card = document.createElement('div');
+
                             card.classList.add('card');
-                            var card_body = document.createElement('div');
+                            let card_body = document.createElement('div');
                             card_body.classList.add('card-body');
                             card.appendChild(card_body);
                             // h3タグにリンクのaタグがあるが，相対リンクで記載されているので，tmuへの絶対リンクへ文字列を置換する
                             list.querySelector('h3').classList.add('mt-3');
-                            var link = list.querySelector('h3').querySelector('a');
-                            var link_replaced = link.href.replace(/http.*news/u, 'https://www.sd.tmu.ac.jp/news');
+                            let link = list.querySelector('h3').querySelector('a');
+                            link.target = '_blank';
+                            let link_replaced = link.href.replace(/http.*news/u, 'https://www.sd.tmu.ac.jp/news');
                             //console.log(link_replaced);
                             list.style.display = 'block';
                             link.href = link_replaced;
+
                             list.querySelector('div.head').querySelector('span.date').classList.add('badge', 'bg-dark');
                             list.querySelector('div.head').querySelector('span.tag').remove();
                             //console.log(list);
                             lists_art.push(list);
                             list.querySelector('p.desc').classList.add('text-muted');
                             card_body.appendChild(list);
+
+                            let a = document.createElement('a');
+                            a.href = link.href;
+                            a.target = link.target;
+                            a.appendChild(card);
+                            col.appendChild(a);
+                            //console.log(col);
+
                             msnry.appended(col);
 
                         }
@@ -417,7 +414,10 @@
         <div class="centering">
             <main>
 
-                <h2 class="page-title">Featured Topics<span>最新のインダストリアルアート学科の活動を紹介します</span></h2>
+                <h2 class="page-title">Featured Topics<span>
+                        <ja>最新のインダストリアルアート学科の活動を紹介します</ja>
+                        <en>The latest activities of the Department of Industrial Arts</en>
+                    </span></h2>
                 <div id="topics" class="row row-cols-1 row-cols-md-3 g-3"></div>
 
                 <h2 class="page-title mt-5">受賞<span>学生の受賞やイベント等</span></h2>
