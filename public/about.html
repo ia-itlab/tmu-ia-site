@@ -87,7 +87,15 @@
         div_flex_item.classList = 'flex-item flex-item-img';
         section_flexbox.appendChild(div_flex_item);
         var img = document.createElement('img');
+        img.style.visibility = 'hidden';
         img.src = lis[3].querySelector('div').querySelector('a').innerHTML;
+        // img.srcが読み込み終わったら表示してあげる
+        // カード画像は全部ロードが終わった後並べ替え作業をする
+        img.onload = function () {
+          img.style.visibility = 'visible';
+          img.classList = 'fadeIn';
+          console.log("loaded", img);
+        }
         div_flex_item.appendChild(img);
 
         var div_flex_item_00 = document.createElement('div');

@@ -121,7 +121,8 @@
             document.querySelector('#studios').appendChild(section_studio);
             let div = document.createElement('div');
             section_studio.appendChild(div);
-            var img = document.createElement('img');
+            let img = document.createElement('img');
+            img.style.visibility = 'hidden'; img.style.visibility = 'hidden';
             img.src = image_src;
             div.appendChild(img);
             let a = document.createElement('a');
@@ -144,7 +145,7 @@
             img.onload = function () {
               img.style.visibility = 'visible';
               img.classList = 'fadeIn';
-              //console.log("loaded", img);
+              console.log("loaded", img);
             }
             //console.log(section_studio);
             //ol.remove();
@@ -327,7 +328,7 @@
       <main>
 
 
-        <h2 class="page-title">Studio<span>
+        <h2 class="page-title"><a style="text-decoration:none;color:#000000" href="./studio.html">Studio</a><span>
             <ja>研究室紹介</ja>
             <en>Brief Introduction</en>
           </span></h2>
