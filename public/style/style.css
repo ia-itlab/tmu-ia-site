@@ -103,7 +103,6 @@ p a:hover{
   color:var(--color-gray-4); */
   color:var(--color-gray-6);
   background-position: -100% 0;
-  
 }
 
 /* General
@@ -1593,4 +1592,30 @@ en{
 }
 .twitter-link:a:hover{
   color: var(--color-gray-1);
+}
+
+figcaption{
+  border-left:1px solid #1F1F1F;
+  border-width:0.5em;
+  padding-left:0.5em;
+  font-size:0.8em;
+}
+
+figcaption a{
+  padding: 0 .3em;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, var(--color-gray-1) 50%);
+  background-position: 0 0;
+  background-size: 200% auto;
+  transition: .3s;
+  /* background:var(--color-gray-4);*/
+  color:var(--color-gray-1); 
+  text-decoration:none;
+  font-weight:bold;
+
+}
+figcaption a:hover{
+  /* background:var(--color-gray-1);
+  color:var(--color-gray-4); */
+  color:var(--color-gray-6);
+  background-position: -100% 0;
 }
