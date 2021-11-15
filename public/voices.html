@@ -12,8 +12,8 @@
   <link rel="stylesheet" type="text/css" href="style/style.css">
   <style>
     p {
-      font-size: 1.0em;
-      line-height: 1.7em;
+      font-size: 0.9em;
+      line-height: 1.5em;
       padding-top: 1em;
     }
 
@@ -22,13 +22,27 @@
     }
 
     h2 {
+      font-size: 1.3em;
+    }
+
+    h3 {
+      font-size: 1.2em;
+    }
+
+    h4 {
+      text-align: left;
       font-size: 0.8em;
     }
+
+    h5 {
+      text-align: right;
+      font-size: 0.8em;
+    }
+
 
     #voice img {
       padding: 0;
       margin: 15px 0px 0px 0px;
-
     }
 
     #voice img.medialeft {
@@ -60,7 +74,7 @@
   <script type="text/javascript" src="./javascript/fademover.js"></script>
   <script type="text/javascript" src="./javascript/index.js"></script>
   <script type="text/javascript" src="./javascript/language.js"></script>
-  <title>INTERVIEW｜東京都立大学システムデザイン学部インダストリアルアート学科/学域</title>
+  <title>VOICES｜東京都立大学システムデザイン学部インダストリアルアート学科/学域</title>
 
   <!-- font -->
   <script>
@@ -162,6 +176,19 @@
         // 記事ページの場合
         else {
           document.querySelector('#voice').innerHTML = data;
+
+          // img タグについては、読み込んだあとにフェード表示する
+          let imgs = document.querySelector('#voice').querySelectorAll('img');
+          // img.srcが読み込み終わったら表示してあげる
+          // カード画像は全部ロードが終わった後並べ替え作業をする
+          for (let img of imgs) {
+            img.style.visibility = 'hidden';
+            img.onload = function () {
+              img.style.visibility = 'visible';
+              img.classList = 'fadeIn';
+            }
+          }
+          //console.log(imgs);
         }
         document.getElementById('tmp').remove();
         console.log(document.querySelector('.wrapper'));
