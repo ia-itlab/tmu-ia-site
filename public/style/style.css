@@ -414,9 +414,10 @@ h3.page-sub-title>span {
 }
 
 .faculty .member img {
-  /* background: var(--color-gray-1);*/
   width: 150px;
   height: 150px;
+  object-fit:cover;
+  filter:grayscale(100%);
 }
 
 .faculty .member .profile {
