@@ -1588,11 +1588,9 @@ en{
   color: var(--color-gray-3);
 }
 
-.twitter-link:a{
-  color: var(--color-gray-3);
-}
-.twitter-link:a:hover{
+.twitter-link:hover{
   color: var(--color-gray-1);
+  transition: 0.5s;
 }
 
 figcaption{
