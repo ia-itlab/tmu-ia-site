@@ -7,8 +7,7 @@
   margin: 15px auto;
   text-align: right;
   font-size: 14px;
-  background: var(--color-gray-3);
-  
+  background: none;
   /* .boxの初期状態を指定 */
   
 }
@@ -43,22 +42,28 @@
 
 /*以下、②左側のコメント*/
 
+.form-floating{
+  background-color:transparent;
+}
 .balloon6 {
   width: 100%;
   margin: 10px 0;
   overflow: hidden;
+  
 }
 
 .balloon6 .faceicon {
   float: left;
   margin-right: -50px;
   width: 80px;
+  
 }
 
 .balloon6 .faceicon img {
   width: 100%;
   height: auto;
   border-radius: 50%;
+  background-color:var(--color-text);
 }
 
 .balloon6 .chatting {
@@ -73,7 +78,7 @@
   padding: 10px;
   max-width: 350px;
   border-radius: 12px;
-  background:var(--color-gray-6);
+  background-color:var(--color-text);
 }
 
 .says:after {
@@ -83,7 +88,7 @@
   top: 3px;
   left: -19px;
   border: 8px solid transparent;
-  border-right: 18px solid var(--color-gray-6);
+  border-right: 18px solid var(--color-text);
   -webkit-transform: rotate(35deg);
   transform: rotate(35deg);
 }
@@ -91,6 +96,8 @@
 .says p {
   margin: 0;
   padding: 0;
+  background:none;
+  color:var(--color-background);
 }
 
 /*以下、③右側の緑コメント*/
@@ -103,12 +110,12 @@
   text-align: left;
   display: inline-block;
   position: relative;
-  color:var(--color-gray-6);
+  color:var(--color-background);
   margin: 0 10px 0 0;
   padding: 8px;
   max-width: 350px;
   border-radius: 12px;
-  background: var(--color-gray-1);
+  background-color: var(--color-text);
   font-size: 15px:
 }
 
@@ -118,15 +125,15 @@
   top: 3px;
   right: -19px;
   border: 8px solid transparent;
-  border-left: 18px solid var(--color-gray-1);
+  border-left: 18px solid var(--color-text);
   -webkit-transform: rotate(-35deg);
   transform: rotate(-35deg);
 }
 
 .mycomment p a{
   text-decoration:none;
-  color: var(--color-gray-2);
-  background: var(--color-gray-6);
+  color: var(--color-text);
+  background-color: var(--color-background);
 }
 
 .content h3 {
