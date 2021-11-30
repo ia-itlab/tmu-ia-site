@@ -1,84 +1,44 @@
-//fadeInの為の.contentsデフォルト透過処理
-$("head").append(
-  '<style>.wrapper{ opacity: 0;-ms-filter:"alpha( opacity=0 )";filter: alpha( opacity=0 ); }</style>'
-);
-
-//ページトップへのスクロール
-$(function () {
-  /*var topBtn = $(".scroll-top");
-  topBtn.hide();
-  //スクロールが100に達したらボタン表示
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 100) {
-      topBtn.fadeIn();
-    } else {
-      topBtn.fadeOut();
-    }
-  });
-  //スクロールしてトップ
-  topBtn.click(function () {
-    $("body,html").animate(
-      {
-        scrollTop: 0
-      },
-      500
-    );
-    return false;
-  });*/
-
-  //contentのフェード
-  $(".wrapper").fadeMover();
-});
-
-/*//Googleカスタム検索
-(function() {
-  //↓IDをここで指定する（サンプルのため山浦のポートフォリオサイト内検索のID）
-  var cx = "007245914538993224667:ogdkdkvq-bc";
-  var gcse = document.createElement("script");
-  gcse.type = "text/javascript";
-  gcse.async = true;
-  gcse.src = "https://cse.google.com/cse.js?cx=" + cx;
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(gcse, s);
-})();
-*/
-
-
-
-
-(function ($) {
-  $(function () {
-    $('.sub-menu').on({
-      'mouseenter': function () {
-        $(this).addClass('is-active');
-      },
-      'mouseleave': function () {
-        $(this).removeClass('is-active');
-      }
-    });
-
-
-    $('#nav-toggle,#overlay').on('click', function () {
-      $('body').toggleClass('open');
-    });
-  });
-})(jQuery);
-
-
-console.log(location.pathname);
-$('.sidebar li a').each(function () {
-  var href = $(this).attr('href');
-  if (location.href.match(href)) {
-    $(this).addClass('here');
-  } else {
-    $(this).removeClass('here');
+var current = new Date();
+var is_darkmode = false;
+if (sessionStorage.getItem('darkmode') == 'true') {
+  is_darkmode = true;
+}
+else {
+  if (0 <= current.getHours() <= 6 || 18 <= current.getHours() <= 24) {
+    is_darkmode = true;
   }
-});
-if (location.pathname == '/labview.html') {
-  $('.sidebar li a').first().addClass('here');
-} else if (location.pathname == '/') {
-  $('.sidebar li a').first().addClass('here');
+  else {
+    is_darkmode = false;
+  }
+  sessionStorage.setItem('darkmode', is_darkmode);
+
 }
 
+setDarkmode();
+console.log(`time is ${current.getHours()} and darkmode ${is_darkmode}`);
 
+function toggleDarkmode() {
+  // --color-background:#1F1F1F;
+  // --color-text-muted: #737373;
+  // --color-text: #fff;
+  // --color-header: rgba(31,31,31,0.5);
+  is_darkmode = !is_darkmode;
+  setDarkmode();
 
+}
+
+function setDarkmode() {
+  if (is_darkmode) {
+    document.querySelector(':root').style.setProperty('--color-text', "#fff");
+    document.querySelector(':root').style.setProperty('--color-text-muted', "#737373");
+    document.querySelector(':root').style.setProperty('--color-background', "#1f1f1f");
+    document.querySelector(':root').style.setProperty('--color-header', "rgba(31,31,31,0.9)");
+  }
+  else {
+    document.querySelector(':root').style.setProperty('--color-text', "#1f1f1f");
+    document.querySelector(':root').style.setProperty('--color-text-muted', "#737373");
+    document.querySelector(':root').style.setProperty('--color-background', "#fff");
+    document.querySelector(':root').style.setProperty('--color-header', "rgba(255,255,255,0.9)");
+  }
+  sessionStorage.setItem('darkmode', is_darkmode);
+}

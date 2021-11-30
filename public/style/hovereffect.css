@@ -1,0 +1,54 @@
+.hover_text{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+.hover_text img{
+  filter:none;
+  object-fit:cover;
+  transition:all 1s;
+}
+.hover_text:hover img{
+  filter:blur(3px) opacity(40%);
+  transition:all 1s;
+}
+
+.hover_text h5{
+  position:absolute;
+  font-weight: bold;
+  left:20px;
+  top:20px;
+  opacity:0;
+  color:var(--color-text);
+  transition:all 1s;
+}
+
+.hover_text:hover h5{
+  opacity:1;
+  transition:all 1s;
+}
+
+.hover_text caption{
+  position:absolute;
+  font-weight: bold;
+  right:0px;
+  bottom:0px;
+  line-height:0%;
+  font-size:0.5em;
+  opacity:1;
+  background-color:var(--color-background);
+  color:var(--color-text);
+  transition:all 1s;
+}
+.hover_text:hover caption{
+  position:absolute;
+  font-weight: bold;
+  right:0px;
+  bottom:0px;
+  line-height:0%;
+  font-size:0.5em;
+  opacity:0;
+  background-color:var(--color-background);
+  color:var(--color-text);
+  transition:all 1s;
+}

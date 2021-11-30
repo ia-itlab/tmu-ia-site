@@ -9,10 +9,11 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="style/style.css">
+  <link rel="stylesheet" href="./style/main.css">
   <link rel="shortcut icon" href="./images/ファビコン (logo)/favicon.ico">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script type="text/javascript" src="./javascript/fademover.js"></script>
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="./javascript/index.js"></script>
   <script type="text/javascript" src="./javascript/language.js"></script>
   <title>LINK｜東京都立大学システムデザイン学部インダストリアルアート学科/学域</title>
@@ -136,166 +137,37 @@
 </head>
 
 <body>
-  <header id="global-head">
-    <script>
-      $("#global-head").load("./parts/header.html");
-    </script>
-  </header>
 
-  <div id="nav-toggle">
-    <div>
-      <span></span>
-      <span></span>
-      <span></span>
+  <nav class="navbar navbar-expand-md  fixed-left" style="background-color:var(--color-header);">
+    <header class="logo">
+      <script>
+        $(".logo").load("./parts/header.html");
+      </script>
+    </header>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </svg></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav">
+        <script type="text/javascript" src="./javascript/menu.js">
+
+        </script>
+      </ul>
     </div>
-  </div>
-
-  <aside id="sidebar">
-    <nav id="global-nav">
-      <script type="text/javascript" src="./javascript/menu.js"></script>
-    </nav>
-  </aside>
+  </nav>
 
 
-  <div class="wrapper">
+
+  <div class="container">
     <div class="centering">
       <main>
         <h2 class="page-title">Events<span></span></h2>
-        <!-- <section class="links">
-          <section class="link">
-            <section class="left">
-              <a href="http://industrial-art.sd.tmu.ac.jp/exhibition2020/">
-                <img src="./images/link-images/iagw2020.png" alt="image"></a>
-            </section>
-            <section class="right">
-              <div class="linktitle">
-                <a href="http://industrial-art.sd.tmu.ac.jp/exhibition2020/">
-                  <h2>
-                    <ja>卒業・修了制作展2020</ja>
-                    <en>Graduation Exhibition 2020</en>
-                  </h2><img class="external-link" src="./images/prof-link.svg">
-                </a>
-              </div>
-              <p class="location">
-                <ja>首都大学東京　日野キャンパス</ja>
-                <en>Hino Campus, Tokyo Metropolitan University</en>
-              </p>
-              <p class="dates">
-                <ja>開催期間 : 令和2年2月8日|土| - 2月10日|月| 11時30分-17時30分</ja>
-                <en>Event dates : 2020.02.08 (SAT) - 02.10 (MON) 11:30-17:30</en>
-              </p>
-              <p class="about-exhibition">
-                <ja>
-                  第11回目の開催となる今年のコンセプトは「骨」です。骨をつくり、肉をつけていくように、1,2年次に築いた基礎をもとにしてそれぞれ見出した研究分野における知識を深め、表現や技術を身につけてきました。ご来場される皆様に展示でしか味わえないたくさんの作品に触れていただき、一人一人がどのような肉付けをしてきたのかを感じていただけますと幸いです。
-                </ja>
-                <en>The concept of this year's event, the 11th of its kind, is "bones. Like building bones and adding
-                  flesh to them, we have deepened our knowledge in our respective fields of study and acquired
-                  expressions and techniques based on the foundation we laid in the first and second years. We hope that
-                  visitors will be able to experience the many works that can only be seen in the exhibition, and feel
-                  how each of us has fleshed out our work.</en>
-              </p>
-            </section>
-          </section>
-          <section class="link">
-            <section class="left"><a href="http://industrial-art.sd.tmu.ac.jp/exhibition2019/"><img
-                  src="./images/link-images/iagw2019.png" alt="image"></a></section>
-            <section class="right">
-              <div class="linktitle">
-                <a href="http://industrial-art.sd.tmu.ac.jp/exhibition2019/">
-                  <h2>
-                    <ja>卒業・修了制作展2019</ja>
-                    <en>Graduation Exhibition 2019</en>
-                  </h2><img class="external-link" src="./images/prof-link.svg">
-                </a>
-              </div>
-              <p class="location">
-                <ja>首都大学東京　日野キャンパス</ja>
-                <en>Hino Campus, Tokyo Metropolitan University</en>
-              </p>
-              <p class="dates">
-                <ja>開催期間 : 平成31年2月10日|日| - 2月12日|火| 10時-17時</ja>
-                <en>Event dates : 2019.02.10 (SUN) - 02.12 (TUE) 10:00-17:00</en>
-              </p>
-              <p class="about-exhibition">
-                <ja>
-                  首都大学東京システムデザイン学部インダストリアルアート学科10年目の卒業制作展のコンセプトは「原点回帰」です。私たちがつくるこの集大成は、原点から積み重ねてきた日々の結果です。私たちの原点、現在、そして続いていく未来へ、どうか目を離さないでください。
-                </ja>
-                <en>
-                  The concept of the 10th year graduation exhibition of the Department of Industrial Arts, Faculty of
-                  System Design, Tokyo Metropolitan University is "Return to the Origin". This culmination of our work
-                  is the result of the days we have accumulated since our starting point. Please keep your eyes on our
-                  origins, our present, and our continuing future.
-                </en>
-              </p>
-            </section>
-          </section>
-          <section class="link">
-            <section class="left"><a href="https://ia2018.com/"><img src="./images/link-images/iagw2018.png"
-                  alt="image"></a></section>
-            <section class="right">
-              <div class="linktitle">
-                <a href="https://ia2018.com/">
-                  <h2>
-                    <ja>卒業・修了制作展2018</ja>
-                    <en>Graduation Exhibition 2018</en>
-                  </h2><img class="external-link" src="./images/prof-link.svg">
-                </a>
-              </div>
-              <p class="location">
-                <ja>首都大学東京　日野キャンパス</ja>
-                <en>Hino Campus, Tokyo Metropolitan University</en>
-              </p>
-              <p class="dates">
-                <ja>開催期間 : 平成30年2月10日|土| - 2月12日|月| 10時-17時</ja>
-                <en>Event dates : 2018.02.10 (SAT) - 02.12 (MON) 10:00-17:00</en>
-              </p>
-              <p class="about-exhibition">
-                <ja>
-                  今年のコンセプトは「Quest」です。私たちは大学での学びを「探求」と捉えました。続いている空間は私たちの進路を、進んだ先の光は「探求」の答えを表しています。また、全体を見渡すと「Quest」の頭文字である、Qという文字が浮かび上がります。まだ見ぬ景色、体験を探し求め学生たちが作り上げた、今までの集大成をぜひご覧ください。
-                </ja>
-                <en>
-                  This year's concept is "Quest". We saw learning at the university as a "quest". The continuous space
-                  represents our path, and the light at the end of the path represents the answer to our quest. Looking
-                  around, the letter Q, the first letter of "Quest," appears. We hope you will take a look at the
-                  culmination of the students' efforts to create a landscape and experience that has yet to be seen.
-                </en>
-              </p>
-            </section>
-          </section>
-          <section class="link">
-            <section class="left"><a href="https://tmusdia2017.github.io/iagw2017"><img
-                  src="./images/link-images/iagw2017.png" alt="image"></a></section>
-            <section class="right">
-              <div class="linktitle">
-                <a href="https://tmusdia2017.github.io/iagw2017">
-                  <h2>
-                    <ja>卒業・修了制作展2017</ja>
-                    <en>Graduation Exhibition 2017</en>
-                  </h2><img class="external-link" src="./images/prof-link.svg">
-                </a>
-              </div>
-              <p class="location">
-                <ja>首都大学東京　日野キャンパス</ja>
-                <en>Hino Campus, Tokyo Metropolitan University</en>
-              </p>
-              <p class="dates">
-                <ja>開催期間 : 平成29年2月4日|土| - 2月6日|月| 10時-17時</ja>
-                <en>Event dates : 2017.02.04 (SAT) - 02.06 (MON) 10:00-17:00</en>
-              </p>
-              <p class="about-exhibition">
-                <ja>
-                  今年のコンセプトは｢Piece｣です。インダストリアルアートコースは６つのメディアート分野と６つのプロダクトデザイン分野の１２研究分野から構成され、複合的に関わりあっています。培った知識や経験から様々な形のピースが組み合わさることで、それぞれの学生がもつカタチと成り、この先も拡がり続けてゆくことと思います。ここから新たな一歩を踏み出す学生たちの作品を、是非ご覧ください。
-                </ja>
-                <en>
-                  This year's concept is "Piece". The Industrial Art Course consists of 12 research fields, 6 in Mediate
-                  and 6 in Product Design, which are interrelated in a complex way. By combining the various pieces of
-                  knowledge and experience, each student will be able to create their own form, which will continue to
-                  expand in the future. Please take a look at the works of the students who are taking a new step
-                  forward from here.
-                </en>
-              </p>
-            </section>
-          </section> -->
       </main>
       <footer>
         <script>
@@ -305,9 +177,10 @@
     </div>
   </div>
 
-  <section class="scroll-top"><img src="./images/page-top.svg" art="image">
-    <p>PageTop</p>
-  </section>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 
 </body>
 

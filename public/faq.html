@@ -9,15 +9,14 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" href="./style/main.css">
 	<link rel="stylesheet" type="text/css" href="style/faq.css">
-
 	<link rel="shortcut icon" href="./images/ファビコン (logo)/favicon.ico">
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-	<script type="text/javascript" src="./javascript/fademover.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="./javascript/index.js"></script>
-	<script type="text/javascript" src="./javascript/studio.js"></script>
 	<script type="text/javascript" src="./javascript/language.js"></script>
+	<script type="text/javascript" src="./javascript/faq.js"></script>
 	<title>FAQ｜東京都立大学システムデザイン学部インダストリアルアート学科/学域</title>
 
 
@@ -34,75 +33,7 @@
 	</script>
 
 	<script>
-		window.onload = function () {
-			var loadHTML = new Promise(function (resolve, reject) {
-				// ia wiki から topicsデータを取得する
-				var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:faq';
-				var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
-				var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
-				var replace = 'content';
-				//Httpリクエスを作る
-				var xmlhttp = new XMLHttpRequest();
-				xmlhttp.open("GET", _html, true);
-				xmlhttp.onreadystatechange = function () {
-					//とれた場合Idにそって入れ替え
-					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-						var data = xmlhttp.responseText;
-						//xmlhttp.responseXML
-						//console.log(data);
-						var elem = document.getElementById(replace);
-						elem.innerHTML = data;
-						resolve(data);
-						//return data;
-					}
-				}
-				xmlhttp.send(null);
-			});
-			loadHTML.then(function () {
-				var ols = document.querySelector('.dw-content').querySelectorAll('ol');
 
-				for (ol of ols) {
-					var lis = ol.querySelectorAll('li');
-					var str_q = lis[0].querySelector('div').innerHTML;
-					var str_a = lis[1].querySelector('div').innerHTML;
-
-					var div_line_bc = document.createElement('div');
-					div_line_bc.classList = 'line-bc';
-					document.querySelector('#content').appendChild(div_line_bc);
-
-					var div_balloon6 = document.createElement('div');
-					div_balloon6.classList = 'balloon6';
-					div_line_bc.appendChild(div_balloon6);
-
-					var div_faceicon = document.createElement('div');
-					div_faceicon.classList = 'faceicon';
-					div_balloon6.appendChild(div_faceicon);
-					var img = document.createElement('img');
-					img.src = './images/faq/' + String(1 + parseInt(Math.random() * 16)).padStart(2, 0) + '.png';
-					div_faceicon.appendChild(img);
-
-					var div_chatting = document.createElement('div');
-					div_chatting.classList = 'chatting';
-					div_balloon6.appendChild(div_chatting);
-					var div_says = document.createElement('div');
-					div_says.classList = 'says';
-					div_chatting.appendChild(div_says);
-					var p_q = document.createElement('p');
-					p_q.innerHTML = str_q;
-					div_says.appendChild(p_q);
-
-					var div_mycomment = document.createElement('div');
-					div_mycomment.classList = 'mycomment';
-					div_line_bc.appendChild(div_mycomment);
-					var p_a = document.createElement('p');
-					p_a.innerHTML = str_a;
-					div_mycomment.appendChild(p_a);
-				}
-				document.querySelector('.dw-content').remove();
-				//console.log(document.querySelector('#content'));
-				initLanguage();
-			});
-		}
 	</script>
 
 	<!-- 検索用のスクリプト-->
@@ -142,28 +73,31 @@
 </head>
 
 <body>
-	<header id="global-head">
-		<script>
-			$("#global-head").load("./parts/header.html");
+	<nav class="navbar navbar-expand-md  fixed-left" style="background-color:var(--color-header);">
+		<header class="logo">
+			<script>
+				$(".logo").load("./parts/header.html");
+			</script>
+		</header>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+			aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+					fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+				</svg></span>
+		</button>
 
-		</script>
-	</header>
+		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+			<ul class="navbar-nav">
+				<script type="text/javascript" src="./javascript/menu.js">
 
-	<div id="nav-toggle">
-		<div>
-			<span></span>
-			<span></span>
-			<span></span>
+				</script>
+			</ul>
 		</div>
-	</div>
+	</nav>
 
-	<aside id="sidebar">
-		<nav id="global-nav">
-			<script type="text/javascript" src="./javascript/menu.js"></script>
-		</nav>
-	</aside>
-
-	<div class="wrapper">
+	<div class="container">
 		<div class="centering">
 			<main>
 				<div class="row">
@@ -207,42 +141,10 @@
 		</footer>
 	</div>
 	</div>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 
-	<section class="scroll-top"><img src="./images/page-top.svg" art="image">
-		<p>PageTop</p>
-	</section>
-
-
-
-	<!-- Scripts -->
-	<!-- <script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-	<script src="assets/js/swiper.js"></script>
-	<script>
-		var swiper = new Swiper('.swiper-container', {
-			navigation: {
-				// nextEl: '.swiper-button-next',
-				// prevEl: '.swiper-button-prev',
-			},
-			loop: true,
-			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false
-			},
-			speed: 700,
-			autoHeight: true,
-			pagination: {
-				el: '.swiper-pagination',
-				type: 'bullets',
-				clickable: true,
-			},
-		});
-	</script> -->
 
 </body>
 

@@ -9,12 +9,18 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" href="style/style.css">
+  <link rel="stylesheet" href="./style/main.css">
+  <link rel="shortcut icon" href="./images/ファビコン (logo)/favicon.ico">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="./javascript/index.js"></script>
+  <script type="text/javascript" src="./javascript/language.js"></script>
+  <title>ACCESS｜東京都立大学システムデザイン学部インダストリアルアート学科/学域</title>
   <style>
     p {
       font-size: 0.9em;
       line-height: 1.5em;
-      padding-top: 1em;
+      padding-top: 0.5em;
     }
 
     h1 {
@@ -39,9 +45,14 @@
       font-size: 0.8em;
     }
 
+    #voice {
+      width: 100%;
+    }
 
     #voice img {
+      max-width: 100%;
       padding: 0;
+
       margin: 15px 0px 0px 0px;
     }
 
@@ -69,12 +80,7 @@
     }
   </style>
 
-  <link rel="shortcut icon" href="./images/ファビコン (logo)/favicon.ico">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script type="text/javascript" src="./javascript/fademover.js"></script>
-  <script type="text/javascript" src="./javascript/index.js"></script>
-  <script type="text/javascript" src="./javascript/language.js"></script>
-  <title>VOICES｜東京都立大学システムデザイン学部インダストリアルアート学科/学域</title>
+
 
   <!-- font -->
   <script>
@@ -107,7 +113,7 @@
 
       var loadHTML = new Promise(function (resolve, reject) {
         // ia wiki から topicsデータを取得する
-        var url = 'https://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:voices:' + number_page;
+        var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:voices:' + number_page;
         var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
         var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
         var replace = 'tmp';
@@ -179,16 +185,18 @@
 
           // img タグについては、読み込んだあとにフェード表示する
           let imgs = document.querySelector('#voice').querySelectorAll('img');
+
           // img.srcが読み込み終わったら表示してあげる
           // カード画像は全部ロードが終わった後並べ替え作業をする
           for (let img of imgs) {
+            img.classList.add('img_fluid');
             img.style.visibility = 'hidden';
             img.onload = function () {
               img.style.visibility = 'visible';
-              img.classList = 'fadeIn';
+              img.classList.add('fadeIn');
             }
           }
-          //console.log(imgs);
+          console.log(imgs);
         }
         document.getElementById('tmp').remove();
         console.log(document.querySelector('.wrapper'));
@@ -199,28 +207,31 @@
 </head>
 
 <body>
-  <header id="global-head">
-    <script>
-      $("#global-head").load("./parts/header.html");
-    </script>
-  </header>
+  <nav class="navbar navbar-expand-md  fixed-left" style="background-color:var(--color-header);">
+    <header class="logo">
+      <script>
+        $(".logo").load("./parts/header.html");
+      </script>
+    </header>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </svg></span>
+    </button>
 
-  <div id="nav-toggle">
-    <div>
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav">
+        <script type="text/javascript" src="./javascript/menu.js">
+
+        </script>
+      </ul>
     </div>
-  </div>
+  </nav>
 
-  <aside id="sidebar">
-    <nav id="global-nav">
-      <script type="text/javascript" src="./javascript/menu.js"></script>
-    </nav>
-  </aside>
-
-
-  <div class="wrapper">
+  <div class="container">
     <div class="centering">
       <main>
         <h2 class="page-title">Voices<span>
@@ -243,10 +254,10 @@
       </footer>
     </div>
   </div>
-  <section class="scroll-top"><img src="./images/page-top.svg" art="image">
-    <p>PageTop</p>
-  </section>
 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
