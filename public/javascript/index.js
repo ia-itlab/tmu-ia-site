@@ -1,34 +1,38 @@
 var current = new Date();
-var is_darkmode = false;
-if (sessionStorage.getItem('darkmode') == 'true') {
-  is_darkmode = true;
+
+if (sessionStorage.getItem('darkmode')) {
+
 }
 else {
+  console.log(`time is ${current.getHours()} and darkmode ${is_darkmode}`);
   if (0 <= current.getHours() <= 6 || 18 <= current.getHours() <= 24) {
-    is_darkmode = true;
+    sessionStorage.setItem('darkmode', 'true');
   }
   else {
-    is_darkmode = false;
+    sessionStorage.setItem('darkmode', 'false');
   }
-  sessionStorage.setItem('darkmode', is_darkmode);
-
 }
 
 setDarkmode();
-console.log(`time is ${current.getHours()} and darkmode ${is_darkmode}`);
+
 
 function toggleDarkmode() {
   // --color-background:#1F1F1F;
   // --color-text-muted: #737373;
   // --color-text: #fff;
   // --color-header: rgba(31,31,31,0.5);
-  is_darkmode = !is_darkmode;
+  if (sessionStorage.getItem('darkmode') == 'true') {
+    sessionStorage.setItem('darkmode', 'false');
+  }
+  else if (sessionStorage.getItem('darkmode') == 'false') {
+    sessionStorage.setItem('darkmode', 'true');
+  }
   setDarkmode();
 
 }
 
 function setDarkmode() {
-  if (is_darkmode) {
+  if (sessionStorage.getItem('darkmode') == 'true') {
     document.querySelector(':root').style.setProperty('--color-text', "#fff");
     document.querySelector(':root').style.setProperty('--color-text-muted', "#737373");
     document.querySelector(':root').style.setProperty('--color-background', "#1f1f1f");
@@ -40,5 +44,5 @@ function setDarkmode() {
     document.querySelector(':root').style.setProperty('--color-background', "#fff");
     document.querySelector(':root').style.setProperty('--color-header', "rgba(255,255,255,0.9)");
   }
-  sessionStorage.setItem('darkmode', is_darkmode);
+  console.log(`darkmode is ${sessionStorage.getItem('darkmode')}`);
 }
