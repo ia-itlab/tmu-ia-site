@@ -34,16 +34,16 @@ function toggleDarkmode() {
 
 function setDarkmode() {
   if (sessionStorage.getItem('darkmode') == 'true') {
-    document.querySelector(':root').style.setProperty('--color-text', "#fff");
-    document.querySelector(':root').style.setProperty('--color-text-muted', "#737373");
+    document.querySelector(':root').style.setProperty('--color-text', "#ffffff");
+    document.querySelector(':root').style.setProperty('--color-text-muted', "#8C8C8C");
     document.querySelector(':root').style.setProperty('--color-background', "#1f1f1f");
     document.querySelector(':root').style.setProperty('--color-header', "rgba(31,31,31,0.9)");
   }
   else {
     document.querySelector(':root').style.setProperty('--color-text', "#1f1f1f");
-    document.querySelector(':root').style.setProperty('--color-text-muted', "#737373");
-    document.querySelector(':root').style.setProperty('--color-background', "#fff");
-    document.querySelector(':root').style.setProperty('--color-header', "rgba(255,255,255,0.9)");
+    document.querySelector(':root').style.setProperty('--color-text-muted', "#595959");
+    document.querySelector(':root').style.setProperty('--color-background', "#F5F5F5");
+    document.querySelector(':root').style.setProperty('--color-header', "rgba(245,245,245,0.9)");
   }
   console.log(`darkmode is ${sessionStorage.getItem('darkmode')}`);
 }
