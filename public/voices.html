@@ -78,6 +78,20 @@
     strong {
       font-weight: bold;
     }
+
+    .list-group-item {
+      background: none;
+      background-color: var(--color-background);
+      color: var(--color-text);
+      transition: all, 1s;
+    }
+
+    .list-group-item:hover {
+      background: none;
+      background-color: var(--color-text);
+      color: var(--color-background);
+      transition: all, 1s;
+    }
   </style>
 
 
@@ -249,8 +263,7 @@
 
       <footer>
         <script>
-          $("footer").load("./parts/footer.html");
-        </script>
+          $(" footer").load("./parts/footer.html");</script>
       </footer>
     </div>
   </div>
