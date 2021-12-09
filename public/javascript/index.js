@@ -1,18 +1,17 @@
 var current = new Date();
-
+//console.log(`time is ${current.getHours()} and darkmode ${sessionStorage.getItem('darkmode')}`);
 if (sessionStorage.getItem('darkmode') === null) {
-  console.log(`time is ${current.getHours()} and darkmode ${sessionStorage.getItem('darkmode')}`);
-  if ((0 <= current.getHours() && current.getHours() <= 6) ||
-    (18 <= current.getHours() && current.getHours <= 24)) {
+  if (
+    (0 <= current.getHours() && current.getHours() <= 6) ||
+    (18 <= current.getHours() && current.getHours() <= 24)
+  ) {
     sessionStorage.setItem('darkmode', 'true');
   }
   else {
     sessionStorage.setItem('darkmode', 'false');
   }
 }
-else {
 
-}
 
 setDarkmode();
 
