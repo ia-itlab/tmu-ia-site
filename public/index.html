@@ -10,18 +10,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style/style.css">
-
+    <link rel="stylesheet" href="./style/main.css">
+    <!-- <link rel="stylesheet" href="./style/docs.css"> -->
 
     <link rel="shortcut icon" href="./images/ファビコン (logo)/favicon.ico">
-
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="./javascript/fademover.js"></script>
-    <script type="text/javascript" src="./javascript/index.js"></script>
-    <script type="text/javascript" src="./javascript/studio.js"></script>
-    <script type="text/javascript" src="./javascript/language.js"></script>
-    <title>東京都立大学システムデザイン学部インダストリアルアート学科/学域</title>
-
     <!-- font -->
     <script>
         (function (d) {
@@ -34,415 +26,56 @@
         })(document);
     </script>
 
-    <style>
-        h5.card-title {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
 
-        h3.title {
-            font-size: 1.2em;
-        }
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="./javascript/index.js"></script>
+    <script type="text/javascript" src="./javascript/language.js"></script>
 
-        h3.title>a {
-            color: var(--color-gray-1);
-            text-decoration: none;
-            font-weight: bold;
-        }
+    <title>東京都立大学システムデザイン学部インダストリアルアート学科/学域</title>
 
-        h3.title>a:hover {
-            color: white;
-            background-color: black;
-            text-decoration: none;
-        }
-
-        .grid-sizer,
-        .grid-item {
-            float: left;
-            border-radius: 5px;
-
-        }
-
-        .grid-item--width2 {
-            width: 40%;
-
-        }
-
-        .grid-item--width3 {
-            width: 60%;
-
-        }
-
-
-        /* 2 columns wide */
-        .grid-item--width2 {
-            width: 40%;
-        }
-
-        .grid-item--height2 {
-            height: 200px;
-        }
-
-        .grid-item--height3 {
-            height: 260px;
-        }
-
-        .grid-item--height4 {
-            height: 360px;
-        }
-
-        /* clearfix */
-        .grid:after {
-            content: '';
-            display: block;
-            clear: both;
-        }
-
-        .grid-item>a {
-            text-decoration: none;
-        }
-
-        .grid-item>a:hover {
-            text-decoration: none;
-        }
-
-        .grid-item>a>.card {
-            color: var(--color-gray-1);
-            transition: background-color 2s, color 0.8s;
-        }
-
-        .grid-item>a>.card:hover {
-            text-decoration: none;
-            background-color: var(--color-gray-5);
-            color: var(--color-gray-2);
-            transition: background-color 2s, color, 1s;
-        }
-
-        .card {
-            overflow: hidden;
-        }
-
-        .card img {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-            -webkit-transition: .3s ease-in-out;
-            transition: .3s ease-in-out;
-        }
-
-        .card:hover img {
-            -webkit-transform: scale(1.05);
-            transform: scale(1.05);
-        }
-    </style>
-    <!--
-        テンプレ
-    <li class="informationRow age2021 active">
-        <div class="head">
-            <span class="date">2021.10.04</span><span class="tag tag07"></span>
-        </div>
-        <h3 class="title">
-            <a href="/news/topics/10530.html"></a>
-        </h3>
-
-    </li>
-    -->
-    <!-- 馬場が勝手に作ったスクレイピング ここから-->
-    <script type="text/javascript">
-
-
-        window.onload = function () {
-            initLanguage();
-            var msnry;
-            var elem = document.querySelector('#awards');
-            msnry = new Masonry(elem, {
-                // options
-                columnWidth: '.grid-sizer',
-                itemSelector: '.grid-item',
-                gutter: 0,
-                percentPosition: true,
-                originLeft: true,
-            });
-
-            var elem_topics = document.querySelector('#topics');
-            var msnry_topics = new Masonry(elem_topics, {
-                // options
-                columnWidth: '.grid-sizer',
-                itemSelector: '.grid-item',
-                gutter: 0,
-                percentPosition: true,
-                originLeft: true,
-            });
-
-
-            var loadHTML = new Promise(function (resolve, reject) {
-                // ia wiki から topicsデータを取得する
-                {
-                    var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:topics';
-                    var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
-                    var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
-                    var replace = 'topics';
-                    //Httpリクエスを作る
-                    var xmlhttp = new XMLHttpRequest();
-                    xmlhttp.open("GET", _html, true);
-                    xmlhttp.onreadystatechange = function () {
-                        //とれた場合Idにそって入れ替え
-                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                            var data = xmlhttp.responseText;
-                            //xmlhttp.responseXML
-                            //console.log(data);
-                            var elem = document.getElementById(replace);
-                            elem.innerHTML = data;
-                            resolve(data);
-                            //return data;
-                        }
-                    }
-                    xmlhttp.send(null);
-                }
-            });
-            loadHTML.then(function () {
-
-                var grid_sizer = document.createElement('div');
-                grid_sizer.classList.add('grid-sizer');
-                document.getElementById('topics').appendChild(grid_sizer);
-
-                var ols = document.querySelectorAll('ol.fix-media-list-overlap');
-
-                let count_ol = 0;
-                for (ol of ols) {
-                    let lis = ol.querySelectorAll('li');
-                    let title = lis[0].querySelector('div').innerHTML;
-                    let image = lis[1].querySelector('div').querySelector('a').href;
-                    let abstract = lis[2].querySelector('div').innerHTML;
-                    let date = lis[3].querySelector('div').innerHTML;
-                    let link = lis[4].querySelector('div').querySelector('a').href;
-
-                    var col = document.createElement('div');
-                    col.style.display = 'block'
-                    if (count_ol == 0) {
-                        col.classList.add('col', 'col-sm-12', 'col-lg-8', 'mt-3', 'g-4', 'grid-item');
-                    }
-                    else {
-                        col.classList.add('col', 'col-sm-6', 'col-lg-4', 'mt-3', 'g-4', 'grid-item');
-                    }
-                    //col.innerHTML = 'div col';
-                    // col -> card -> card-body
-                    document.getElementById('topics').appendChild(col);
-                    let card = document.createElement('div');
-
-                    card.classList.add('card');
-
-                    //card.innerHTML = 'card';
-                    let card_body = document.createElement('div');
-                    card_body.classList.add('card-body');
-
-                    col.appendChild(card);
-
-
-                    let img_card = document.createElement('img');
-                    img_card.classList.add('card-img-top');
-                    img_card.style.visibility = 'hidden';
-                    img_card.onload = function () {
-                        img_card.style.visibility = 'visible';
-                        img_card.classList = 'fadeIn';
-                        msnry_topics.layout();
-                    }
-                    if (lis[1].querySelector('div').querySelector('a')) {
-                        img_card.src = lis[1].querySelector('div').querySelector('a').href;
-                    }
-                    //console.log(lis[1]);
-
-
-                    card.appendChild(img_card);
-                    card.appendChild(card_body);
-
-                    let a_link = document.createElement('a');
-                    if (lis.length >= 4) {
-                        if (lis[4].querySelector('div')) {
-                            if (lis[4].querySelector('a')) {
-                                a_link.href = lis[4].querySelector('div').querySelector('a').href;
-                                a_link.target = '_blank';
-                                //card.appendChild(a_link);
-                                //a_link.appendChild(img_card);
-                                a_link.appendChild(card);
-                                col.appendChild(a_link);
-                            }
-                        }
-                    }
-
-
-                    // console.log(lis);
-                    let h5_card_title = document.createElement('h5');
-                    h5_card_title.classList.add('card-title');
-                    h5_card_title.innerHTML = title + ' ';
-                    card_body.appendChild(h5_card_title);
-
-                    let p_card_text = document.createElement('p');
-                    p_card_text.classList.add('card-text');
-                    p_card_text.innerHTML = lis[2].innerHTML;
-                    card_body.appendChild(p_card_text);
-
-                    let p_card_text_date = document.createElement('p');
-                    p_card_text_date.classList.add('card-text', 'text-muted');
-                    p_card_text_date.innerHTML = lis[3].innerHTML;
-                    card_body.appendChild(p_card_text_date);
-
-                    let i_twitter = document.createElement('i');
-                    i_twitter.classList = 'bi bi-twitter';
-
-                    let a_twitter = document.createElement('a');
-                    a_twitter.href = 'https://twitter.com/intent/tweet?text=' + encodeURI(abstract) + '&url=' + encodeURI(link);
-                    a_twitter.target = "_blank";
-                    a_twitter.classList = "twitter-link";
-                    a_twitter.appendChild(i_twitter);
-                    h5_card_title.appendChild(a_twitter);
-
-                    msnry_topics.appended(col);
-                    //ul.innerHTML = '';
-                    ol.remove();
-                    //console.log('ol', ol);
-                    count_ol++;
-                }
-                //uls.remove();
-
-                document.querySelector('.dw-content').remove();
-                //console.log('topics', document.getElementById('topics'));
-
-
-            });
-
-
-
-            var loadHTML = new Promise(function (resolve, reject) {
-
-                // 大学ウェブサイトからニュースを取得する
-                {
-                    var url = 'https://www.sd.tmu.ac.jp/news.html';
-                    var regexp = '@<li class="informationRow age202(?:.*?)>(.*?)</li>@s';
-                    var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
-                    var replace = 'awards';
-                    //Httpリクエスを作る
-                    var xmlhttp = new XMLHttpRequest();
-                    xmlhttp.open("GET", _html, true);
-                    xmlhttp.onreadystatechange = function () {
-                        //とれた場合Idにそって入れ替え
-                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                            var data = xmlhttp.responseText;
-                            //xmlhttp.responseXML
-                            //console.log(data);
-                            var elem = document.getElementById(replace);
-                            elem.innerHTML = data;
-                            resolve(data);
-                            //return data;
-                        }
-                    }
-                    xmlhttp.send(null);
-                }
-
-
-            });
-            loadHTML.then(function () {
-                var grid_sizer = document.createElement('div');
-                grid_sizer.classList.add('grid-sizer');
-                document.getElementById('awards').appendChild(grid_sizer);
-                var lists = document.getElementById('awards').querySelectorAll('li');
-                var lists_art = [];
-                for (list of lists) {
-                    if (list.querySelector('p.desc')) {
-
-                        if (list.querySelector('p.desc').innerHTML.indexOf('インダストリアルアート') > 0) {
-                            let col = document.createElement('div');
-                            col.classList.add('col', 'col-sm-6', 'col-lg-4', 'mt-3', 'g-4', 'grid-item');
-
-                            document.getElementById('awards').appendChild(col);
-                            let card = document.createElement('div');
-
-                            card.classList.add('card');
-                            let card_body = document.createElement('div');
-                            card_body.classList.add('card-body');
-                            card.appendChild(card_body);
-                            // h3タグにリンクのaタグがあるが，相対リンクで記載されているので，tmuへの絶対リンクへ文字列を置換する
-                            list.querySelector('h3').classList.add('mt-3');
-                            let link = list.querySelector('h3').querySelector('a');
-                            link.target = '_blank';
-                            let link_replaced = link.href.replace(/http.*news/u, 'https://www.sd.tmu.ac.jp/news');
-                            //console.log(link_replaced);
-                            list.style.display = 'block';
-                            link.href = link_replaced;
-
-                            list.querySelector('div.head').querySelector('span.date').classList.add('badge', 'bg-dark');
-                            list.querySelector('div.head').querySelector('span.tag').remove();
-                            //console.log(list);
-                            lists_art.push(list);
-                            list.querySelector('p.desc').classList.add('text-muted');
-                            card_body.appendChild(list);
-
-                            let a = document.createElement('a');
-                            a.href = link.href;
-                            a.target = link.target;
-                            a.appendChild(card);
-                            col.appendChild(a);
-                            //console.log(col);
-
-                            msnry.appended(col);
-
-                        }
-                        else {
-                            list.remove();
-                        }
-                    }
-                    else {
-                        list.remove();
-                    }
-                }
-                //console.log('awards', document.querySelector('#awards'));
-                msnry.layout();
-                //console.log(lists_art);
-            })
-        }
-    </script>
 </head>
 
 <body>
 
 
+    <nav class="navbar navbar-expand-md fixed-left" style="background-color:var(--color-header);">
+        <header class="logo">
+            <script>
+                $(".logo").load("./parts/header.html");
+            </script>
+        </header>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav">
+                <script type="text/javascript" src="./javascript/menu.js">
+
+                </script>
+            </ul>
 
 
-    <header id="global-head">
-        <script>
-            $("#global-head").load("./parts/header.html");
-        </script>
-    </header>
-
-    <div id="nav-toggle">
-        <div>
-            <span></span>
-            <span></span>
-            <span></span>
         </div>
-    </div>
+    </nav>
 
-    <aside id="sidebar">
-        <nav id="global-nav">
-            <script type="text/javascript" src="./javascript/menu.js"></script>
-        </nav>
-    </aside>
-
-    <div class="wrapper">
+    <div class="container">
         <div class="centering">
-            <main>
+            <h2 class="page-title">Featured Topics<span>
+                    <ja>最新のインダストリアルアート学科の活動を紹介します</ja>
+                    <en>The latest activities of the Department of Industrial Arts</en>
+                </span></h2>
+            <div id="topics" class="row row-cols-1 row-cols-md-3 g-3"></div>
 
-                <h2 class="page-title">Featured Topics<span>
-                        <ja>最新のインダストリアルアート学科の活動を紹介します</ja>
-                        <en>The latest activities of the Department of Industrial Arts</en>
-                    </span></h2>
-                <div id="topics" class="row row-cols-1 row-cols-md-3 g-3"></div>
+            <h2 class="page-title mt-5">受賞<span>学生の受賞やイベント等</span></h2>
+            <div id="awards" class="row row-cols-1 row-cols-md-3 g-3 ">
 
-                <h2 class="page-title mt-5">受賞<span>学生の受賞やイベント等</span></h2>
-                <div id="awards" class="row row-cols-1 row-cols-md-3 g-3 ">
-
-                </div>
-
-
+            </div>
         </div>
 
         <footer>
@@ -450,14 +83,17 @@
                 $("footer").load("./parts/footer.html");
             </script>
         </footer>
-        </main>
     </div>
 
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    <script type="text/javascript" src="./javascript/topics.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 
