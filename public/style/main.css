@@ -195,7 +195,6 @@ img.fadeIn{
   
   .grid-item--width3 {
       width: 60%;
-  
   }
   
   
@@ -256,6 +255,17 @@ img.fadeIn{
       transform: scale(1);
       -webkit-transition: .3s ease-in-out;
       transition: .3s ease-in-out;
+  }
+  @media (max-width: 577px) {
+    .card img {
+      object-fit:contain;
+      filter:grayscale(0%);
+      width:100%;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }
   }
 
   .card img.colored{
