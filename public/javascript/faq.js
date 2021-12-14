@@ -63,7 +63,7 @@ window.onload = function () {
             div_mycomment.appendChild(p_a);
         }
         document.querySelector('.dw-content').remove();
-        console.log(document.querySelector('#content'));
+        //console.log(document.querySelector('#content'));
         initLanguage();
     });
 }

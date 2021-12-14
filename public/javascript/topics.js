@@ -88,10 +88,13 @@ window.onload = function () {
 
             let img_card = document.createElement('img');
             img_card.classList.add('card-img-top');
+            if (count_ol == 0) {
+                img_card.classList.add('colored');
+            }
             img_card.style.visibility = 'hidden';
             img_card.onload = function () {
                 img_card.style.visibility = 'visible';
-                img_card.classList = 'fadeIn';
+                img_card.classList.add('fadeIn');
                 msnry_topics.layout();
             }
             if (lis[1].querySelector('div').querySelector('a')) {

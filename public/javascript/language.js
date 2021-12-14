@@ -38,7 +38,7 @@ function toggleLanguage() {
     let ens = document.querySelectorAll('en');
     let jas = document.querySelectorAll('ja');
 
-    console.log(ens, jas);
+    //console.log(ens, jas);
     // if (!ens && !jas) {
     //     language = 'ja';
     //     language_hidden = 'en';
