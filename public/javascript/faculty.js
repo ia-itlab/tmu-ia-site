@@ -122,11 +122,11 @@ window.onload = function () {
             img.onload = function () {
                 img.style.visibility = 'visible';
                 img.classList.add('fadeIn');
-                console.log("loaded", img);
+                //                console.log("loaded", img);
             }
 
 
-            console.log(div_card);
+            //          console.log(div_card);
             ol.remove();
         }
         initLanguage();

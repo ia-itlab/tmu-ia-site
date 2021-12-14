@@ -24,15 +24,15 @@ window.onload = function () {
     });
     loadHTML.then(function () {
         var lis = document.querySelector('.dw-content').querySelector('ol').querySelectorAll('li');
-        console.log(lis);
+        //console.log(lis);
         for (li of lis) {
-            console.log(li.querySelector('div').innerHTML)
+            //console.log(li.querySelector('div').innerHTML)
         }
         var h2_page_title = document.createElement('h2');
         h2_page_title.classList = "page-title";
         h2_page_title.innerHTML = lis[0].querySelector('div').innerHTML;
         document.getElementById('main').appendChild(h2_page_title);
-        console.log("here", document.getElementById('main'));
+        //console.log("here", document.getElementById('main'));
         var span = document.createElement('span');
         span.innerHTML = lis[1].innerHTML;
         h2_page_title.appendChild(span);
@@ -61,7 +61,7 @@ window.onload = function () {
         img.onload = function () {
             img.style.visibility = 'visible';
             img.classList = 'fadeIn';
-            console.log("loaded", img);
+            //console.log("loaded", img);
         }
         div_flex_item.appendChild(img);
 
@@ -105,7 +105,7 @@ window.onload = function () {
         img_course02.src = lis[11].querySelector('div').querySelector('a').innerHTML;
         section_course.appendChild(img_course02);
 
-        console.log(document.getElementById("main"));
+        //console.log(document.getElementById("main"));
         document.querySelector('.dw-content').remove();
 
         var ens = document.querySelectorAll('en');

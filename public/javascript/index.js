@@ -44,5 +44,5 @@ function setDarkmode() {
     document.querySelector(':root').style.setProperty('--color-background', "#F5F5F5");
     document.querySelector(':root').style.setProperty('--color-header', "rgba(245,245,245,0.9)");
   }
-  console.log(`darkmode is ${sessionStorage.getItem('darkmode')}`);
+  //console.log(`darkmode is ${sessionStorage.getItem('darkmode')}`);
 }

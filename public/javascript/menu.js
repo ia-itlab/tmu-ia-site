@@ -1,7 +1,7 @@
 $(".navbar-nav").load("./parts/menu.html", function () {
     let ul = document.querySelector('.navbar-nav');
     let lis = ul.querySelectorAll('li');
-    console.log("hello", ul);
+    //console.log("hello", ul);
     var filename = window.location.href.split('/').pop();
 
     if (filename.indexOf('labview.html') >= 0) {

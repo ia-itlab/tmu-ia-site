@@ -78,7 +78,7 @@ window.onload = function () {
         img.onload = function () {
           img.style.visibility = 'visible';
           img.classList.add('fadeIn');
-          console.log("loaded", img);
+          //console.log("loaded", img);
         }
         div_hover_text.appendChild(img);
 
@@ -98,7 +98,7 @@ window.onload = function () {
         //ol.remove();
       }
       initLanguage();
-      console.log(document.querySelector('#studios'));
+      //console.log(document.querySelector('#studios'));
       document.querySelector('.dw-content').remove();
     });
 
@@ -112,7 +112,7 @@ window.onload = function () {
         var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
         var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
         var replace = 'studio_description';
-        console.log(url);
+        //console.log(url);
         //Httpリクエスを作る
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", _html, true);

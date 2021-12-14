@@ -250,7 +250,18 @@ img.fadeIn{
   
   .card img {
     object-fit:contain;
+    filter:grayscale(100%);
     width:100%;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      -webkit-transition: .3s ease-in-out;
+      transition: .3s ease-in-out;
+  }
+
+  .card img.colored{
+    object-fit:contain;
+    width:100%;
+    filter:grayscale(0%);
       -webkit-transform: scale(1);
       transform: scale(1);
       -webkit-transition: .3s ease-in-out;
@@ -259,6 +270,7 @@ img.fadeIn{
   
   .card:hover img {
       -webkit-transform: scale(1.05);
+      filter:grayscale(0%);
       transform: scale(1.05);
   }
 
