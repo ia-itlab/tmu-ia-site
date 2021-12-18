@@ -17,7 +17,23 @@
     <link rel="stylesheet" href="./style/main.css">
     <!-- <link rel="stylesheet" href="./style/docs.css"> -->
 
-    <link rel="shortcut icon" href="./images/ファビコン (logo)/favicon.ico">
+    <!-- setting up favicons -->
+    <link rel="shortcut icon" href="./images/favicons/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="./images/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152" href="./images/favicons/favicon-152-precomposed.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./images/favicons/favicon-144-precomposed.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./images/favicons/favicon-120-precomposed.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./images/favicons/favicon-114-precomposed.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/favicon-180-precomposed.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./images/favicons/favicon-72-precomposed.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="./images/favicons/favicon-57.png">
+    <link rel="icon" sizes="32x32" href="./images/favicons/favicon-32.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="./images/favicons/favicon-144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="./images/favicons/manifest.json">
+    <link rel="icon" sizes="192x192" href="./images/favicons/favicon-192.png">
+
     <!-- font -->
     <script type="text/javascript" src="./javascript/font.js"></script>
 
@@ -28,66 +44,20 @@
 
     <title>東京都立大学システムデザイン学部インダストリアルアート学科/学域</title>
 
-    <style>
-        .button-fixed {
-            bottom: 0;
-            position: fixed;
-            z-index: 999;
-            right: 10px;
-            border-radius: 20px;
-            background-color: var(--color-header);
-            font-size: 0.7em;
-            line-height: 1.0em;
-        }
-    </style>
+
 </head>
 
 <body>
 
 
-
-    <nav class="navbar navbar-expand-md fixed-left" style="background-color:var(--color-header);">
-        <header class="logo">
-            <script>
-                $(".logo").load("./parts/header.html");
-            </script>
-        </header>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                    fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                </svg></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav">
-                <script type="text/javascript" src="./javascript/menu.js">
-
-                </script>
-            </ul>
-
-
-        </div>
-
-
-    </nav>
+    <div id="header_and_menu">
+        <script>
+            $("#header_and_menu").load("./parts/header_and_menu.html");
+        </script>
+    </div>
 
     <div class="container">
         <div class="centering">
-
-            <!-- <div class="row ">
-                <div class="col-sm-4 col-12 button-fixed mb-3 mt-3">
-                    <h2 class="mt-3">Allow Cookies</h2>
-                    <p>当学科ウェブサイトは、利便性、品質維持・向上を目的に、Cookieを使用しております。
-                        詳しくは、クッキーポリシーをご参照ください。
-                        Cookieの利用に同意頂ける場合は、「同意する」ボタンを押してください。
-                    </p>
-                    <button type="button" class="btn btn-danger w-100 mb-3">Accept Cookies</button>
-                </div>
-            </div> -->
-
 
             <h2 class="page-title">Featured Topics<span>
                     <ja>最新のインダストリアルアート学科の活動を紹介します</ja>
