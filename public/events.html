@@ -61,7 +61,7 @@
         section_links.classList = 'links';
         document.querySelector('main').appendChild(section_links);
         for (ol of ols) {
-          console.log(ol);
+          //console.log(ol);
           let lis = ol.querySelectorAll('li');
           let title = lis[0].querySelector('div').innerHTML;
           let place = lis[1].querySelector('div').innerHTML;
@@ -129,7 +129,7 @@
 
         }
         document.querySelector('.dw-content').remove();
-        console.log(section_links);
+        //console.log(section_links);
         initLanguage();
       });
     }

@@ -115,7 +115,7 @@
       var url = new URL(window.location.href);
       var params = url.searchParams;
       // 記事番号
-      console.log(params.get('no'));
+      //console.log(params.get('no'));
       var number_page;
       if (!params.get('no')) {
         number_page = 'menu'
@@ -180,14 +180,18 @@
             a.appendChild(div);
             var h5 = document.createElement('h5');
             h5.classList = "mb-1 h5";
-            h5.innerHTML = name + " " + graduation;
+            h5.innerHTML = name;
             div.appendChild(h5);
+            let span_graduation = document.createElement('span');
+            span_graduation.classList = "small text-muted";
+            span_graduation.innerHTML = graduation;
+            h5.appendChild(span_graduation);
             var small = document.createElement('small');
             small.classList = "text-muted";
             small.innerHTML = date;
             div.appendChild(small);
             var small_affiliation = document.createElement('small');
-            small_affiliation.classList = "text-muted";
+            small_affiliation.classList.add("text-muted");
             small_affiliation.innerHTML = affiliation;
             a.appendChild(small_affiliation);
             document.querySelector('#list').appendChild(a);
@@ -210,10 +214,10 @@
               img.classList.add('fadeIn');
             }
           }
-          console.log(imgs);
+          //console.log(imgs);
         }
         document.getElementById('tmp').remove();
-        console.log(document.querySelector('.wrapper'));
+        //console.log(document.querySelector('.wrapper'));
         initLanguage();
       });
     }
