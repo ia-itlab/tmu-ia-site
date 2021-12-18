@@ -55,19 +55,17 @@ function generateCards() {
             img_card.classList.add('fadeIn');
             msnry_topics.layout();
         }
-        img_card.src = cd.image;
-
-        //console.log(lis[1]);
-
-
-        card.appendChild(img_card);
+        if (cd.image === 'noimage') {
+        }
+        else {
+            img_card.src = cd.image;
+            card.appendChild(img_card);
+        }
         card.appendChild(card_body);
 
         let a_link = document.createElement('a');
         a_link.href = cd.link;
         a_link.target = '_blank';
-        //card.appendChild(a_link);
-        //a_link.appendChild(img_card);
         a_link.appendChild(card);
         col.appendChild(a_link);
 
@@ -187,8 +185,8 @@ window.onload = function () {
                     if (list.querySelector('p.desc').innerHTML.indexOf('インダストリアルアート') > 0) {
                         card_data.push({
                             title: list.querySelector('h3').querySelector('a').innerHTML.trimStart(),
-                            image: 'no image',
-                            abstract: list.querySelector('p.desc').innerHTML,
+                            image: 'noimage',
+                            abstract: list.querySelector('h3').querySelector('a').innerHTML.trimStart() + ' ' + list.querySelector('p.desc').innerHTML,
                             link: list.querySelector('h3').querySelector('a').href.replace(/http.*news/u, 'https://www.sd.tmu.ac.jp/news'),
                             date: list.querySelector('div.head').querySelector('span.date').innerHTML.trimStart()
                         });
@@ -202,7 +200,7 @@ window.onload = function () {
         card_data = card_data.sort(function (a, b) {
             return (a.date > b.date) ? -1 : 1;
         });
-        console.log(card_data);
+        //console.log(card_data);
         generateCards();
     }
 
