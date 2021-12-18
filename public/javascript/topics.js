@@ -55,7 +55,7 @@ function generateCards() {
             img_card.classList.add('fadeIn');
             msnry_topics.layout();
         }
-        if (cd.image === 'no image') {
+        if (cd.image === 'noimage') {
         }
         else {
             img_card.src = cd.image;
@@ -185,7 +185,7 @@ window.onload = function () {
                     if (list.querySelector('p.desc').innerHTML.indexOf('インダストリアルアート') > 0) {
                         card_data.push({
                             title: list.querySelector('h3').querySelector('a').innerHTML.trimStart(),
-                            image: 'no image',
+                            image: 'noimage',
                             abstract: list.querySelector('h3').querySelector('a').innerHTML.trimStart() + ' ' + list.querySelector('p.desc').innerHTML,
                             link: list.querySelector('h3').querySelector('a').href.replace(/http.*news/u, 'https://www.sd.tmu.ac.jp/news'),
                             date: list.querySelector('div.head').querySelector('span.date').innerHTML.trimStart()
