@@ -37,7 +37,7 @@ window.onload = function () {
             // [4]：キーワード
             // [5]：研究室リンク
             // [6]：写真
-            console.log(ol);
+            //console.log(ol);
             let name = lis[0].querySelector('.li').innerHTML;
             let position = lis[1].querySelector('.li').innerHTML;
             let name_en = lis[2].querySelector('.li').innerHTML;
@@ -70,7 +70,7 @@ window.onload = function () {
             div_col_md_3.classList = "col-md-3";
             div_row.appendChild(div_col_md_3);
             let img = document.createElement('img');
-            img.classList = "card-img-top gray_filter";
+            img.classList = "card-img-top gray";
             img.src = image_src;
             img.style.visibility = 'hidden'
             div_col_md_3.appendChild(img);
