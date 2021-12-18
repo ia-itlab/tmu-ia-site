@@ -10,7 +10,23 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="./style/main.css">
   <link rel="stylesheet" type="text/css" href="style/faq.css">
-  <link rel="shortcut icon" href="./images/ファビコン (logo)/favicon.ico">
+
+  <!-- setting up favicons -->
+  <link rel="shortcut icon" href="./images/favicons/favicon.ico" />
+  <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="./images/favicons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="152x152" href="./images/favicons/favicon-152-precomposed.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="./images/favicons/favicon-144-precomposed.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="./images/favicons/favicon-120-precomposed.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="./images/favicons/favicon-114-precomposed.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/favicon-180-precomposed.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="./images/favicons/favicon-72-precomposed.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="./images/favicons/favicon-57.png">
+  <link rel="icon" sizes="32x32" href="./images/favicons/favicon-32.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="./images/favicons/favicon-144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="manifest" href="./images/favicons/manifest.json">
+  <link rel="icon" sizes="192x192" href="./images/favicons/favicon-192.png">
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="./javascript/index.js"></script>
@@ -28,29 +44,11 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md  fixed-left" style="background-color:var(--color-header);">
-    <header class="logo">
-      <script>
-        $(".logo").load("./parts/header.html");
-      </script>
-    </header>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-          fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-        </svg></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav">
-        <script type="text/javascript" src="./javascript/menu.js">
-
-        </script>
-      </ul>
-    </div>
-  </nav>
+  <div id="header_and_menu">
+    <script>
+      $("#header_and_menu").load("./parts/header_and_menu.html");
+    </script>
+  </div>
 
   <div class="container">
     <div class="centering">

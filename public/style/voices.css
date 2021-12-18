@@ -1,0 +1,75 @@
+p {
+    font-size: 0.9em;
+    line-height: 1.5em;
+    padding-top: 0.5em;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+  }
+
+  h4 {
+    text-align: left;
+    font-size: 0.8em;
+  }
+
+  h5 {
+    text-align: right;
+    font-size: 0.8em;
+  }
+
+  #voice {
+    width: 100%;
+  }
+
+  #voice img {
+    max-width: 100%;
+    padding: 0;
+
+    margin: 15px 0px 0px 0px;
+  }
+
+  #voice img.medialeft {
+    float: left;
+    margin-right: 20px;
+  }
+
+  #voice img.mediaright {
+    float: right;
+    margin-left: 20px;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  em.u {
+    text-decoration: underline;
+    font-style: normal;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  .list-group-item {
+    background: none;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    transition: all, 1s;
+  }
+
+  .list-group-item:hover {
+    background: none;
+    background-color: var(--color-text);
+    color: var(--color-background);
+    transition: all, 1s;
+  }
