@@ -64,3 +64,15 @@ function setColorMode() {
   // }
 }
 
+
+function createIALoadingElement() {
+  /* <div class="spinner-border" role="status" style="color: var(--color-text);">
+                    IA
+                </div> */
+  let element_return = document.createElement('div');
+  element_return.classList.add('spinner-border');
+  element_return.setAttribute('role', "status");
+  element_return.style.color = 'var(--color-text)';
+  element_return.innerHTML = ' IA';
+  return element_return;
+}

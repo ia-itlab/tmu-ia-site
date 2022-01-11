@@ -71,14 +71,16 @@ window.onload = function () {
         div_col.appendChild(div_hover_text);
         let img = document.createElement('img');
         img.classList = "hover_text img-fluid";
-        img.src = image_src;
+        img.loading = 'lazy';
+        img.alt = '';
         img.style.visibility = 'hidden'
+        img.src = image_src;
+
         // img.srcが読み込み終わったら表示してあげる
         // カード画像は全部ロードが終わった後並べ替え作業をする
         img.onload = function () {
           img.style.visibility = 'visible';
           img.classList.add('fadeIn');
-          //console.log("loaded", img);
         }
         div_hover_text.appendChild(img);
 
@@ -98,7 +100,7 @@ window.onload = function () {
         //ol.remove();
       }
       initLanguage();
-      //console.log(document.querySelector('#studios'));
+      console.log(document.querySelector('#studios'));
       document.querySelector('.dw-content').remove();
     });
 
@@ -166,6 +168,14 @@ window.onload = function () {
       //img.classList = 'img-fluid rounded';
       img.style = 'width:100%';
       img.src = image;
+      img.style.visibility = 'hidden'
+      // img.srcが読み込み終わったら表示してあげる
+      // カード画像は全部ロードが終わった後並べ替え作業をする
+      img.onload = function () {
+        img.style.visibility = 'visible';
+        img.classList.add('fadeIn');
+        //console.log("loaded", img);
+      }
       section_left.appendChild(img);
 
       let p = document.createElement('p');
