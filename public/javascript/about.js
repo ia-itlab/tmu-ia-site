@@ -54,13 +54,21 @@ window.onload = function () {
         div_flex_item.classList = 'flex-item flex-item-img';
         section_flexbox.appendChild(div_flex_item);
         var img = document.createElement('img');
+        img.classList.add('fadeIn');
+        img.classList.add('thumbnail');
+        new simpleParallax(img, {
+            orientation: 'left',
+            scale: 1.2,
+            //overflow: true
+        });
         img.style.visibility = 'hidden';
+
         img.src = lis[3].querySelector('div').querySelector('a').innerHTML;
         // img.srcが読み込み終わったら表示してあげる
         // カード画像は全部ロードが終わった後並べ替え作業をする
         img.onload = function () {
             img.style.visibility = 'visible';
-            img.classList = 'fadeIn';
+
             //console.log("loaded", img);
         }
         div_flex_item.appendChild(img);
@@ -98,12 +106,23 @@ window.onload = function () {
         var h3_course = document.createElement('h3');
         h3_course.innerHTML = lis[9].querySelector('div').innerHTML;
         section_course.appendChild(h3_course);
+
+        let row = document.createElement('div');
+        row.classList = 'row';
+        let col1 = document.createElement('div');
+        col1.classList = 'col-6';
+        let col2 = document.createElement('div');
+        col2.classList = 'col-6';
+        section_course.appendChild(row);
+        row.appendChild(col1);
+        row.appendChild(col2);
+
         var img_course01 = document.createElement('img');
         img_course01.src = lis[10].querySelector('div').querySelector('a').innerHTML;
-        section_course.appendChild(img_course01);
+        col1.appendChild(img_course01);
         var img_course02 = document.createElement('img');
         img_course02.src = lis[11].querySelector('div').querySelector('a').innerHTML;
-        section_course.appendChild(img_course02);
+        col2.appendChild(img_course02);
 
         //console.log(document.getElementById("main"));
         document.querySelector('.dw-content').remove();

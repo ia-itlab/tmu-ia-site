@@ -71,6 +71,12 @@ window.onload = function () {
             div_row.appendChild(div_col_md_3);
             let img = document.createElement('img');
             img.classList = "card-img-top gray";
+            img.classList.add('thumbnail');
+            // new simpleParallax(img, {
+            //     orientation: 'left',
+            //     scale: 1.05,
+            //     //overflow: true
+            // });
             img.src = image_src;
             img.style.visibility = 'hidden'
             div_col_md_3.appendChild(img);
