@@ -72,29 +72,34 @@ window.onload = function () {
                 h5.innerHTML = name;
                 div.appendChild(h5);
                 let span_graduation = document.createElement('span');
-                span_graduation.classList = "small text-muted";
+                span_graduation.classList.add("small");
+                span_graduation.style.color = 'var(--color-text-muted);';
                 span_graduation.innerHTML = graduation;
+
                 h5.appendChild(span_graduation);
                 var small = document.createElement('small');
-                small.classList = "text-muted";
+                small.style.color = 'var(--color-text-muted);';
                 small.innerHTML = date;
                 div.appendChild(small);
                 var small_affiliation = document.createElement('small');
-                small_affiliation.classList.add("text-muted");
+                small_affiliation.style.color = 'var(--color-text-muted);';
                 small_affiliation.innerHTML = affiliation;
                 a.appendChild(small_affiliation);
                 document.querySelector('#list').appendChild(a);
+                document.querySelector('#list').classList.add('fadeIn');
+
             }
         }
         // 記事ページの場合
         else {
+
+            // まずはそのまんま突っ込む
             document.querySelector('#voice').innerHTML = data;
 
-            // img タグについては、読み込んだあとにフェード表示する
+            // img タグを全部取得
             let imgs = document.querySelector('#voice').querySelectorAll('img');
 
             // img.srcが読み込み終わったら表示してあげる
-            // カード画像は全部ロードが終わった後並べ替え作業をする
             for (let img of imgs) {
                 img.classList.add('img_fluid');
                 img.style.visibility = 'hidden';
@@ -104,9 +109,10 @@ window.onload = function () {
                 }
             }
             //console.log(imgs);
+            document.querySelector('#voice').classList.add('fadeIn');
         }
         document.getElementById('tmp').remove();
-        //console.log(document.querySelector('.wrapper'));
+        //console.log(document.querySelector('#list'));
         initLanguage();
     });
 }

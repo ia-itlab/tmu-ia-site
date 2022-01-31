@@ -100,9 +100,12 @@ h2.page-title {
  
 
 /* ここから下は馬場が追加したもの*/
+.fadeIn{
+  animation: fadeIn 1.0s ease 0.0s 1 normal;
+}
 img.fadeIn{
-    animation: fadeIn 1.0s ease 0.0s 1 normal;
-  }
+  animation: fadeIn 1.0s ease 0.0s 1 normal;
+}
   .wrapper {
     animation: fadeIn 1.0s ease 0.0s 1 normal;
   }
@@ -162,7 +165,7 @@ img.fadeIn{
   */
   h5.card-title {
       font-size: 1.2em;
-      font-weight: bold;
+      font-weight: bold;      
   }
   
   h3.title {
@@ -234,6 +237,7 @@ img.fadeIn{
       color: var(--color-text-muted);
       background-color:var(--color-background);
       border:solid 1px var(--color-text-muted);
+      /* box-shadow: -1px -1px 2px var(--color-text-muted), 1px 1px 2px var(--color-text-muted); */
       transition: all 1s;
   }
   

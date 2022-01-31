@@ -1,49 +1,78 @@
-var current = new Date();
-//console.log(`time is ${current.getHours()} and darkmode ${sessionStorage.getItem('darkmode')}`);
-if (sessionStorage.getItem('darkmode') === null) {
-  if (
-    (0 <= current.getHours() && current.getHours() <= 6) ||
-    (18 <= current.getHours() && current.getHours() <= 24)
-  ) {
-    sessionStorage.setItem('darkmode', 'true');
+window.addEventListener('DOMContentLoaded', function () {
+
+  var current = new Date();
+  //console.log(`time is ${current.getHours()} and darkmode ${sessionStorage.getItem('darkmode')}`);
+  if (sessionStorage.getItem('colormode') === null) {
+    if (
+      (0 <= current.getHours() && current.getHours() <= 6) ||
+      (18 <= current.getHours() && current.getHours() <= 24)
+    ) {
+      sessionStorage.setItem('colormode', 'dark');
+    }
+    else {
+      sessionStorage.setItem('colormode', 'light');
+    }
   }
-  else {
-    sessionStorage.setItem('darkmode', 'false');
-  }
+  let today = nf(current.getFullYear(), 4) + nf(current.getMonth() + 1, 2) + nf(current.getDate(), 2);
+  //console.log(today);
+  setColorMode();
+});
+
+// NUM=値 LEN=桁数
+function nf(NUM, LEN) {
+  return (Array(LEN).join('0') + NUM).slice(-LEN);
 }
-
-
-setDarkmode();
-
 
 function toggleDarkmode() {
-  // --color-background:#1F1F1F;
-  // --color-text-muted: #737373;
-  // --color-text: #fff;
-  // --color-header: rgba(31,31,31,0.5);
-  if (sessionStorage.getItem('darkmode') == 'true') {
-    sessionStorage.setItem('darkmode', 'false');
+  if (sessionStorage.getItem('colormode') == 'dark') {
+    sessionStorage.setItem('colormode', 'light');
   }
-  else if (sessionStorage.getItem('darkmode') == 'false') {
-    sessionStorage.setItem('darkmode', 'true');
+  else if (sessionStorage.getItem('colormode') == 'light') {
+    sessionStorage.setItem('colormode', 'dark');
   }
-  setDarkmode();
+  else {
+    sessionStorage.setItem('colormode', 'light');
+  }
+  setColorMode();
 
 }
 
-function setDarkmode() {
-  if (sessionStorage.getItem('darkmode') == 'true') {
+function setColorMode() {
+  let text_colormode = document.querySelector('#text_colormode');
+  if (sessionStorage.getItem('colormode') == 'dark') {
     document.querySelector(':root').style.setProperty('--color-text', "#ffffff");
     document.querySelector(':root').style.setProperty('--color-text-muted', "#8C8C8C");
     document.querySelector(':root').style.setProperty('--color-background', "#1f1f1f");
     document.querySelector(':root').style.setProperty('--color-header', "rgba(31,31,31,0.9)");
+    if (text_colormode) text_colormode.innerHTML = 'dark';
   }
-  else {
+  else if (sessionStorage.getItem('colormode') == 'light') {
     document.querySelector(':root').style.setProperty('--color-text', "#1f1f1f");
     document.querySelector(':root').style.setProperty('--color-text-muted', "#595959");
     document.querySelector(':root').style.setProperty('--color-background', "#F5F5F5");
     document.querySelector(':root').style.setProperty('--color-header', "rgba(245,245,245,0.9)");
+    if (text_colormode) text_colormode.innerHTML = 'light';
+
   }
-  //console.log(`darkmode is ${sessionStorage.getItem('darkmode')}`);
+  // else if (sessionStorage.getItem('colormode') == 'christmas') {
+  //   document.querySelector(':root').style.setProperty('--color-text', "#FFFFFF");
+  //   document.querySelector(':root').style.setProperty('--color-text-muted', "#DDDDDD");
+  //   document.querySelector(':root').style.setProperty('--color-background', "#EA3458");
+  //   document.querySelector(':root').style.setProperty('--color-header', "rgba(58, 131, 108,1.0)");
+  //   text_colormode.innerHTML = 'Xmas';
+  //   //console.log(`darkmode is ${sessionStorage.getItem('darkmode')}`);
+  // }
 }
 
+
+function createIALoadingElement() {
+  /* <div class="spinner-border" role="status" style="color: var(--color-text);">
+                    IA
+                </div> */
+  let element_return = document.createElement('div');
+  element_return.classList.add('spinner-border');
+  element_return.setAttribute('role', "status");
+  element_return.style.color = 'var(--color-text)';
+  element_return.innerHTML = ' IA';
+  return element_return;
+}

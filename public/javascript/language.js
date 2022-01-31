@@ -30,25 +30,15 @@ function toggleLanguage() {
     if (language == 'ja') {
         language = 'en';
         sessionStorage.setItem('language', language);
+        document.querySelector('#text_language').innerHTML = 'En';
     }
     else {
         language = 'ja';
         sessionStorage.setItem('language', language);
+        document.querySelector('#text_language').innerHTML = 'Ja';
     }
     let ens = document.querySelectorAll('en');
     let jas = document.querySelectorAll('ja');
-
-    //console.log(ens, jas);
-    // if (!ens && !jas) {
-    //     language = 'ja';
-    //     language_hidden = 'en';
-    //     return; // do nothing
-    // }
-    // else if (!ens) {
-    //     language = 'ja';
-    //     language_hidden = 'en';
-    //     return; // do nothing
-    // }
 
     if (language == 'ja') {
         for (en of ens) {

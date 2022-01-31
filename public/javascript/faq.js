@@ -62,6 +62,8 @@ window.onload = function () {
             p_a.innerHTML = str_a;
             div_mycomment.appendChild(p_a);
         }
+
+        document.querySelector('#content').classList.add('fadeIn');
         document.querySelector('.dw-content').remove();
         //console.log(document.querySelector('#content'));
         initLanguage();
