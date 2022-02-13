@@ -4,574 +4,592 @@
 https://github.com/mladenplavsic/bootstrap-navbar-sidebar 
 */
 :root {
-    --color-background:#1F1F1F;
-    --color-text-muted: #737373;
-    --color-text: #fff;
-    --color-header: rgba(31,31,31,0.5);
+  --color-background: #1F1F1F;
+  --color-text-muted: #737373;
+  --color-text: #fff;
+  --color-header: rgba(31, 31, 31, 0.5);
 }
 
-  
-  html, body {
-    height: 100%;
-    font-family: kinto-sans, sans-serif;
-    -webkit-text-size-adjust: 100%;
-    color: var(--color-text);
-    line-height: 1.5em;
-    background-color:var(--color-background);
-    transition:all 1s;
-  }
-  button{
-    color: var(--color-text);
-  }
-  a, a:hover{
-      text-decoration:none;
-      color:var(--color-text);
-  }
-  
-  .container{
-      padding-top:180px;
-  }
-  
-  header.logo{
-      padding:30px;
-  }
 
-  ul.navbar-nav{
-    font-weight: bold;
-    font-size: 1.25rem;
-    color: var(--color-text);
-    line-height: 2em;
-    letter-spacing: .5pt;
-    text-decoration: none;
-    display: block;
-    padding-left: 40px;
-    margin: 0px;
+html, body {
+  height: 100%;
+  font-family: kinto-sans, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  color: var(--color-text);
+  line-height: 1.5em;
+  background-color: var(--color-background);
+  transition: all 1s;
+}
 
-  }
-  ul.navbar-nav>li>a{
-    color:var(--color-text-muted);
-    transition:color 0.5s;
-  }
-   ul.navbar-nav>li>a.here{
-    color:var(--color-text);
-  }
-  ul.navbar-nav>li>a:hover{
-    color:var(--color-text);
-    transition:color 0.5s;
-  }
-  
-  /* Page title ------------------- */
+button {
+  color: var(--color-text);
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.container {
+  padding-top: 180px;
+}
+
+header.logo {
+  padding: 30px;
+}
+
+ul.navbar-nav {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: var(--color-text);
+  line-height: 2em;
+  letter-spacing: .5pt;
+  text-decoration: none;
+  display: block;
+  padding-left: 40px;
+  margin: 0px;
+
+}
+
+ul.navbar-nav>li>a {
+  color: var(--color-text-muted);
+  transition: color 0.5s;
+}
+
+ul.navbar-nav>li>a.here {
+  color: var(--color-text);
+}
+
+ul.navbar-nav>li>a:hover {
+  color: var(--color-text);
+  transition: color 0.5s;
+}
+
+ul.navbar-nav>li.sub {
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+.hr-mini {
+  margin: 0.5em 0 0.25em;
+}
+
+/* Page title ------------------- */
 
 h2.page-title {
-    font-weight: 700;
-    font-size: 2rem;
-    margin-bottom: 24px;
-  }
-  
-  h2.page-title>span {
-    font-weight: 400;
-    font-size: 0.875rem;
-    margin-left: 0.8em;
-    color: var(--color-text-muted);
-  }
-  
-  .width-limit {
-    max-width: 1080px;
-    margin: 0 auto;
-  }
-  
-  /* Page sub title ------------------- */
-  
-  h3.page-sub-title {
-    font-weight: 400;
-    font-size: 1.5rem;
-    margin-top: 1.5em;
-    margin-bottom: 0.75em;
-  }
-  
-  h3.page-sub-title>span {
-    font-weight: 400;
-    font-size: 0.875rem;
-    margin-top: 24px;
-    margin-left: 0.8em;
-    color: var(--color-text-muted);
-  }
-  
- 
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+
+h2.page-title>span {
+  font-weight: 400;
+  font-size: 0.875rem;
+  margin-left: 0.8em;
+  color: var(--color-text-muted);
+}
+
+.width-limit {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* Page sub title ------------------- */
+
+h3.page-sub-title {
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+h3.page-sub-title>span {
+  font-weight: 400;
+  font-size: 0.875rem;
+  margin-top: 24px;
+  margin-left: 0.8em;
+  color: var(--color-text-muted);
+}
+
+
 
 /* ここから下は馬場が追加したもの*/
-.fadeIn{
+.fadeIn {
   animation: fadeIn 1.0s ease 0.0s 1 normal;
 }
-img.fadeIn{
+
+img.fadeIn {
   animation: fadeIn 1.0s ease 0.0s 1 normal;
 }
-  .wrapper {
-    animation: fadeIn 1.0s ease 0.0s 1 normal;
+
+.wrapper {
+  animation: fadeIn 1.0s ease 0.0s 1 normal;
+}
+
+ja {
+  animation: fadeIn 1.0s ease 0.0s 1 normal;
+}
+
+en {
+  animation: fadeIn 1.0s ease 0.0s 1 normal;
+}
+
+@keyframes fadeIn {
+
+  /*animation-nameで設定した値を書く*/
+  0% {
+    opacity: 0
   }
-  
-  ja{
-    animation: fadeIn 1.0s ease 0.0s 1 normal;
+
+  /*アニメーション開始時は不透明度0%*/
+  100% {
+    opacity: 1
   }
-  en{
-    animation: fadeIn 1.0s ease 0.0s 1 normal;
-  }
-  
-  @keyframes fadeIn {
-  
-    /*animation-nameで設定した値を書く*/
-    0% {
-        opacity: 0
-    }
-  
-    /*アニメーション開始時は不透明度0%*/
-    100% {
-        opacity: 1
-    }
-  
-    /*アニメーション終了時は不透明度100%*/
-  }
-  
-  .twitter-link{
-    color: var(--color-text-muted);
-  }
-  
-  .twitter-link:hover{
-    color: var(--color-text);
-    transition: all, 0.5s;
-  }
-  
-  figcaption{
-    border-left:1px solid var(--color-text-muted);
-    border-width:0.5em;
-    padding-left:0.5em;
-    font-size:0.8em;
-  }
-    
-  p a, figcaption a{
-    color:var(--color-text);
-    font-weight:bold;
-    border-bottom:dashed 1px var(--color-text);
-    
-  }
-  p a:hover, figcaption a:hover{
-    color:var(--color-background);
-    background-color:var(--color-text);
-    background-position: -100% 0;
-  }
-  
-  /*
+
+  /*アニメーション終了時は不透明度100%*/
+}
+
+.twitter-link {
+  color: var(--color-text-muted);
+}
+
+.twitter-link:hover {
+  color: var(--color-text);
+  transition: all, 0.5s;
+}
+
+figcaption {
+  border-left: 1px solid var(--color-text-muted);
+  border-width: 0.5em;
+  padding-left: 0.5em;
+  font-size: 0.8em;
+}
+
+p a, figcaption a {
+  color: var(--color-text);
+  font-weight: bold;
+  border-bottom: dashed 1px var(--color-text);
+
+}
+
+p a:hover, figcaption a:hover {
+  color: var(--color-background);
+  background-color: var(--color-text);
+  background-position: -100% 0;
+}
+
+/*
     topic style
   */
-  h5.card-title {
-      font-size: 1.2em;
-      font-weight: bold;      
-  }
-  
-  h3.title {
-      font-size: 1.2em;
-  }
-  
-  h3.title>a {
-      color: var(--color-text);
-      text-decoration: none;
-      font-weight: bold;
-  }
-  
-  h3.title>a:hover {
-      color: var(--color-background);
-      background-color: var(--color-text);
-      text-decoration: none;
-  }
-  
-  .grid-sizer,
-  .grid-item {
-      float: left;
-      border-radius: 5px;
-  
-  }
-  
-  .grid-item--width2 {
-      width: 40%;
-  
-  }
-  
-  .grid-item--width3 {
-      width: 60%;
-  }
-  
-  
-  /* 2 columns wide */
-  .grid-item--width2 {
-      width: 40%;
-  }
-  
-  .grid-item--height2 {
-      height: 200px;
-  }
-  
-  .grid-item--height3 {
-      height: 260px;
-  }
-  
-  .grid-item--height4 {
-      height: 360px;
-  }
-  
-  /* clearfix */
-  .grid:after {
-      content: '';
-      display: block;
-      clear: both;
-  }
-  
-  .grid-item>a {
-      text-decoration: none;
-  }
-  
-  .grid-item>a:hover {
-      text-decoration: none;
-  }
-  
-  .grid-item>a>.card {
-      color: var(--color-text-muted);
-      background-color:var(--color-background);
-      border:solid 1px var(--color-text-muted);
-      /* box-shadow: -1px -1px 2px var(--color-text-muted), 1px 1px 2px var(--color-text-muted); */
-      transition: all 1s;
-  }
-  
-  .grid-item>a>.card:hover {
-      text-decoration: none;
-      color:var(--color-text);
-      transition: all 1s;
-  }
-  
-  .card {
-    overflow:hidden;
-  }
-  
-  .card img {
-    object-fit:contain;
-    filter:grayscale(100%);
-    width:100%;
-      -webkit-transform: scale(1);
-      transform: scale(1);
-      -webkit-transition: .3s ease-in-out;
-      transition: .3s ease-in-out;
-  }
-  @media (max-width: 576px) {
-    .card img {
-      object-fit:contain;
-      filter:grayscale(0%);
-      width:100%;
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        -webkit-transition: .3s ease-in-out;
-        transition: .3s ease-in-out;
-    }
-  }
-
-  .card img.colored{
-    object-fit:contain;
-    width:100%;
-    filter:grayscale(0%);
-      -webkit-transform: scale(1);
-      transform: scale(1);
-      -webkit-transition: .3s ease-in-out;
-      transition: .3s ease-in-out;
-  }
-
-  .card img.gray{
-    object-fit:contain;
-    width:100%;
-    filter:grayscale(100%);
-      -webkit-transform: scale(1);
-      transform: scale(1);
-      -webkit-transition: .3s ease-in-out;
-      transition: .3s ease-in-out;
-  }
-  
-  .card:hover img {
-      -webkit-transform: scale(1.05);
-      filter:grayscale(0%);
-      transform: scale(1.05);
-  }
-  .card:hover img.gray {
-    filter:grayscale(100%);
+h5.card-title {
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
-  
-  .centering {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  .about section {
-    
-  }
-  
-  .about section:last-child {
-    margin-bottom: 0;
-  }
-  
-  .about section img {
-    position: relative;
+h3.title {
+  font-size: 1.2em;
+}
+
+h3.title>a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+h3.title>a:hover {
+  color: var(--color-background);
+  background-color: var(--color-text);
+  text-decoration: none;
+}
+
+.grid-sizer,
+.grid-item {
+  float: left;
+  border-radius: 5px;
+
+}
+
+.grid-item--width2 {
+  width: 40%;
+
+}
+
+.grid-item--width3 {
+  width: 60%;
+}
+
+
+/* 2 columns wide */
+.grid-item--width2 {
+  width: 40%;
+}
+
+.grid-item--height2 {
+  height: 200px;
+}
+
+.grid-item--height3 {
+  height: 260px;
+}
+
+.grid-item--height4 {
+  height: 360px;
+}
+
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid-item>a {
+  text-decoration: none;
+}
+
+.grid-item>a:hover {
+  text-decoration: none;
+}
+
+.grid-item>a>.card {
+  color: var(--color-text-muted);
+  background-color: var(--color-background);
+  border: solid 1px var(--color-text-muted);
+  /* box-shadow: -1px -1px 2px var(--color-text-muted), 1px 1px 2px var(--color-text-muted); */
+  transition: all 1s;
+}
+
+.grid-item>a>.card:hover {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: all 1s;
+}
+
+.card {
+  overflow: hidden;
+}
+
+.card img {
+  object-fit: contain;
+  filter: grayscale(100%);
+  width: 100%;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+@media (max-width: 576px) {
+  .card img {
+    object-fit: contain;
+    filter: grayscale(0%);
     width: 100%;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
   }
-  
-  .course img {
-    padding: 10px 0 60px 0;
-  }
-  
-  .about h3 {
-    position: relative;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5rem;
-    padding: 10px 0 24px;
-  }
-  
-  .about p {
-    margin-bottom: 20px;
-    align-content: space-between;
-    font-weight: normal;
-    font-size: 0.875rem;
-    line-height: 2em;
-    text-align: justify;
-    /*max-width:600px;
+}
+
+.card img.colored {
+  object-fit: contain;
+  width: 100%;
+  filter: grayscale(0%);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.card img.gray {
+  object-fit: contain;
+  width: 100%;
+  filter: grayscale(100%);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.card:hover img {
+  -webkit-transform: scale(1.05);
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.card:hover img.gray {
+  filter: grayscale(100%);
+}
+
+
+.centering {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about section {}
+
+.about section:last-child {
+  margin-bottom: 0;
+}
+
+.about section img {
+  position: relative;
+  width: 100%;
+}
+
+.course img {
+  padding: 10px 0 60px 0;
+}
+
+.about h3 {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 10px 0 24px;
+}
+
+.about p {
+  margin-bottom: 20px;
+  align-content: space-between;
+  font-weight: normal;
+  font-size: 0.875rem;
+  line-height: 2em;
+  text-align: justify;
+  /*max-width:600px;
         margin: 0 auto;*/
-  }
-  
-  .about .flexbox {
-    /* position: relative; */
-    /* display: flex; */
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
-  .about .flexbox .flex-item {
-    position: relative;
-    /* width: 48%; */
-  }
-  
-  .about .flexbox .flex-item img {
-    width: 100%;
-  }
-  
-  footer {
-    bottom: 0px;
-    justify-content: center;
-    line-height: 1.5em;
-    letter-spacing: 0.8px;
-    margin: 80px auto 0 auto;
-    padding-bottom: 20px;
-    color: #777;
-    font-weight: normal;
-    font-size: 0.5625rem;
-  }
-  
-  footer.width-limit-footer {
-    margin: 120px auto 0 auto;
-    max-width: 1080px;
-  }
+}
+
+.about .flexbox {
+  /* position: relative; */
+  /* display: flex; */
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.about .flexbox .flex-item {
+  position: relative;
+  /* width: 48%; */
+}
+
+.about .flexbox .flex-item img {
+  width: 100%;
+}
+
+footer {
+  bottom: 0px;
+  justify-content: center;
+  line-height: 1.5em;
+  letter-spacing: 0.8px;
+  margin: 80px auto 0 auto;
+  padding-bottom: 20px;
+  color: #777;
+  font-weight: normal;
+  font-size: 0.5625rem;
+}
+
+footer.width-limit-footer {
+  margin: 120px auto 0 auto;
+  max-width: 1080px;
+}
 
 
-  /* studio */
+/* studio */
 
 /* Studio Detail
 --------------------------------------------- */
 
 .labview {
-    position: relative;
-    margin: 0px 0 30px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .labview .left {
-    animation: fadeIn 3s ease 0s 1 normal;
-    -webkit-animation: fadeIn 3s ease 0s 1 normal;
-    width: 70%;
-    position: relative;
-  }
-  
-  .labview .left .title {
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-  }
-  
-  .labview .left .title .titleText {
-    width: 100%;
-    text-align: left;
-    border-left: solid 6px #E80000;
-    padding-left: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .labview .left .title .titleText h2 {
-    letter-spacing: 0.05em;
-    width: 100%;
-    margin: -5px 0 0px 0px;
-    font-weight: bold;
-    font-size: 1.75rem;
-  }
-  
-  .labview .left .title .titleText h3 {
-    letter-spacing: 0.05em;
-    width: 100%;
-    margin: -3px 0 15px 3px;
-  }
-  
-  .labview .left .title .titleText h3.en {
-    font-weight: bold;
-    font-size: 1.25rem;
-  }
-  
-  .labview .left .title .titleText h4.ja {
-    font-weight: bold;
-    font-size: 1rem;
-  }
-  
-  .labview .left .title .titleText h4.en {
-    font-weight: normal;
-    font-size: 0.875rem;
-    margin: 0 0 -1px 2px;
-  }
-  
-  .labview .left .viewer {
-    position: relative;
-    width: 100%;
-  }
-  
-  .labview .left .viewer .slick-list {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .labview .left .viewer .slick-list .slick-track {
-    height: 100%;
-  }
-  
-  .labview .left .viewer .slick-list .slick-track .slickContainer {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .labview .left .viewer .slick-list .slick-track .slickContainer img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: auto;
-  }
-  
-  .labview .left .viewer:before {
-    content: "";
-    display: block;
-    padding-top: 67%;
-  }
-  
-  .labview .left p {
-    margin-top: 20px;
-    line-height: 2em;
-    letter-spacing: 0.05em;
-    width: 100%;
-  }
-  
-  .labview .left p.info {
-    font-weight: normal;
-    font-size: 0.875rem;
-  }
-  
-  .labview .left h3 {
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin: 30px 0 30px 0;
-  }
-  
-  .labview .left ul {
-    width: 100%;
-  }
-  
-  .labview .right {
-    position: relative;
-    width: 24%;
-    text-align: right;
-  }
-  
-  .labview .right .boxView {
-    width: 200px;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 0 20px auto;
-    right: 0;
-  }
-  
-  .labview .right .boxView .box {
-    display: block;
-    width: 25px;
-    height: 25px;
-    border-radius: 5px;
-    background-color: #E80000;
-    transition: background-color 0.3s ease;
-  }
-  
-  .labview .right .boxView .box:hover {
-    cursor: pointer;
-    background-color: #FF7B7B;
-  }
-  
-  .labview .right .boxView .active {
-    background-color: #FF7B7B;
-  }
-  
-  .labview .right h3 {
-    text-align: right;
-    letter-spacing: 0.1em;
-    margin-bottom: 10px;
-    font-weight: bold;
-    font-size: 1em;
-  }
-  
-  .labview .right p {
-    animation: fadeIn 3s ease 0s 1 normal;
-    -webkit-animation: fadeIn 3s ease 0s 1 normal;
-    letter-spacing: 0.1em;
-    text-align: right;
-    line-height: 15pt;
-    margin: 0 0 3px 4px;
-    font-weight: bold;
-    font-size: 1em;
-  }
-  
-  .labview .right p:nth-child(odd) {
-    font: normal 10pt;
-    margin-bottom: 10px;
-  }
-  
-  .labview .right .name {
-    margin-top: 20px;
-    font-weight: normal;
-    font-size: 10pt;
-  }
-  
-  .tooltip {
-    position: relative;
-  }
-  
-  .tooltip:hover::after {
-    pointer-events: auto;
-  }
+  position: relative;
+  margin: 0px 0 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.labview .left {
+  animation: fadeIn 3s ease 0s 1 normal;
+  -webkit-animation: fadeIn 3s ease 0s 1 normal;
+  width: 70%;
+  position: relative;
+}
+
+.labview .left .title {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.labview .left .title .titleText {
+  width: 100%;
+  text-align: left;
+  border-left: solid 6px #E80000;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.labview .left .title .titleText h2 {
+  letter-spacing: 0.05em;
+  width: 100%;
+  margin: -5px 0 0px 0px;
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+
+.labview .left .title .titleText h3 {
+  letter-spacing: 0.05em;
+  width: 100%;
+  margin: -3px 0 15px 3px;
+}
+
+.labview .left .title .titleText h3.en {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.labview .left .title .titleText h4.ja {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.labview .left .title .titleText h4.en {
+  font-weight: normal;
+  font-size: 0.875rem;
+  margin: 0 0 -1px 2px;
+}
+
+.labview .left .viewer {
+  position: relative;
+  width: 100%;
+}
+
+.labview .left .viewer .slick-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.labview .left .viewer .slick-list .slick-track {
+  height: 100%;
+}
+
+.labview .left .viewer .slick-list .slick-track .slickContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.labview .left .viewer .slick-list .slick-track .slickContainer img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+}
+
+.labview .left .viewer:before {
+  content: "";
+  display: block;
+  padding-top: 67%;
+}
+
+.labview .left p {
+  margin-top: 20px;
+  line-height: 2em;
+  letter-spacing: 0.05em;
+  width: 100%;
+}
+
+.labview .left p.info {
+  font-weight: normal;
+  font-size: 0.875rem;
+}
+
+.labview .left h3 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 30px 0 30px 0;
+}
+
+.labview .left ul {
+  width: 100%;
+}
+
+.labview .right {
+  position: relative;
+  width: 24%;
+  text-align: right;
+}
+
+.labview .right .boxView {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 20px auto;
+  right: 0;
+}
+
+.labview .right .boxView .box {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: #E80000;
+  transition: background-color 0.3s ease;
+}
+
+.labview .right .boxView .box:hover {
+  cursor: pointer;
+  background-color: #FF7B7B;
+}
+
+.labview .right .boxView .active {
+  background-color: #FF7B7B;
+}
+
+.labview .right h3 {
+  text-align: right;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.labview .right p {
+  animation: fadeIn 3s ease 0s 1 normal;
+  -webkit-animation: fadeIn 3s ease 0s 1 normal;
+  letter-spacing: 0.1em;
+  text-align: right;
+  line-height: 15pt;
+  margin: 0 0 3px 4px;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.labview .right p:nth-child(odd) {
+  font: normal 10pt;
+  margin-bottom: 10px;
+}
+
+.labview .right .name {
+  margin-top: 20px;
+  font-weight: normal;
+  font-size: 10pt;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip:hover::after {
+  pointer-events: auto;
+}
 
 
 /*OC Youtube*/
@@ -655,7 +673,7 @@ img.fadeIn{
 
 .access {
   display: flex;
-  background-color:var(--color-background);
+  background-color: var(--color-background);
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
@@ -719,9 +737,7 @@ img.fadeIn{
 sidebar設定
 https://github.com/mladenplavsic/bootstrap-navbar-sidebar/blob/master/dist/navbar-fixed-left.css
 */
-body {
-  
-}
+body {}
 
 @media (min-width: 768px) {
   body {
@@ -750,18 +766,22 @@ body {
     flex-flow: column nowrap;
     align-items: flex-start;
   }
+
   .navbar.fixed-left .navbar-collapse {
     flex-grow: 0;
     flex-direction: column;
     width: 100%;
   }
+
   .navbar.fixed-left .navbar-collapse .navbar-nav {
     flex-direction: column;
     width: 100%;
   }
+
   .navbar.fixed-left .navbar-collapse .navbar-nav .nav-item {
     width: 100%;
   }
+
   .navbar.fixed-left .navbar-collapse .navbar-nav .nav-item .dropdown-menu {
     top: 0;
   }
@@ -771,6 +791,7 @@ body {
   .navbar.fixed-left {
     right: auto;
   }
+
   .navbar.fixed-left .navbar-nav .nav-item .dropdown-toggle:after {
     border-top: 0.3em solid transparent;
     border-left: 0.3em solid;
@@ -778,6 +799,7 @@ body {
     border-right: none;
     vertical-align: baseline;
   }
+
   .navbar.fixed-left .navbar-nav .nav-item .dropdown-menu {
     left: 100%;
   }
