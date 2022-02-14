@@ -12,6 +12,10 @@
 > brew install php
 ```
 でインストールしてください。brew コマンドがない場合は、brew install で検索してください。
+# ブランチの運用について
+- main：管理用（主にREADME, 実質本番）
+- production：本番
+- development：開発
 
 # Design System
 ここで考えます
