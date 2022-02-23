@@ -21,6 +21,15 @@ html, body {
   transition: all 1s;
 }
 
+html {
+    visibility: hidden;
+}
+
+html.wf-active {
+    visibility: visible;
+}
+
+
 button {
   color: var(--color-text);
 }

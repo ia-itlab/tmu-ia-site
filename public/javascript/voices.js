@@ -1,4 +1,5 @@
 window.onload = function () {
+
     initLanguage();
     // URLのGETパラメータから読み込むページを求める
     var url = new URL(window.location.href);
@@ -34,6 +35,7 @@ window.onload = function () {
                 var elem = document.getElementById(replace);
                 elem.innerHTML = data;
                 resolve(data);
+                loadFont();
                 return data;
             }
         }
@@ -114,5 +116,8 @@ window.onload = function () {
         document.getElementById('tmp').remove();
         //console.log(document.querySelector('#list'));
         initLanguage();
+
     });
+
+
 }

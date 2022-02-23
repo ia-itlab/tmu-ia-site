@@ -23,6 +23,7 @@ window.onload = function () {
         xmlhttp.send(null);
     });
     loadHTML.then(function () {
+        loadFont();
         var ols = document.querySelector('.dw-content').querySelectorAll('ol');
 
         for (ol of ols) {

@@ -23,6 +23,7 @@ window.onload = function () {
         }
         xmlhttp.send(null);
     }).then(data => {
+        loadFont();
         let ols = document.querySelectorAll('ol');
         let section_links = document.createElement('section');
         section_links.classList = 'links';
