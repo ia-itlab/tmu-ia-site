@@ -1,5 +1,5 @@
 window.onload = function () {
-
+  loadFont();
   var url = new URL(window.location.href);
   var params = url.searchParams;
   // スタジオ番号
