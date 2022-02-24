@@ -13,9 +13,8 @@
 ```
 でインストールしてください。brew コマンドがない場合は、brew install で検索してください。
 # ブランチの運用について
-- main：管理用（主にREADME, 実質本番）
-- production：本番
-- development：開発
+- main：本番用 → http://industrial-art.sd.tmu.ac.jp/ に反映
+- development：開発用 → https://tmu-ia-site.herokuapp.com/ に反映
 
 # Design System
 ここで考えます
