@@ -130,6 +130,7 @@ window.onload = function () {
                         var elem = document.getElementById(replace);
                         // わざわざdomに入れるのは、querySelector等で検索処理しやすいから
                         elem.innerHTML += data;
+
                         resolve(data);
                     }
                 }
@@ -155,6 +156,7 @@ window.onload = function () {
                         //console.log(data);
                         var elem = document.getElementById(replace);
                         elem.innerHTML = data;
+
                         resolve(data);
                         //return data;
                     }
@@ -207,11 +209,14 @@ window.onload = function () {
             return (a.date > b.date) ? -1 : 1;
         });
         //console.log(card_data);
+
+        loadFont();
         generateCards();
     }
 
 
     iaInfoCollection();
+
     return;
 
 }

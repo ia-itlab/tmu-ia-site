@@ -21,6 +21,16 @@ html, body {
   transition: all 1s;
 }
 
+html {
+    visibility: hidden;
+}
+
+html.wf-active, html.loading-delay {
+    visibility: visible;
+    animation: dataLoadedIn 1.0s ease 0.0s 1 normal;
+}
+
+
 button {
   color: var(--color-text);
 }
@@ -144,6 +154,22 @@ en {
   /*アニメーション開始時は不透明度0%*/
   100% {
     opacity: 1
+  }
+
+  /*アニメーション終了時は不透明度100%*/
+}
+@keyframes dataLoadedIn {
+
+  /*animation-nameで設定した値を書く*/
+  0% {
+    opacity: 0;
+    filter: blur(50px);
+  }
+
+  /*アニメーション開始時は不透明度0%*/
+  100% {
+    opacity: 1;
+    filter: blur(0px);
   }
 
   /*アニメーション終了時は不透明度100%*/

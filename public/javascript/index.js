@@ -1,5 +1,12 @@
-window.addEventListener('DOMContentLoaded', function () {
+// ウェブフォント読み込みにタイムアウトを設ける。
+// 3秒経過しても読み込まれなければ先にシステムフォントで表示する
+// Ref: https://qiita.com/hirossyi73/items/6551bc32f0d8c2e56092
+setTimeout(function () {
+  document.getElementsByTagName("html")[0].classList.add("loading-delay");
+}, 300000000);
 
+
+window.addEventListener('DOMContentLoaded', function () {
   var current = new Date();
   //console.log(`time is ${current.getHours()} and darkmode ${sessionStorage.getItem('darkmode')}`);
   if (sessionStorage.getItem('colormode') === null) {

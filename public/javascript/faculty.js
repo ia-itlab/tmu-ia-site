@@ -18,6 +18,7 @@ window.onload = function () {
                     //console.log(data);
                     var elem = document.getElementById(replace);
                     elem.innerHTML = data;
+
                     resolve(data);
                     //return data;
                 }
@@ -26,7 +27,7 @@ window.onload = function () {
         }
     });
     loadHTML.then(function () {
-
+        loadFont();
         var ols = document.getElementById('append_placeholder').querySelector('.dw-content').querySelectorAll('ol');
         for (ol of ols) {
             var lis = ol.querySelectorAll('li');
