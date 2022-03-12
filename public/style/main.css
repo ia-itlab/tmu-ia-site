@@ -162,13 +162,11 @@ en {
 
   /*animation-nameで設定した値を書く*/
   0% {
-    opacity: 0;
-    filter: blur(50px);
+    filter: blur(500px);
   }
 
   /*アニメーション開始時は不透明度0%*/
   100% {
-    opacity: 1;
     filter: blur(0px);
   }
 
