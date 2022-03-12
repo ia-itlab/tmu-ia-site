@@ -3,7 +3,7 @@
 // Ref: https://qiita.com/hirossyi73/items/6551bc32f0d8c2e56092
 setTimeout(function () {
   document.getElementsByTagName("html")[0].classList.add("loading-delay");
-}, 300000000);
+}, 3000);
 
 
 window.addEventListener('DOMContentLoaded', function () {
