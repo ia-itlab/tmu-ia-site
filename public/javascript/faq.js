@@ -26,10 +26,23 @@ window.onload = function () {
         loadFont();
         var ols = document.querySelector('.dw-content').querySelectorAll('ol');
 
+        var faqs = []
         for (ol of ols) {
+            let lis = ol.querySelectorAll('li');
+            let str_q = lis[0].querySelector('div').innerHTML;
+            let str_a = lis[1].querySelector('div').innerHTML;
+            faqs.push({
+                question: str_q,
+                answer: str_a
+            });
+        }
+        // 質問をシャッフル
+        faqs.sort(() => Math.random() - 0.5);
+
+        for (faq of faqs) {
             var lis = ol.querySelectorAll('li');
-            var str_q = lis[0].querySelector('div').innerHTML;
-            var str_a = lis[1].querySelector('div').innerHTML;
+            var str_q = faq.question;//lis[0].querySelector('div').innerHTML;
+            var str_a = faq.answer;//lis[1].querySelector('div').innerHTML;
 
             var div_line_bc = document.createElement('div');
             div_line_bc.classList = 'line-bc';
