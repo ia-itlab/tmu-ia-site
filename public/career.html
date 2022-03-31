@@ -108,7 +108,7 @@
                         <h5 id="exampleModalLabel">利用条件</h5>
                         <p class="mb-0">
                             卒業・修了生からの進路提出があったもののみが検索可能であり、提出がなかった卒業・修了生のデータは含まれていないことを予めご理解ください。
-                            その他情報不備等により掲載されていないデータもあります．本ページの利用にあたってはデータの抜き出しや無断転用、転載は固く禁じます。
+                            その他情報不備等により掲載されていないデータもあります．本ページの利用にあたってはデータの抜き出しや検索結果の無断転用、転載は固く禁じます。
                         </p>
                     </div>
 
@@ -121,13 +121,16 @@
                         <div class="col-8 align-self-center">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="keyword" placeholder="" value=""
-                                    oninput="search();" autocomplete="off">
-                                <label for="floatingInputValue">検索したい企業名等を入力してください</label>
+                                    oninput="search();" autocomplete="off"
+                                    style="color:var(--color-text);background-color:var(--color-background);">
+                                <label for="floatingInputValue"
+                                    style="color:var(--color-text-muted);">検索したい企業名等を入力してください</label>
                             </div>
                         </div>
                         <div class="col-4 align-self-center">
                             <div class="d-grid  gap-1 ">
-                                <button class="btn btn-outline-dark" type="button"
+                                <button class="btn btn-outline-secondary" type="button"
+                                    style="color:var(--color-text);background-color:none;"
                                     onclick="resetSearch();">検索リセット</button>
                             </div>
                         </div>

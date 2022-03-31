@@ -125,7 +125,7 @@ function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列と�
         //let th_width = String(parseInt(100 / (csvs[0].types.length + 1))) + '%;';
         let th = document.createElement('th');
         th.setAttribute('scope', "col");
-        th.style = "width:" + '66%;';//th_width;
+        th.style = 'width:66%;color:var(--color-text);';//th_width;
         tr.appendChild(th);
         th.innerHTML = csvs[0].name;
 
@@ -133,7 +133,7 @@ function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列と�
         for (let i = 0; i < key.length; i++) {
             let th = document.createElement('th');
             th.setAttribute('scope', "col");
-            th.style = "width:" + '33%';//th_width;
+            th.style = "width:" + '33%;color:var(--color-text);';//th_width;
             th.innerHTML = csvs[0].types[i];
             tr.appendChild(th);
 
@@ -143,6 +143,7 @@ function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列と�
                 type_selected[i] = types[i][this.selectedIndex];
                 search();
             })
+            select.style = "color:var(--color-text);background-color:var(--color-background);";
             th.appendChild(select);
             for (type of types[i]) {
                 let option = document.createElement('option');
@@ -166,12 +167,13 @@ function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列と�
                 tbody.appendChild(tr);
                 let td = document.createElement('td');
                 td.innerHTML = csv.name;
-                td.style = "font-weight:400";
+                td.style = "font-weight:400;color:var(--color-text);";
                 tr.appendChild(td);
                 let key = csv.types;
                 for (let i = 0; i < key.length; i++) {
                     let td = document.createElement('td');
                     td.innerHTML = csv.types[i];
+                    td.style = 'color:var(--color-text)';
                     tr.appendChild(td);
                 }
             }
