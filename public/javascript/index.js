@@ -7,6 +7,7 @@ setTimeout(function () {
 
 
 window.addEventListener('DOMContentLoaded', function () {
+
   var current = new Date();
   //console.log(`time is ${current.getHours()} and darkmode ${sessionStorage.getItem('darkmode')}`);
   if (sessionStorage.getItem('colormode') === null) {
@@ -22,7 +23,9 @@ window.addEventListener('DOMContentLoaded', function () {
   }
   let today = nf(current.getFullYear(), 4) + nf(current.getMonth() + 1, 2) + nf(current.getDate(), 2);
   //console.log(today);
-  setColorMode();
+  setTimeout(function () {
+    setColorMode();
+  }, 500);
 });
 
 // NUM=値 LEN=桁数
@@ -51,6 +54,7 @@ function setColorMode() {
     document.querySelector(':root').style.setProperty('--color-text-muted', "#8C8C8C");
     document.querySelector(':root').style.setProperty('--color-background', "#1f1f1f");
     document.querySelector(':root').style.setProperty('--color-header', "rgba(31,31,31,0.9)");
+    document.querySelector('#tmu_logo').style.setProperty('filter', 'invert(100%)');
     if (text_colormode) text_colormode.innerHTML = 'dark';
   }
   else if (sessionStorage.getItem('colormode') == 'light') {
@@ -58,7 +62,10 @@ function setColorMode() {
     document.querySelector(':root').style.setProperty('--color-text-muted', "#595959");
     document.querySelector(':root').style.setProperty('--color-background', "#F5F5F5");
     document.querySelector(':root').style.setProperty('--color-header', "rgba(245,245,245,0.9)");
+    document.querySelector('#tmu_logo').style.setProperty('filter', 'invert(0%)');
     if (text_colormode) text_colormode.innerHTML = 'light';
+  }
+  else {
 
   }
   // else if (sessionStorage.getItem('colormode') == 'christmas') {
