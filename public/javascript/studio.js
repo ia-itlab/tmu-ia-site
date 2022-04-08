@@ -141,7 +141,15 @@ window.onload = function () {
       let teacher_name = lis[2].querySelector('div').innerHTML;
       let teacher_position = lis[3].querySelector('div').innerHTML;
       let image = lis[4].querySelector('a').href;
-      let url_youtube = lis[5].querySelector('a').href;
+      let url_youtube = lis[5].querySelector('a');
+      if (url_youtube == null) {
+
+      }
+      else {
+
+      }
+
+
       let abstract = lis[6].querySelector('div').innerHTML;
 
 
@@ -202,19 +210,21 @@ window.onload = function () {
       //       frameborder="0"
       //       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       //       allowfullscreen></iframe>
-      let h3_oc_video_head = document.createElement('h3');
-      h3_oc_video_head.innerHTML = '<ja>研究室紹介動画</ja><en>Studio Introduction Video</en>';
-      section_left.appendChild(h3_oc_video_head);
-      let div_youtube = document.createElement('div');
-      div_youtube.classList = 'youtube';
-      section_left.appendChild(div_youtube);
-      let iframe = document.createElement('iframe');
-      iframe.id = 'oc_video';
-      iframe.src = url_youtube;
-      div_youtube.appendChild(iframe);
+      if (url_youtube != null) {
+        let h3_oc_video_head = document.createElement('h3');
+        h3_oc_video_head.innerHTML = '<ja>研究室紹介動画</ja><en>Studio Introduction Video</en>';
+        section_left.appendChild(h3_oc_video_head);
+        let div_youtube = document.createElement('div');
+        div_youtube.classList = 'youtube';
+        section_left.appendChild(div_youtube);
+        let iframe = document.createElement('iframe');
+        iframe.id = 'oc_video';
+        iframe.src = url_youtube;
+
+        div_youtube.appendChild(iframe);
+      }
       document.querySelector('.dw-content').remove();
       initLanguage();
-
     });
   }
 
