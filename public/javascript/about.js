@@ -47,20 +47,16 @@ window.onload = function () {
         section_about.appendChild(section);
 
         // 動画紹介
-        let h3_video = document.createElement('h3');
-        h3_video.innerHTML = lis[2].innerHTML;
-        section.appendChild(h3_video);
-
         let introduction_video = document.createElement('div');
         introduction_video.classList = "ratio ratio-16x9 mb-4";
-        introduction_video.innerHTML = lis[3].querySelector('div').innerHTML;
+        introduction_video.innerHTML = lis[2].querySelector('div').innerHTML;
         section.appendChild(introduction_video);
 
         console.log(section);
 
         // section 1
         var h3 = document.createElement('h3');
-        h3.innerHTML = lis[4].querySelector('div').innerHTML;
+        h3.innerHTML = lis[3].querySelector('div').innerHTML;
         section.appendChild(h3);
 
         var section_flexbox = document.createElement('section');
@@ -79,7 +75,7 @@ window.onload = function () {
         });
         img.style.visibility = 'hidden';
 
-        img.src = lis[5].querySelector('div').querySelector('a').innerHTML;
+        img.src = lis[4].querySelector('div').querySelector('a').innerHTML;
         // img.srcが読み込み終わったら表示してあげる
         // カード画像は全部ロードが終わった後並べ替え作業をする
         img.onload = function () {
@@ -93,27 +89,27 @@ window.onload = function () {
         div_flex_item_00.classList = 'flex-item';
         section_flexbox.appendChild(div_flex_item_00);
         var p00 = document.createElement('p');
-        p00.innerHTML = lis[6].querySelector('div').innerHTML;
+        p00.innerHTML = lis[5].querySelector('div').innerHTML;
         div_flex_item_00.appendChild(p00);
 
         var section_cores = document.createElement('section');
         section_cores.classList = 'cores';
         section.appendChild(section_cores);
         var h3_cores = document.createElement('h3');
-        h3_cores.innerHTML = lis[7].querySelector('div').innerHTML;
+        h3_cores.innerHTML = lis[6].querySelector('div').innerHTML;
         section_cores.appendChild(h3_cores);
         var p_cores = document.createElement('p');
-        p_cores.innerHTML = lis[8].querySelector('div').innerHTML;
+        p_cores.innerHTML = lis[7].querySelector('div').innerHTML;
         section_cores.appendChild(p_cores);
 
         var section_needs = document.createElement('section');
         section_needs.classList = 'needs';
         section.appendChild(section_needs);
         var h3_needs = document.createElement('h3');
-        h3_needs.innerHTML = lis[9].querySelector('div').innerHTML;
+        h3_needs.innerHTML = lis[8].querySelector('div').innerHTML;
         section_needs.appendChild(h3_needs);
         var p_needs = document.createElement('p');
-        p_needs.innerHTML = lis[10].querySelector('div').innerHTML;
+        p_needs.innerHTML = lis[9].querySelector('div').innerHTML;
         section_needs.appendChild(p_needs);
         section_needs.appendChild(div_flex_item);
 
@@ -121,7 +117,7 @@ window.onload = function () {
         section_course.classList = 'course mt-4';
         section.appendChild(section_course);
         var h3_course = document.createElement('h3');
-        h3_course.innerHTML = lis[11].querySelector('div').innerHTML;
+        h3_course.innerHTML = lis[10].querySelector('div').innerHTML;
         section_course.appendChild(h3_course);
 
         let row = document.createElement('div');
@@ -135,10 +131,10 @@ window.onload = function () {
         row.appendChild(col2);
 
         var img_course01 = document.createElement('img');
-        img_course01.src = lis[12].querySelector('div').querySelector('a').innerHTML;
+        img_course01.src = lis[11].querySelector('div').querySelector('a').innerHTML;
         col1.appendChild(img_course01);
         var img_course02 = document.createElement('img');
-        img_course02.src = lis[13].querySelector('div').querySelector('a').innerHTML;
+        img_course02.src = lis[12].querySelector('div').querySelector('a').innerHTML;
         col2.appendChild(img_course02);
 
         //console.log(document.getElementById("main"));
