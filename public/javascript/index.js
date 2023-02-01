@@ -26,6 +26,8 @@ window.addEventListener('DOMContentLoaded', function () {
   setTimeout(function () {
     setColorMode();
   }, 500);
+
+
 });
 
 // NUM=値 LEN=桁数
