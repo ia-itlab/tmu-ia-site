@@ -93,14 +93,23 @@ window.onload = function () {
         div_hover_text.appendChild(caption);
 
         let a = document.createElement('a');
-        a.href = url.href + '?id=' + id.trim(' ');
-        a.appendChild(div_hover_text);
-        div_col.appendChild(a);
+
+        // URLパラメータがすでに別のものが存在している場合は引き継ぐ
+        if( params.toString().length > 0){
+          a.href = `${url.href}&id=${id.trim(' ')}`;
+          a.appendChild(div_hover_text);
+          div_col.appendChild(a);
+        }
+        else{
+          a.href = url.href + '?id=' + id.trim(' ');
+          a.appendChild(div_hover_text);
+          div_col.appendChild(a);
+        }
+       
 
         //ol.remove();
       }
       initLanguage();
-      console.log(document.querySelector('#studios'));
       document.querySelector('.dw-content').remove();
     });
 

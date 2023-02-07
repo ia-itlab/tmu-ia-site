@@ -1,10 +1,23 @@
-var language = sessionStorage.getItem('language');
-var language_hidden;
+// 優先順位（1. URLパラメータ指定、2. セッションストレージ）
+let url = new URL(window.location.href);
+let params = url.searchParams;
 
-if (!language) {
-    language = 'ja';
-    sessionStorage.setItem('language', 'ja');
+// URL指定の場合
+if( params.get('lang')) {
+    language = params.get('lang');
+    sessionStorage.setItem('language', `${language}`);
 }
+// URL指定がなければseccionStorageからの値を確認（なければjaをデフォルト）
+else{
+    var language = sessionStorage.getItem('language');
+    var language_hidden;
+    if (!language) {
+        language = 'ja';
+        sessionStorage.setItem('language', 'ja');
+    }
+}
+
+
 
 function initLanguage() {
     let ens = document.querySelectorAll('en');
