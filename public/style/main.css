@@ -11,7 +11,8 @@ https://github.com/mladenplavsic/bootstrap-navbar-sidebar
 }
 
 
-html, body {
+html,
+body {
   height: 100%;
   font-family: kinto-sans, sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -22,12 +23,13 @@ html, body {
 }
 
 html {
-    visibility: hidden;
+  visibility: hidden;
 }
 
-html.wf-active, html.loading-delay {
-    visibility: visible;
-    animation: dataLoadedIn 1.0s ease 0.0s 1 normal;
+html.wf-active,
+html.loading-delay {
+  visibility: visible;
+  /* animation: dataLoadedIn 1.0s ease 0.0s 1 normal; */
 }
 
 
@@ -35,7 +37,8 @@ button {
   color: var(--color-text);
 }
 
-a, a:hover {
+a,
+a:hover {
   text-decoration: none;
   color: var(--color-text);
 }
@@ -158,11 +161,12 @@ en {
 
   /*アニメーション終了時は不透明度100%*/
 }
+
 @keyframes dataLoadedIn {
 
   /*animation-nameで設定した値を書く*/
   0% {
-    filter: blur(50px);
+    filter: blur(10px);
   }
 
   /*アニメーション開始時は不透明度0%*/
@@ -189,14 +193,16 @@ figcaption {
   font-size: 0.8em;
 }
 
-p a, figcaption a {
+p a,
+figcaption a {
   color: var(--color-text);
   font-weight: bold;
   border-bottom: dashed 1px var(--color-text);
 
 }
 
-p a:hover, figcaption a:hover {
+p a:hover,
+figcaption a:hover {
   color: var(--color-background);
   background-color: var(--color-text);
   background-position: -100% 0;
@@ -682,7 +688,8 @@ footer.width-limit-footer {
   line-height: 1.5em;
 }
 
-.links .link p.location, .links .link p.dates {
+.links .link p.location,
+.links .link p.dates {
   font-weight: bold;
   font-size: 1.125rem;
 }

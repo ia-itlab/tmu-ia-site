@@ -1,3 +1,5 @@
-Thumbs.db
+/.vscode/
+/.DS_Store/
+/node_modules/
+upload.sh
 .DS_Store
-node_modules

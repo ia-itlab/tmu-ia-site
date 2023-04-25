@@ -26,6 +26,8 @@ window.addEventListener('DOMContentLoaded', function () {
   setTimeout(function () {
     setColorMode();
   }, 500);
+
+
 });
 
 // NUM=値 LEN=桁数
@@ -62,7 +64,7 @@ function setColorMode() {
     document.querySelector(':root').style.setProperty('--color-text-muted', "#595959");
     document.querySelector(':root').style.setProperty('--color-background', "#F5F5F5");
     document.querySelector(':root').style.setProperty('--color-header', "rgba(245,245,245,0.9)");
-    document.querySelector('#tmu_logo').style.setProperty('filter', 'invert(0%)');
+    // document.querySelector('#tmu_logo').style.setProperty('filter', 'invert(0%)');
     if (text_colormode) text_colormode.innerHTML = 'light';
   }
   else {
