@@ -1909,3 +1909,22 @@ h3.title>a:hover {
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
+
+.youtube-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* アスペクト比16:9の場合 */
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  /* YouTubeの下に余白をつける */
+}
+
+.youtube-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

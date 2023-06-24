@@ -122,7 +122,52 @@ function generateCards(_more) {
 window.onload = function () {
     initLanguage();
 
+
     async function iaInfoCollection() {
+
+
+        // https://industrial-art.sd.tmu.ac.jp/wiki/doku.php?id=website:announce を確認して、trueならばmodalに表示する
+        var promise_announce = new Promise(function (resolve, reject) {
+            // ia wiki から topicsデータを取得する
+            {
+                var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:announce';
+                var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
+                var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
+                var replace = 'announce';
+                //Httpリクエスを作る
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET", _html, true);
+                xmlhttp.onreadystatechange = function () {
+                    //とれた場合 #announce にエレメントを入れる
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        var data = xmlhttp.responseText;
+                        var elem = document.getElementById(replace);
+                        let flg = false;
+                        let str = data;
+                        if (str.includes('show:true')) {
+                            flg = true;
+                        } else {
+                            flg = false;
+                        }
+
+                        // わざわざdomに入れるのは、querySelector等で検索処理しやすいから
+                        elem.innerHTML += data;
+                        resolve(flg);
+                    }
+                }
+                xmlhttp.send(null);
+            }
+        });
+        let result = await promise_announce;
+        {
+            if (result == true) {
+                setTimeout(function () {
+                    $('#modal_announce').modal('show')
+                }, 3000)
+            }
+        }
+
+
         var promise_topics = new Promise(function (resolve, reject) {
             // ia wiki から topicsデータを取得する
             {
@@ -147,6 +192,8 @@ window.onload = function () {
                 xmlhttp.send(null);
             }
         });
+
+
 
         var promise_sd_news = new Promise(function (resolve, reject) {
 
