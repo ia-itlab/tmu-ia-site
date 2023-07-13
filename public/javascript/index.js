@@ -56,6 +56,8 @@ function setColorMode() {
     document.querySelector(':root').style.setProperty('--color-text-muted', "#8C8C8C");
     document.querySelector(':root').style.setProperty('--color-background', "#1f1f1f");
     document.querySelector(':root').style.setProperty('--color-header', "rgba(31,31,31,0.9)");
+    document.querySelector('.modal-content').style.setProperty('color', "#ffffff");
+    document.querySelector('.modal-content').style.setProperty('background-color', "#1f1f1f");
     document.querySelector('#tmu_logo').style.setProperty('filter', 'invert(100%)');
     if (text_colormode) text_colormode.innerHTML = 'dark';
   }
