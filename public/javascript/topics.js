@@ -28,34 +28,25 @@ function generateCard(count_ol, _card, msnry_topics) {
     //card.innerHTML = 'card';
     let card_body = document.createElement('div');
     card_body.classList.add('card-body');
-
-    col.appendChild(card);
-
-    let img_card = document.createElement('img');
-    img_card.classList.add('card-img-top');
-    if (count_ol == 0) {
-        img_card.classList.add('colored');
-    }
-    img_card.style.visibility = 'hidden';
-    let element_loading = createIALoadingElement();
-
+    card.appendChild(card_body);
 
     if (cd.image === 'noimage') {
-
+        // OGPイメージがある場合に取得
+        fetchOgpImage(cd.link)
+            .then(ogImage => {
+                cd.image = ogImage;
+                addImageToCard(cd.image, count_ol, card, card_body, msnry_topics);
+            })
+            .catch(error => {
+                console.error('エラー:', error);
+            });
     }
     else {
-        img_card.onload = function () {
-            element_loading.remove();
-            img_card.style.visibility = 'visible';
-            img_card.classList.add('fadeIn');
-            msnry_topics.layout();
-        }
-        card.appendChild(element_loading);
-        img_card.src = cd.image;
-        card.appendChild(img_card);
+        addImageToCard(cd.image, count_ol, card, card_body, msnry_topics);
     }
     card.appendChild(card_body);
 
+    // リンクの作成
     let a_link = document.createElement('a');
     a_link.href = cd.link;
     a_link.target = '_blank';
@@ -113,6 +104,7 @@ function generateCards(_more) {
     }
     let count_ol = 0;
     for (cd of card_data) {
+        // カードの個数、カードのデータ、masonryのインスタンスを渡す
         generateCard(count_ol, cd, msnry_topics);
         count_ol++;
     }
@@ -232,13 +224,29 @@ window.onload = function () {
             for (ol of ols) {
                 let lis = ol.querySelectorAll('li');
 
-                card_data.push({
-                    title: lis[0].querySelector('div').innerHTML.trimStart(),
-                    image: lis[1].querySelector('div').querySelector('a').href,
-                    abstract: lis[2].querySelector('div').innerHTML.trimStart(),
-                    date: lis[3].querySelector('div').innerHTML.trimStart(),
-                    link: lis[4].querySelector('div').querySelector('a').href
-                });
+                // 旧書式の場合（画像リンクも指定されている）
+                if (lis.length == 5) {
+                    card_data.push({
+                        title: lis[0].querySelector('div').innerHTML.trimStart(),
+                        image: lis[1].querySelector('div').querySelector('a').href,
+                        abstract: lis[2].querySelector('div').innerHTML.trimStart(),
+                        date: lis[3].querySelector('div').innerHTML.trimStart(),
+                        link: lis[4].querySelector('div').querySelector('a').href
+                    });
+                }
+                // 新書式の場合（画像リンクは指定されていない。OGPから画像は取得する）
+                else if (lis.length == 4) {
+                    card_data.push({
+                        title: lis[0].querySelector('div').innerHTML.trimStart(),
+                        image: 'noimage',
+                        abstract: lis[1].querySelector('div').innerHTML.trimStart(),
+                        date: lis[2].querySelector('div').innerHTML.trimStart(),
+                        link: lis[3].querySelector('div').querySelector('a').href
+                    });
+                }
+                else {
+                    // なにもしない
+                }
             }
             document.querySelector('.dw-content').remove();
         }
@@ -336,4 +344,38 @@ window.onload = function () {
 
     return;
 
+}
+
+
+function addImageToCard(imageUrl, count_ol, card, card_body, msnry_topics) {
+    let img_card = document.createElement('img');
+    img_card.classList.add('card-img-top');
+    if (count_ol === 0) {
+        img_card.classList.add('colored');
+    }
+    img_card.style.visibility = 'hidden';
+    let element_loading = createIALoadingElement();
+
+    img_card.onload = function () {
+        element_loading.remove();
+        img_card.style.visibility = 'visible';
+        img_card.classList.add('fadeIn');
+        msnry_topics.layout();
+    };
+    card.insertBefore(element_loading, card_body);
+    img_card.src = imageUrl;
+    card.insertBefore(img_card, card_body);
+}
+
+
+function fetchOgpImage(url) {
+    return fetch('./php/get_ogp_image.php?url=' + encodeURIComponent(url))
+        .then(response => response.json())
+        .then(data => {
+            if (data.ogImage) {
+                return data.ogImage; // OGPイメージのURLを返す
+            } else {
+                throw new Error('OGPイメージが見つかりませんでした。');
+            }
+        });
 }
