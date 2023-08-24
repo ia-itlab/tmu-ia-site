@@ -71,8 +71,14 @@ function generateCard(count_ol, _card, msnry_topics) {
     p_card_text_date.innerHTML = cd.date;
     card_body.appendChild(p_card_text_date);
 
-    let i_twitter = document.createElement('i');
-    i_twitter.classList = 'bi bi-twitter';
+    // twitter to X icon
+    let i_twitter = document.createElement('span');
+    // i_twitter.classList = 'bi bi-twitter';
+    i_twitter.innerHTML = `<svg width="1em" height="1em" viewBox="0 0 1200 1227" fill="currentColor" class="bi bi-twitter"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" />
+  </svg>`;
 
     let a_twitter = document.createElement('a');
     a_twitter.href = 'https://twitter.com/intent/tweet?text=' + encodeURI(abstract) + '&url=' + encodeURI(link);
