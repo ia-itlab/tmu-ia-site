@@ -128,7 +128,7 @@ window.onload = function () {
         var promise_announce = new Promise(function (resolve, reject) {
             // ia wiki から topicsデータを取得する
             {
-                var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:announce';
+                var url = 'https://industrial-art.sd.tmu.ac.jp/wiki/doku.php?id=website:announce';
                 var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
                 var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
                 var replace = 'announce';
@@ -169,7 +169,7 @@ window.onload = function () {
         var promise_topics = new Promise(function (resolve, reject) {
             // ia wiki から topicsデータを取得する
             {
-                var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:topics';
+                var url = 'https://industrial-art.sd.tmu.ac.jp/wiki/doku.php?id=website:topics';
                 var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
                 var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
                 var replace = 'topics';
@@ -298,7 +298,7 @@ window.onload = function () {
             var promise_topics_archives = new Promise(function (resolve, reject) {
                 // ia wiki から topicsデータを取得する
                 {
-                    var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:topics:archives';
+                    var url = 'https://industrial-art.sd.tmu.ac.jp/wiki/doku.php?id=website:topics:archives';
                     var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
                     var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
                     var replace = 'topics';

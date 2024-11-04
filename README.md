@@ -2,7 +2,29 @@
 東京都立大学システムデザイン学部インダストリアルアート学科ウェブサイトのリポジトリ。コンテンツ更新のみの場合は ia wiki から行い、こちらのリポジトリに修正は入れない、というのが理想的な手続きになります。
 
 ## 環境構築
-外部ページ（学内ウェブ）スクレイピングの為，phpを利用します．手元で動作を確認する場合は
+外部ページ（学内ウェブ）スクレイピングの為，phpを利用します．ia wiki内の認証ページからデータを取得するため、最初に以下のコマンドを実行してください．
+
+```
+git clone https://github.com/ia-itlab/tmu-ia-site.git
+cd tmu-ia-site
+touch php/login_params.php
+```
+
+`php/login_params.php`（ファイル名は任意） に以下の内容を記述してください．
+
+```php
+<?php
+// 学部のニュースページとDokuWiki の URL と認証情報
+$sd_url = 'https://www.sd.tmu.ac.jp/news.html'; // システムデザイン学部のニュースページ
+$username = 'username'; // DokuWiki のユーザ名
+$password = 'password';// // DokuWiki のパスワード
+?>
+```
+
+`php/scrape.php` の行頭で login_params.phpを読み込むようにファイル名を編集してください。
+
+```
+手元で動作を確認する場合は
 
 ```
 > cd public

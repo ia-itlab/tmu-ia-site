@@ -16,7 +16,7 @@ window.onload = function () {
     let loadHTML = new Promise(function (resolve, reject) {
       // ia wiki から topicsデータを取得する
       {
-        var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:studio';
+        var url = 'https://industrial-art.sd.tmu.ac.jp/wiki/doku.php?id=website:studio';
         var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
         var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
         var replace = 'studios';
@@ -95,17 +95,17 @@ window.onload = function () {
         let a = document.createElement('a');
 
         // URLパラメータがすでに別のものが存在している場合は引き継ぐ
-        if( params.toString().length > 0){
+        if (params.toString().length > 0) {
           a.href = `${url.href}&id=${id.trim(' ')}`;
           a.appendChild(div_hover_text);
           div_col.appendChild(a);
         }
-        else{
+        else {
           a.href = url.href + '?id=' + id.trim(' ');
           a.appendChild(div_hover_text);
           div_col.appendChild(a);
         }
-       
+
 
         //ol.remove();
       }
@@ -119,7 +119,7 @@ window.onload = function () {
     let loadHTML = new Promise(function (resolve, reject) {
       // ia wiki から topicsデータを取得する
       {
-        var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:studio:' + id_studio;
+        var url = 'https://industrial-art.sd.tmu.ac.jp/wiki/doku.php?id=website:studio:' + id_studio;
         var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
         var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
         var replace = 'studio_description';
