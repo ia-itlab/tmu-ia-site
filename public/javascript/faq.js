@@ -1,7 +1,7 @@
 window.onload = function () {
     var loadHTML = new Promise(function (resolve, reject) {
         // ia wiki から topicsデータを取得する
-        var url = 'http://industrial-art.sd.tmu.ac.jp/wiki/doku.php\?id=website:faq';
+        var url = 'https://industrial-art.sd.tmu.ac.jp/wiki/doku.php?id=website:faq';
         var regexp = '@<!-- CONTENT -->(.*?)<!-- \/CONTENT -->@s';
         var _html = './php/scrape.php?regexp=' + regexp + '&url=' + url;
         var replace = 'content';
