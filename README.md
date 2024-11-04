@@ -20,7 +20,6 @@ $username = 'username'; // DokuWiki のユーザ名
 $password = 'password';// // DokuWiki のパスワード
 ?>
 ```
-
 `php/scrape.php` の行頭で login_params.phpを読み込むようにファイル名を編集してください。
 
 ```
