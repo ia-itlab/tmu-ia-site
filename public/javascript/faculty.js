@@ -79,6 +79,9 @@ window.onload = function () {
             //     //overflow: true
             // });
             img.src = image_src;
+            if (img.src.startsWith('https://industrial-art.sd.tmu.ac.jp')) {
+                img.src = './php/image_proxy.php?url=' + encodeURIComponent(img.src);
+            }
             img.style.visibility = 'hidden'
             div_col_md_3.appendChild(img);
 

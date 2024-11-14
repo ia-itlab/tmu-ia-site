@@ -148,7 +148,11 @@ window.onload = function () {
                             flg = false;
                         }
 
-                        // わざわざdomに入れるのは、querySelector等で検索処理しやすいから
+                        // dataの中に https://industrial-art.sd.tmu.ac.jp が含まれている場合、image_proxy.phpでリンクを変換する
+                        if (str.includes('https://industrial-art.sd.tmu.ac.jp')) {
+                            data = data.replace(/https:\/\/industrial-art.sd.tmu.ac.jp/g, './php/image_proxy.php?url=https://industrial-art.sd.tmu.ac.jp');
+                        }
+                        // わざわざdomに入れるのは、querySelector等で検索処理しやすいから                        
                         elem.innerHTML += data;
                         resolve(flg);
                     }
@@ -353,6 +357,25 @@ window.onload = function () {
 }
 
 
+// function addImageToCard(imageUrl, count_ol, card, card_body, msnry_topics) {
+//     let img_card = document.createElement('img');
+//     img_card.classList.add('card-img-top');
+//     if (count_ol === 0) {
+//         img_card.classList.add('colored');
+//     }
+//     img_card.style.visibility = 'hidden';
+//     let element_loading = createIALoadingElement();
+
+//     img_card.onload = function () {
+//         element_loading.remove();
+//         img_card.style.visibility = 'visible';
+//         img_card.classList.add('fadeIn');
+//         msnry_topics.layout();
+//     };
+//     card.insertBefore(element_loading, card_body);
+//     img_card.src = imageUrl;
+//     card.insertBefore(img_card, card_body);
+// }
 function addImageToCard(imageUrl, count_ol, card, card_body, msnry_topics) {
     let img_card = document.createElement('img');
     img_card.classList.add('card-img-top');
@@ -362,6 +385,11 @@ function addImageToCard(imageUrl, count_ol, card, card_body, msnry_topics) {
     img_card.style.visibility = 'hidden';
     let element_loading = createIALoadingElement();
 
+    // 画像URLをプロキシスクリプト経由に変更
+    if (imageUrl.startsWith('https://industrial-art.sd.tmu.ac.jp')) {
+        imageUrl = './php/image_proxy.php?url=' + encodeURIComponent(imageUrl);
+    }
+
     img_card.onload = function () {
         element_loading.remove();
         img_card.style.visibility = 'visible';
@@ -370,8 +398,10 @@ function addImageToCard(imageUrl, count_ol, card, card_body, msnry_topics) {
     };
     card.insertBefore(element_loading, card_body);
     img_card.src = imageUrl;
+
     card.insertBefore(img_card, card_body);
 }
+
 
 
 function fetchOgpImage(url) {

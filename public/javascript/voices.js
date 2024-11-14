@@ -103,6 +103,9 @@ window.onload = function () {
 
             // img.srcが読み込み終わったら表示してあげる
             for (let img of imgs) {
+                if (img.src.startsWith('https://industrial-art.sd.tmu.ac.jp')) {
+                    img.src = './php/image_proxy.php?url=' + encodeURIComponent(img.src);
+                }
                 img.classList.add('img_fluid');
                 img.style.visibility = 'hidden';
                 img.onload = function () {

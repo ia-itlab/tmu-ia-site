@@ -76,6 +76,10 @@ window.onload = function () {
         img.style.visibility = 'hidden';
 
         img.src = lis[4].querySelector('div').querySelector('a').innerHTML;
+        // 画像URLをプロキシスクリプト経由に変更
+        if (img.src.startsWith('https://industrial-art.sd.tmu.ac.jp')) {
+            img.src = './php/image_proxy.php?url=' + encodeURIComponent(img.src);
+        }
         // img.srcが読み込み終わったら表示してあげる
         // カード画像は全部ロードが終わった後並べ替え作業をする
         img.onload = function () {
@@ -132,9 +136,16 @@ window.onload = function () {
 
         var img_course01 = document.createElement('img');
         img_course01.src = lis[11].querySelector('div').querySelector('a').innerHTML;
+        if (img_course01.src.startsWith('https://industrial-art.sd.tmu.ac.jp')) {
+            img_course01.src = './php/image_proxy.php?url=' + encodeURIComponent(img_course01.src);
+        }
         col1.appendChild(img_course01);
         var img_course02 = document.createElement('img');
+
         img_course02.src = lis[12].querySelector('div').querySelector('a').innerHTML;
+        if (img_course02.src.startsWith('https://industrial-art.sd.tmu.ac.jp')) {
+            img_course02.src = './php/image_proxy.php?url=' + encodeURIComponent(img_course02.src);
+        }
         col2.appendChild(img_course02);
 
         //console.log(document.getElementById("main"));
