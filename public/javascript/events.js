@@ -54,6 +54,9 @@ window.onload = function () {
 
             let img = document.createElement('img');
             img.src = image;
+            if (img.src.startsWith('https://industrial-art.sd.tmu.ac.jp')) {
+                img.src = './php/image_proxy.php?url=' + encodeURIComponent(img.src);
+            }
             img.classList = 'img-fluid';
             a.appendChild(img);
 

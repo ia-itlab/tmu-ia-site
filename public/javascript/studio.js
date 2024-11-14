@@ -75,6 +75,9 @@ window.onload = function () {
         img.alt = '';
         img.style.visibility = 'hidden'
         img.src = image_src;
+        if (img.src.startsWith('https://industrial-art.sd.tmu.ac.jp')) {
+          img.src = './php/image_proxy.php?url=' + encodeURIComponent(img.src);
+        }
 
         // img.srcが読み込み終わったら表示してあげる
         // カード画像は全部ロードが終わった後並べ替え作業をする
@@ -185,6 +188,9 @@ window.onload = function () {
       //img.classList = 'img-fluid rounded';
       img.style = 'width:100%';
       img.src = image;
+      if (img.src.startsWith('https://industrial-art.sd.tmu.ac.jp')) {
+        img.src = './php/image_proxy.php?url=' + encodeURIComponent(img.src);
+      }
       img.style.visibility = 'hidden'
       // img.srcが読み込み終わったら表示してあげる
       // カード画像は全部ロードが終わった後並べ替え作業をする

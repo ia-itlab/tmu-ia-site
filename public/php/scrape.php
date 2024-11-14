@@ -49,6 +49,9 @@ $html = preg_replace('/\r\n|\r|\n|\t/', '', $html);
 // 2つ以上連続するスペースを1つのスペースに置き換える
 $html = preg_replace('/ {2,}/', ' ', $html);
 
+
+
+
 // 正規表現で該当箇所を抽出して$matchesに保存
 preg_match_all($regexp, $html, $matches);
 
