@@ -22,19 +22,17 @@ $password = 'password';// // DokuWiki のパスワード
 ```
 `php/scrape.php` の行頭で login_params.phpを読み込むようにファイル名を編集してください。
 
-```
 手元で動作を確認する場合は
-
 ```
-> cd public
-> php -S localhost:8000
+cd public
+php -S localhost:8000
 ```
 
 などとして，ブラウザから http://localhost:8000 へアクセスしてください．phpコマンドがない場合は
-```
 > brew install php
-```
+
 でインストールしてください。brew コマンドがない場合は、brew install で検索してください。
+
 ## ブランチの運用について
 - main：本番用 → http://industrial-art.sd.tmu.ac.jp/ に反映
 - development：開発用 → 問題なければ main へマージ
