@@ -44,9 +44,10 @@
   <link rel="manifest" href="./images/favicons/manifest.json">
   <link rel="icon" sizes="192x192" href="./images/favicons/favicon-192.png">
 
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="./javascript/index.js"></script>
   <script type="text/javascript" src="./javascript/language.js"></script>
+  <script type="text/javascript" src="./javascript/menu.js"></script>
+  <script type="text/javascript" src="./javascript/include.js"></script>
   <script type="text/javascript" src="./javascript/studio.js"></script>
   <title>STUDIO｜東京都立大学システムデザイン学部インダストリアルアート学科/学域</title>
 
@@ -55,11 +56,7 @@
 </head>
 
 <body>
-  <div id="header_and_menu">
-    <script>
-      $("#header_and_menu").load("./parts/header_and_menu.html");
-    </script>
-  </div>
+  <div id="header_and_menu" data-include="./parts/header_and_menu.html"></div>
 
   <div class="container">
     <div class="centering">
@@ -74,15 +71,11 @@
     </div>
   </div>
 
-  <footer>
-    <script>
-      $("footer").load("./parts/footer.html");
-    </script>
-  </footer>
+  <footer data-include="./parts/footer.html"></footer>
   </div>
 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
 </body>
 

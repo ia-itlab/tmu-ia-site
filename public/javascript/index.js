@@ -27,6 +27,8 @@ window.addEventListener('DOMContentLoaded', function () {
     setColorMode();
   }, 500);
 
+  observeColorModeTargets();
+
 
 });
 
@@ -49,24 +51,58 @@ function toggleDarkmode() {
 
 }
 
+function observeColorModeTargets() {
+  let headerAndMenu = document.querySelector('#header_and_menu');
+
+  if (!headerAndMenu || typeof MutationObserver === 'undefined') {
+    return;
+  }
+
+  let observer = new MutationObserver(function () {
+    if (document.querySelector('#tmu_logo') || document.querySelector('#text_colormode')) {
+      observer.disconnect();
+      setColorMode();
+    }
+  });
+
+  observer.observe(headerAndMenu, {
+    childList: true,
+    subtree: true
+  });
+}
+
 function setColorMode() {
+  let root = document.querySelector(':root');
+  let modalContent = document.querySelector('.modal-content');
+  let tmuLogo = document.querySelector('#tmu_logo');
   let text_colormode = document.querySelector('#text_colormode');
+
   if (sessionStorage.getItem('colormode') == 'dark') {
-    document.querySelector(':root').style.setProperty('--color-text', "#ffffff");
-    document.querySelector(':root').style.setProperty('--color-text-muted', "#8C8C8C");
-    document.querySelector(':root').style.setProperty('--color-background', "#1f1f1f");
-    document.querySelector(':root').style.setProperty('--color-header', "rgba(31,31,31,0.9)");
-    document.querySelector('.modal-content').style.setProperty('color', "#ffffff");
-    document.querySelector('.modal-content').style.setProperty('background-color', "#1f1f1f");
-    document.querySelector('#tmu_logo').style.setProperty('filter', 'invert(100%)');
+    root.style.setProperty('--color-text', "#ffffff");
+    root.style.setProperty('--color-text-muted', "#8C8C8C");
+    root.style.setProperty('--color-background', "#1f1f1f");
+    root.style.setProperty('--color-header', "rgba(31,31,31,0.9)");
+    if (modalContent) {
+      modalContent.style.setProperty('color', "#ffffff");
+      modalContent.style.setProperty('background-color', "#1f1f1f");
+    }
+    if (tmuLogo) {
+      tmuLogo.style.setProperty('filter', 'invert(100%)');
+    }
     if (text_colormode) text_colormode.innerHTML = 'dark';
   }
   else if (sessionStorage.getItem('colormode') == 'light') {
-    document.querySelector(':root').style.setProperty('--color-text', "#1f1f1f");
-    document.querySelector(':root').style.setProperty('--color-text-muted', "#595959");
-    document.querySelector(':root').style.setProperty('--color-background', "#F5F5F5");
-    document.querySelector(':root').style.setProperty('--color-header', "rgba(245,245,245,0.9)");
-    // document.querySelector('#tmu_logo').style.setProperty('filter', 'invert(0%)');
+    root.style.setProperty('--color-text', "#1f1f1f");
+    root.style.setProperty('--color-text-muted', "#595959");
+    root.style.setProperty('--color-background', "#F5F5F5");
+    root.style.setProperty('--color-header', "rgba(245,245,245,0.9)");
+    if (modalContent) {
+      modalContent.style.setProperty('color', "#1f1f1f");
+      modalContent.style.setProperty('background-color', "#F5F5F5");
+    }
+    if (tmuLogo) {
+      tmuLogo.style.setProperty('filter', 'invert(0%)');
+    }
     if (text_colormode) text_colormode.innerHTML = 'light';
   }
   else {

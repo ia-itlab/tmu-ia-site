@@ -1,10 +1,6 @@
 <nav class="navbar navbar-expand-md  fixed-left" style="background-color:var(--color-header);">
-  <header class="logo">
-    <script>
-      $(".logo").load("./parts/header.html");
-    </script>
-  </header>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+  <header class="logo" data-include="./parts/header.html"></header>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault"
     aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
         class="bi bi-list" viewBox="0 0 16 16">
@@ -14,9 +10,6 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav">
-      <script type="text/javascript" src="./javascript/menu.js">
-      </script>
-    </ul>
+    <ul class="navbar-nav" data-include="./parts/menu.html"></ul>
   </div>
 </nav>

@@ -1,21 +1,38 @@
-$(".navbar-nav").load("./parts/menu.html", function () {
+function updateCurrentMenuState() {
     let ul = document.querySelector('.navbar-nav');
-    let lis = ul.querySelectorAll('li');
-    //console.log("hello", ul);
-    var filename = window.location.href.split('/').pop();
 
-    if (filename.indexOf('labview.html') >= 0) {
-        lis[0].querySelector('a').classList = 'here';
+    if (!ul) {
         return;
     }
-    for (li of lis) {
-        if (li.querySelector('a').id + '.html' == filename) {
-            li.querySelector('a').classList = 'here';
+
+    let lis = ul.querySelectorAll('li');
+    let filename = window.location.pathname.split('/').pop() || 'index.html';
+
+    if (filename.indexOf('labview.html') >= 0) {
+        let firstLink = lis[0] && lis[0].querySelector('a');
+
+        if (firstLink) {
+            firstLink.classList.add('here');
         }
-        else {
-            li.querySelector('a').classList = '';
-        }
+
+        return;
     }
+
+    for (let li of lis) {
+        let link = li.querySelector('a[id]');
+
+        if (!link) {
+            continue;
+        }
+
+        link.classList.toggle('here', link.id + '.html' === filename);
+    }
+}
+
+window.updateCurrentMenuState = updateCurrentMenuState;
+
+document.addEventListener('ia:includes-loaded', function () {
+    updateCurrentMenuState();
 });
 
 
